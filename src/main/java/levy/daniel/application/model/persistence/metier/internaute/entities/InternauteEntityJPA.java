@@ -1,4 +1,4 @@
-package levy.daniel.application.model.metier.internaute.impl;
+package levy.daniel.application.model.persistence.metier.internaute.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,12 +10,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.metier.internaute.IInternaute;
+import levy.daniel.application.model.metier.internaute.impl.Internaute;
 import levy.daniel.application.model.metier.profil.IProfil;
-import levy.daniel.application.model.persistence.metier.internaute.entities.InternauteEntityJPA;
-
 
 /**
- * CLASSE Internaute :<br/>
+ * CLASSE InternauteEntityJPA :<br/>
  * .<br/>
  * <br/>
  *
@@ -29,13 +28,13 @@ import levy.daniel.application.model.persistence.metier.internaute.entities.Inte
  * <br/>
  *
  *
- * @author dan Lévy
+ * @author daniel.levy Lévy
  * @version 1.0
- * @since 4 nov. 2018
+ * @since 5 nov. 2018
  *
  */
-public class Internaute implements IInternaute {
-	
+public class InternauteEntityJPA implements IInternaute {
+
 	// ************************ATTRIBUTS************************************/
 
 	/**
@@ -79,14 +78,15 @@ public class Internaute implements IInternaute {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(Internaute.class);
-	
+		= LogFactory.getLog(InternauteEntityJPA.class);
+
+
 	// *************************METHODES************************************/
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public Internaute() {
+	public InternauteEntityJPA() {
 		this(null, null, null, null, null, null);
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -103,7 +103,7 @@ public class Internaute implements IInternaute {
 	 * @param pProfils : List&lt;IProfil&gt; : 
 	 * profils (ADMINISTRATEUR, CONSULTANT, ...).
 	 */
-	public Internaute(
+	public InternauteEntityJPA(
 			final String pPrenom, final String pNom
 				, final String pLogin, final String pPassword
 				, final List<IProfil> pProfils) {
@@ -124,7 +124,7 @@ public class Internaute implements IInternaute {
 	 * @param pProfils : List&lt;IProfil&gt; : 
 	 * profils (ADMINISTRATEUR, CONSULTANT, ...).
 	 */
-	public Internaute(
+	public InternauteEntityJPA(
 			final Long pId
 				, final String pPrenom, final String pNom
 				, final String pLogin, final String pPassword
@@ -145,24 +145,25 @@ public class Internaute implements IInternaute {
 	
 	 /**
 	 * CONSTRUCTEUR TRANSFORMATEUR.<br/>
-	 * <b>instancie un objet métier à partir d'une Entity JPA</b>.<br/>
+	 * Permet d'instancier une Entity 
+	 * à partir d'un Objet Métier.<br/>
 	 *
-	 * @param pEntityJPA : InternauteEntityJPA.<br/>
+	 * @param pInternaute : IInternaute : Objet métier.<br/>
 	 */
-	public Internaute(
-			final InternauteEntityJPA pEntityJPA) {
+	public InternauteEntityJPA(
+			final IInternaute pInternaute) {
 		
 		super();
 		
-		if (pEntityJPA != null) {
-			this.id = pEntityJPA.getId();
-			this.prenom = pEntityJPA.getPrenom();
-			this.nom = pEntityJPA.getNom();
-			this.login = pEntityJPA.getLogin();
-			this.password = pEntityJPA.getPassword();
-			this.profils = pEntityJPA.getProfils();
+		if (pInternaute != null) {
+			this.id = pInternaute.getId();
+			this.prenom = pInternaute.getPrenom();
+			this.nom = pInternaute.getNom();
+			this.login = pInternaute.getLogin();
+			this.password = pInternaute.getPassword();
+			this.profils = pInternaute.getProfils();
 		}
-		
+				
 	} // Fin de CONSTRUCTEUR TRANSFORMATEUR._______________________________
 	
 	
@@ -293,10 +294,10 @@ public class Internaute implements IInternaute {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Internaute clone() throws CloneNotSupportedException {
+	public final InternauteEntityJPA clone() throws CloneNotSupportedException {
 
-		final Internaute clone 
-				= (Internaute) super.clone();
+		final InternauteEntityJPA clone 
+				= (InternauteEntityJPA) super.clone();
 
 		clone.setId(this.id);
 		clone.setPrenom(this.getPrenom());
@@ -746,5 +747,5 @@ public class Internaute implements IInternaute {
 	} // Fin de setProfils(...).___________________________________________
 
 
-	
-} // FIN DE LA CLASSE Internaute.--------------------------------------------
+
+}

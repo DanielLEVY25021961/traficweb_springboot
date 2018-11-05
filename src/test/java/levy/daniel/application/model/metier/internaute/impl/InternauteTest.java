@@ -696,7 +696,7 @@ public class InternauteTest {
 		
 		/* garantit que les null sont bien gérés dans toString(). */
 		assertEquals("objetNull1.toString() retourne une chaine : "
-				, "AbstractProfil [id=0, profilString=null, porteeProfil=null, restrictionProfil=null]"
+				, "Internaute [id=7, prenom=null, nom=null, login=null, password=null, profils=null]"
 						, objetNull1.toString());
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -707,7 +707,7 @@ public class InternauteTest {
 		
 		/* garantit le bon affichage de toString(). */
 		assertEquals("affichage : "
-				, "AbstractProfil [id=1, profilString=CONSULTANT, porteeProfil=DIRA, restrictionProfil=Ain]"
+				, "Internaute [id=1, prenom=Zorro, nom=Halliday, login=zorro.halliday, password=12345, profils=profil-1 [AbstractProfil [id=1, profilString=ADMINISTRATEUR, porteeProfil=TOUTRESEAU, restrictionProfil=null]]]"
 						, objet1.toString());
 				
 	} // Fin de testToString().____________________________________________
@@ -750,7 +750,7 @@ public class InternauteTest {
 		}
 		
 		assertEquals("en-tête csv : "
-				, "id;profilString;porteeProfil;restrictionProfil;"
+				, "id;prenom;nom;login;password;profil principal;"
 					, entete);
 				
 	} // Fin de testgetEnTeteCsv().________________________________________
@@ -794,7 +794,7 @@ public class InternauteTest {
 		}
 
 		assertEquals("ligne csv null : "
-				, "0;null;null;null;"
+				, "7;null;null;null;null;null;"
 					, ligneCsvNull);
 		
 						
@@ -811,7 +811,7 @@ public class InternauteTest {
 		}
 
 		assertEquals("ligne csv : "
-				, "1;CONSULTANT;DIRA;Ain;"
+				, "1;Zorro;Halliday;zorro.halliday;12345;AbstractProfil [id=1, profilString=ADMINISTRATEUR, porteeProfil=TOUTRESEAU, restrictionProfil=null];"
 					, ligneCsv);
 				
 	} // Fin de testToStringCsv()._________________________________________
@@ -871,8 +871,8 @@ public class InternauteTest {
 		assertEquals("entete0 : ", "id", entete0);
 		assertEquals("enteteNull0 : ", "id", enteteNull0);
 		
-		assertEquals("entete1 : ", "profilString", entete1);
-		assertEquals("enteteNull1 : ", "profilString", enteteNull1);
+		assertEquals("entete1 : ", "prenom", entete1);
+		assertEquals("enteteNull1 : ", "prenom", enteteNull1);
 				
 
 	} // Fin de testGetEnTeteColonne().____________________________________
@@ -920,7 +920,7 @@ public class InternauteTest {
 			System.out.println("valeurNull1 ((String) objetNull1.getValeurColonne(1)) : " + valeurNull1);			
 		}
 
-		assertEquals("valeurNull0 ((String) objetNull1.getValeurColonne(0)) : ", "0", valeurNull0);
+		assertEquals("valeurNull0 ((String) objetNull1.getValeurColonne(0)) : ", "7", valeurNull0);
 		assertEquals("valeurNull1 ((String) objetNull1.getValeurColonne(1)) : ", null, valeurNull1);
 
 		
@@ -940,7 +940,7 @@ public class InternauteTest {
 		}
 		
 		assertEquals("valeur0 ((String) objet1.getValeurColonne(0)) : ", "1", valeur0);		
-		assertEquals("valeur1 ((String) objet1.getValeurColonne(1)) : ", "CONSULTANT", valeur1);
+		assertEquals("valeur1 ((String) objet1.getValeurColonne(1)) : ", "Zorro", valeur1);
 		
 	} // Fin de testGetValeurColonne().____________________________________
 	

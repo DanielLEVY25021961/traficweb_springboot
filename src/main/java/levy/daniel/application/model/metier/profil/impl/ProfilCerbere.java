@@ -3,6 +3,7 @@ package levy.daniel.application.model.metier.profil.impl;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.model.dto.metier.profil.IProfilCerbereDTO;
 import levy.daniel.application.model.metier.profil.AbstractProfil;
 
 
@@ -261,4 +262,26 @@ public class ProfilCerbere extends AbstractProfil {
 
 
 
+	 /**
+	 * CONSTRUCTEUR COMPLET AVEC DTO.<br/>
+	 * <ul>
+	 * <li>un DTO est un moyen commode de stocker 
+	 * tous les champs d'un formulaire.</li>
+	 * <li>instancie un objet métier à partir du contenu 
+	 * d'une VUE (DTO).</li>
+	 * </ul>
+	 *
+	 * @param pProfilCerbereDTO : IProfilCerbereDTO
+	 */
+	public ProfilCerbere(
+			final IProfilCerbereDTO pProfilCerbereDTO) {
+		
+		super(pProfilCerbereDTO.getProfilStringString()
+				, pProfilCerbereDTO.getPorteeProfilString()
+				, pProfilCerbereDTO.getRestrictionProfilString());
+		
+	} // Fin de CONSTRUCTEUR COMPLET AVEC DTO._____________________________
+	
+	
+	
 } // FIN DE LA CLASSE ProfilCerbere.-----------------------------------------
