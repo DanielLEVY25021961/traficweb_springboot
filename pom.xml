@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
+         <!-- ================================================== -->
+         <!-- 			POM pour MAVEN 3.5.0					 -->
+         <!-- 			Java 1.8.0_181							 -->
+         <!-- ================================================== -->
+
+
+	<!-- Version du POM. -->	
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<!-- ========================================================== -->
+	<!-- GAV (identifiant du projet) 								-->
+	<!-- G : groupId : nom de domaine 								-->
+	<!-- A : artifactId : nom du projet 							-->
+	<!-- V : version : version du projet 							-->
+	<!-- ========================================================== -->
+	<!-- domaine (espace de nom) appelé GROUPE (G) dans Maven 		-->
+	<groupId>levy.daniel.application</groupId>
+	<!-- Nom du projet appelé artifactId (A) dans Maven 			-->
+	<artifactId>traficweb_springboot</artifactId>
+	<!-- Version Bêta de développement (SNAPSHOT) 					-->
+	<!--non incrémentée dans Maven 									-->	
+	<version>0.0.1-SNAPSHOT</version>
+
+	
+	<!-- ========================================================== -->
+	<!--                       PACKAGING                            -->
+	<!-- Préciser ici la forme du livrable                          -->
+	<!-- que le projet Maven doit produire (war, jar,               -->
+	<!--	POM, ...).                                              -->
+	<!-- ========================================================== -->
+	<!-- Résultat du Packaging (forme du livrable). Ici jar 		-->	
+	<packaging>jar</packaging>
+
+	
+	<!-- ========================================================== -->
+	<!-- NOM DU LIVRABLE GENERE PAR MAVEN                           -->
+	<!-- Préciser le nom du livrable que Maven doit produire        -->
+	<!-- (monapplication.war,                                       -->
+	<!-- monapplication.jar, monapplication.POM, ...).              -->
+	<!-- ========================================================== -->
+	<!-- Nom de l'application générée par le projet Maven 			-->		
+	<name>traficweb_springboot</name>
+	<!-- Description de l'application générée par le projet Maven 	-->	
+	<description>traficweb avec Spring Boot</description>
+	<!-- URL éventuelle permettant de se connecter à l'application 	-->
+	<url></url>
+
+
+	<!-- ========================================================== -->
+	<!--            APPEL DU POM PARENT SPRING BOOT                 -->
+	<!-- ========================================================== -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.0.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+
+
+    <!-- ================================================ -->
+	<!--                    PROPERTIEs                    -->
+	<!-- Préciser ici les propriétés générales du projet. -->
+	<!-- ================================================ -->
+	<properties>
+	
+		<!-- Force l'encoding des sources du projet en UTF-8 -->	
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- Vérifie la conformité des classes Java (.java) avec le JDK 1.8 -->
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<!-- Vérifie la conformité des classes Java (.class) avec le JDK 1.8 -->
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<!-- Encodage pourle Reporting (site web) -->
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- version de java du projet -->
+		<java.version>1.8</java.version>
+
+		<!-- ========================================================== -->
+		<!-- 		VERSIONS DES COMPOSANTS DANS LES DEPENDANCES		-->
+		<!-- ========================================================== -->
+		<!-- 				Version de commons-lang3				    -->
+		<commons-lang3.version>3.6</commons-lang3.version>
+		<!--  				Version de commons-text						-->
+		<commons-text.version>1.2</commons-text.version>
+		<!-- 				Version de commons-logging				    -->
+		<commons-logging.version>1.2</commons-logging.version>
+		<!-- 				Version de log4j						    -->
+		<log4j.version>1.2.17</log4j.version>
+		<!-- 				Version de log4j-core					    -->
+		<log4j-core.version>2.9.1</log4j-core.version>
+		<!-- 				Version de junit						    -->
+		<junit.version>4.12</junit.version>
+		
+	</properties>
+
+
+
+	<!-- =============================================== -->
+	<!--                DEPENDANCEs                      -->
+	<!-- Gestion des dépendances utilisées par le projet -->
+	<!-- =============================================== -->	
+	<dependencies>
+
+		<!-- ================================ 	-->
+		<!-- dépendances pour SPRING BOOT 		-->
+		<!-- ATTENTION : les versions sont	 	-->
+		<!-- gérées par le POM parent SPRING B. -->
+		<!-- ================================ 	-->	
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+
+		<!-- ================================ -->
+		<!-- dépendances pour apache.commons -->
+		<!-- ================================ -->
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <!-- VERSION MANAGEE PAR SPRING BOOT -->
+		    <scope>compile</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons-logging.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-text -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-text</artifactId>
+		    <version>${commons-text.version}</version>
+		</dependency>
+
+		
+		<!-- =============================================== -->
+		<!-- dépendances pour Log4j2 utilisé par Hibernate 5 -->
+		<!-- =============================================== -->		
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<!-- MANAGE PAR SPRING BOOT 												-->
+
+		<!-- ================================ -->
+		<!--      dépendances pour TESTS      -->
+		<!-- ================================ -->
+		<!-- MANAGE PAR SPRING BOOT 		  -->
+
+		
+		
+		<!-- ====================================================== -->
+		<!--        DEPENDANCES POUR Bases de Données  				-->
+		<!-- ====================================================== -->
+		<!-- POSTGRESQL -->
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<!-- VERSION MANAGEE PAR SPRING BOOT -->
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- MySQL -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<!-- VERSION MANAGEE PAR SPRING BOOT -->
+			<scope>runtime</scope>
+		</dependency>
+		
+		<!-- HSQLDB -->		
+		<!-- https://mvnrepository.com/artifact/org.hsqldb/hsqldb -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<!-- VERSION MANAGEE PAR SPRING BOOT -->
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- H2 -->
+		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->						
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<!-- VERSION MANAGEE PAR SPRING BOOT -->
+			<scope>test</scope>
+		</dependency>
+				
+	</dependencies>
+
+
+				<!-- ======================================  -->
+				<!--   REPOSITORIES	POUR LES DEPENDANCES  	 -->
+				<!-- ======================================  -->	
+			<!-- Précise la localisation des dépôts Maven -->
+	<repositories>
+	
+		<!-- Dépôt Central MAVEN pour les dépendances -->
+		<repository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<!-- Ici les RELEASES, pas les milestones ou les snapshots. -->
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>			
+		</repository>
+		
+		<!-- http://www.baeldung.com/spring-maven-repository -->
+		<!-- dépôt Maven pour SPRING au cas où le dépôt central est indisponible. -->
+		<repository> 
+        <id>repository.spring.release</id> 
+        	<name>Spring GA Repository</name> 
+        	<url>http://repo.spring.io/release</url>
+        	<!-- Ici les RELEASES, pas les milestones ou les snapshots. -->
+        	<snapshots>
+				<enabled>false</enabled>
+			</snapshots>			         
+    	</repository>
+    	    	    	
+	</repositories>
+
+
+  				<!-- ================================== -->
+				<!--       PLUGIN REPOSITORIES			-->
+				<!-- ================================== -->	
+  			
+	  <pluginRepositories>
+	    <pluginRepository>
+	      <releases>
+	        <updatePolicy>never</updatePolicy>
+	      </releases>
+	      <snapshots>
+	        <enabled>false</enabled>
+	      </snapshots>
+	      <id>central</id>
+	      <name>Central Repository</name>
+	      <url>https://repo.maven.apache.org/maven2</url>
+	    </pluginRepository>
+	  </pluginRepositories>
+
+
+
+
+  				<!-- ================================== -->
+				<!--       			BUILD				-->
+				<!-- ================================== -->	
+				<!-- Définition de la Structure du projet Maven -->
+				<!-- ATTENTION : bien mettre des slash '/' 
+				et pas des antislashes '\' pour garantir la 
+				compatibilité avec LINUX -->
+ 
+	<build>
+	
+
+					<!-- ====================== -->
+					<!-- CHEMINS ET REPERTOIRES -->
+					<!-- ====================== -->
+
+
+		<!-- CREER A LA MAIN SI MANQUANT -->
+		
+		<!-- REPERTOIRE DES BUILDS (target)-->
+		<directory>${project.basedir}/target</directory>
+		<!-- Répetoire des classes compilées -->
+		<outputDirectory>${project.build.directory}/classes</outputDirectory>
+
+		<!-- REPERTOIRE DES SOURCES -->
+		<!-- Répertoire des src Java  src/main/java. -->
+		<sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+		<!-- Répertoire des scripts (scripts SQL ou Batch) -->
+		<scriptSourceDirectory>${project.basedir}/src/main/scripts</scriptSourceDirectory>
+		<!-- Répertoire des Tests src Java  src/test/java. -->
+		<testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
+
+		<!-- REPERTOIRE DES RESSOURCES -->
+		<!-- Répertoire des src/main/resources. -->
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+			</resource>
+			<!-- INDISPENSABLE POUR INCLURE DANS LE BUILD LES FICHIERS FXML A COTE DES VUES SITUES DANS src/main/java -->
+			<resource>
+		        <directory>${project.basedir}/src/main/java</directory>
+		        <includes>
+		          <include>**/*.fxml</include>
+		        </includes>
+      		</resource>
+		</resources>
+		<!-- Répertoire des src/test/resources. -->
+		<testResources>
+			<testResource>
+				<directory>${project.basedir}/src/test/resources</directory>
+			</testResource>
+		</testResources>
+		
+		<!-- Répetoire des classes compilées de test -->
+		<testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
+		
+
+		
+		<!-- ============================================== -->
+		<!-- NOM DU LIVRABLE CREE PAR MAVEN (jar, war, ...) -->
+		<!-- ============================================== -->
+		<finalName>${project.artifactId}-${project.version}</finalName>
+
+	
+	
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+		
+	</build>
+
+
+</project>
