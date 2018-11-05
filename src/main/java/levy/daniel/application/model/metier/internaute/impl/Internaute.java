@@ -280,10 +280,12 @@ public class Internaute implements IInternaute {
 		clone.setPassword(this.getPassword());
 		
 		/* clonage profond. */
-		final List<IProfil> profilsClone 
-			= new ArrayList<>(this.getProfils());
-		clone.setProfils(profilsClone);
-
+		List<IProfil> profilsClone = null;
+		if (this.getProfils() != null) {
+			profilsClone = new ArrayList<>(this.getProfils());			
+		} 
+		clone.setProfils(profilsClone);	
+		
 		return clone;
 
 	} // Fin de clone().___________________________________________________
