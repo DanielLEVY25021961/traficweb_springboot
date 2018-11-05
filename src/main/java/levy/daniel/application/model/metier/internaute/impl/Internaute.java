@@ -9,8 +9,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.model.dto.metier.internaute.IInternauteDTO;
+import levy.daniel.application.model.dto.metier.profil.IProfilCerbereDTO;
 import levy.daniel.application.model.metier.internaute.IInternaute;
 import levy.daniel.application.model.metier.profil.IProfil;
+import levy.daniel.application.model.metier.profil.impl.ProfilCerbere;
 import levy.daniel.application.model.persistence.metier.internaute.entities.InternauteEntityJPA;
 
 
@@ -141,6 +144,56 @@ public class Internaute implements IInternaute {
 		
 	} // FIN DE CONSTRUCTEUR COMPLET BASE._________________________________
 
+
+	
+	 /**
+	 * CONSTRUCTEUR TRANSFORMATEUR.<br/>
+	 * <b>instancie un objet métier à partir 
+	 * d'un contenu de VUE (DTO)</b>.<br/>
+	 *
+	 * @param pInternauteDTO
+	 */
+	public Internaute(
+			final IInternauteDTO pInternauteDTO) {
+		
+		super();
+		
+		if (pInternauteDTO != null) {
+			
+			final String idString = pInternauteDTO.getIdString();
+			
+			if (!StringUtils.isBlank(idString)) {
+				this.id = Long.valueOf(idString);
+			} else {
+				this.id = null;
+			}
+			
+			this.prenom = pInternauteDTO.getPrenom();
+			this.nom = pInternauteDTO.getNom();
+			this.login = pInternauteDTO.getLogin();
+			this.password = pInternauteDTO.getPassword();
+			
+			final List<IProfilCerbereDTO> listeProfilsDTO 
+				= pInternauteDTO.getProfilsString();
+			
+			if (listeProfilsDTO != null) {
+				
+				this.profils = new ArrayList<IProfil>();
+				
+				for (final IProfilCerbereDTO profilDTO : listeProfilsDTO) {
+					
+					final IProfil profil = new ProfilCerbere(profilDTO);
+					this.profils.add(profil);
+					
+				}
+				
+			} else {
+				this.profils = null;
+			}
+		}
+		
+	} // Fin de CONSTRUCTEUR TRANSFORMATEUR._______________________________
+	
 
 	
 	 /**

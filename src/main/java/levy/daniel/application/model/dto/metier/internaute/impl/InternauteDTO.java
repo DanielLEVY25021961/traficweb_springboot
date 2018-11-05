@@ -7,6 +7,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.dto.metier.internaute.IInternauteDTO;
+import levy.daniel.application.model.dto.metier.profil.IProfilCerbereDTO;
+import levy.daniel.application.model.dto.metier.profil.impl.ProfilCerbereDTO;
 import levy.daniel.application.model.metier.internaute.IInternaute;
 import levy.daniel.application.model.metier.profil.IProfil;
 
@@ -67,7 +69,7 @@ public class InternauteDTO implements IInternauteDTO {
 	/**
 	 * profils (ADMINISTRATEUR, CONSULTANT, ...) de l'internaute.<br/>
 	 */
-	private List<String> profilsString;
+	private List<IProfilCerbereDTO> profilsString;
 	
 
 	/**
@@ -99,13 +101,13 @@ public class InternauteDTO implements IInternauteDTO {
 	 * @param pNom : String :
 	 * @param pLogin : String :
 	 * @param pPassword : String :
-	 * @param pProfilsString : String :
+	 * @param pProfilsString : List&lt;IProfilCerbereDTO&gt; :
 	 */
 	public InternauteDTO(
 			final String pIdString
 			, final String pPrenom, final String pNom
 			, final String pLogin, final String pPassword
-			, final List<String> pProfilsString) {
+			, final List<IProfilCerbereDTO> pProfilsString) {
 		
 		super();
 		
@@ -149,10 +151,11 @@ public class InternauteDTO implements IInternauteDTO {
 			
 			if (pInternaute.getProfils() != null) {
 				
-				this.profilsString = new ArrayList<String>();
+				this.profilsString = new ArrayList<IProfilCerbereDTO>();
 				
 				for (final IProfil profil : pInternaute.getProfils()) {
-					this.profilsString.add(profil.toString());
+					final IProfilCerbereDTO dto = new ProfilCerbereDTO(profil);
+					this.profilsString.add(dto);
 				}
 			} else {
 				this.profilsString = null;
@@ -263,7 +266,7 @@ public class InternauteDTO implements IInternauteDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<String> getProfilsString() {
+	public List<IProfilCerbereDTO> getProfilsString() {
 		return this.profilsString;
 	}
 
@@ -273,7 +276,7 @@ public class InternauteDTO implements IInternauteDTO {
 	 */
 	@Override
 	public void setProfilsString(
-			final List<String> pProfilsString) {
+			final List<IProfilCerbereDTO> pProfilsString) {
 		this.profilsString = pProfilsString;
 	}
 

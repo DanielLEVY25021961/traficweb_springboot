@@ -1,143 +1,16 @@
-package levy.daniel.application.model.metier.profil;
+package levy.daniel.application.model.persistence.metier.profil.entities;
 
 import javax.persistence.Transient;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-
+import levy.daniel.application.model.metier.profil.AbstractProfil;
+import levy.daniel.application.model.metier.profil.IProfil;
 
 /**
- * CLASSE ABSTRAITE <b>AbstractProfil</b> :<br/>
- * <p>
- * <span style="text-decoration: underline;">CONCEPT MODELISE</span>
- * </p>
- * <p>
- * <b>AbstractProfil</b> modélise un un <i>concept</i> 
- * de <b>Profil</b>, c'est à dire 
- * <b></b> ou  <b></b> 
- * qui  <i></i> <b></b>.<br/>
- * <b>FACTORISE</b> les attributs et comportements 
- * des <i>descendants concrets</i>.
- * </p>
- * 
- * <ul>
- * <p>
- * <span style="text-decoration: underline;">
- * IMPLEMENTE :
- * </span>
- * </p>
- * <li><b>IProfil</b>.</li>
- * </ul>
- * 
- * <ul>
- * <p>
- * <span style="text-decoration: underline;">
- * Garantit que tout Profil héritant de 
- * AbstractProfil possède à minima :
- * </span>
- * </p>
- * <li><b>id</b> pour la mise en base.</li>
- * <li><b>profilString</b>.</li>
- * <li><b>porteeProfil</b>.</li>
- * <li><b>restrictionProfil</b>.</li>
- * </ul>
- * 
- * <p>
- * <span style="text-decoration: underline;">EGALITE METIER</span>
- * </p>
- * <ul>
- * <li>L'<b>égalité metier</b> d'un AbstractProfil est vérifiée sur :</li>
- * <ul>
- * <li><b>profilString</b>.</li>
- * <li><b>porteeProfil</b>.</li>
- * </ul>
- * </ul>
- *
- * <p>
- * <span style="text-decoration: underline;">DIAGRAMME DE CLASSES D'IMPLEMENTATION</span>
- * </p>
- * <ul>
- * <li>
- * <img src="../../../../../../../../../../javadoc/images/classes_implementation_Profil.png" 
- * alt="classes d'implémentation des Profil" border="1" align="center" />
- * </li>
- * </ul>
- * 
- * <p>
- * <span style="text-decoration: underline;">
- * ENTITIES JPA
- * </span>
- * </p>
- * <ul>
- * <li>la classe abstraite AbstractProfil 
- * est transformée en <b>Entity JPA</b> au moyen de 
- * <b>javax.persistence annotations</b>.</li>
- * <li>La <b>stratégie de jointure des tables</b> entre la classe abstraite 
- * et ses descendants concrets est <b>InheritanceType.JOINED</b>.</li>
- * <br/>
- * <li>
- * <img src="../../../../../../../../../../javadoc/images/implementation_Profil_entities.png" 
- * alt="implémentation des entities de Profil" border="1" align="center" />
- * </li>
- * </ul>
- * 
- * <p>
- * <span style="text-decoration: underline;">
- * TABLES
- * </span>
- * </p>
- * <ul>
- * <li>Les <b>tables en base</b> résultantes des entities JPA sont :</li>
- * <br/>
- * <li>
- * <img src="../../../../../../../../../../javadoc/images/tables-abstract_Profils_Profils.png" 
- * alt="implémentation des tables de Profil" border="1" align="center" />
- * </li>
- * </ul>
- * 
- * <br/>
- * <p>
- * <span style="text-decoration: underline;">REGLES DE GESTION</span>
- * </p>
- * <ul>
- * <li>
- * Les <b>Règles de Gestion (RG)</b> applicables aux attributs 
- * d'un Profil sont les suivantes :
- * </li>
- * <br/>
- * <table border="1">
- * <tr>
- * <th>Attribut</th><th>Règle de Gestion</th>
- * </tr>
- * 
- * <tr>
- * <td rowspan="2">
- * profilString
- * </td>
- * <td>
- * RG_PROFIL_PROFILSTRING_RENSEIGNE_01 : 
- * le profilString du Profil doit être renseigné (obligatoire)
- * </td>
- * </tr>
- * <tr>
- * <td>
- * RG_PROFIL_PROFILSTRING_NOMENCLATURE_02 : 
- * le profilString du Profil doit respecter un ensemble fini de valeurs (nomenclature)
- * </td>
- * </tr>
- * <tr>
- * <td rowspan="1">
- * porteeProfil
- * </td>
- * <td>
- * RG_PROFIL_PORTEEPROFIL_RENSEIGNE_01 : 
- * le porteeProfil du Profil doit être renseigné (obligatoire)
- * </td>
- * </tr>
- * </table>
- * </ul>
- * 
+ * CLASSE ProfilEntityJPA :<br/>
+ * .<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -150,12 +23,12 @@ import org.apache.commons.logging.LogFactory;
  * <br/>
  *
  *
- * @author dan Lévy
+ * @author daniel.levy Lévy
  * @version 1.0
- * @since 26 février 2018
+ * @since 5 nov. 2018
  *
  */
-public abstract class AbstractProfil implements IProfil {
+public class ProfilEntityJPA implements IProfil {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -202,6 +75,12 @@ public abstract class AbstractProfil implements IProfil {
 	public static final String NULL = "null";
 
 
+	/**
+	 * serialVersionUID : long :<br/>
+	 * serialVersionUID = 1L.<br/>
+	 */
+	private static final long serialVersionUID = 1L;
+
 
 	/**
 	 * id : Long :<br/>
@@ -242,27 +121,21 @@ public abstract class AbstractProfil implements IProfil {
 
 
 	/**
-	 * serialVersionUID : long :<br/>
-	 * serialVersionUID = 1L.<br/>
-	 */
-	private static final long serialVersionUID = 1L;
-
-
-	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(AbstractProfil.class);
+		= LogFactory.getLog(ProfilEntityJPA.class);
 
-
+	
 	// *************************METHODES************************************/
+
 
 
 	/**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public AbstractProfil() {
+	public ProfilEntityJPA() {
 
 		this(null, null, null, null);
 
@@ -283,7 +156,7 @@ public abstract class AbstractProfil implements IProfil {
 	 * @param pRestrictionProfil : String : 
 	 * restrictionProfil du AbstractProfil.<br/>
 	 */
-	public AbstractProfil(
+	public ProfilEntityJPA(
 			final String pProfilString
 				, final String pPorteeProfil
 					, final String pRestrictionProfil) {
@@ -308,7 +181,7 @@ public abstract class AbstractProfil implements IProfil {
 	 * @param pRestrictionProfil : String : 
 	 * restrictionProfil du AbstractProfil.<br/>
 	 */
-	public AbstractProfil(
+	public ProfilEntityJPA(
 			final Long pId
 				, final String pProfilString
 					, final String pPorteeProfil
@@ -374,25 +247,27 @@ public abstract class AbstractProfil implements IProfil {
 			return false;
 		}
 
-		final AbstractProfil other = (AbstractProfil) pObject;
+		final IProfil other = (IProfil) pObject;
 
 		/* profilString. */
-		if (this.profilString == null) {
-			if (other.profilString != null) {
+		if (this.getProfilString() == null) {
+			if (other.getProfilString() != null) {
 				return false;
 			}
 		}
-		else if (!this.profilString.equals(other.profilString)) {
+		else if (!this.getProfilString()
+				.equalsIgnoreCase(other.getProfilString())) {
 			return false;
 		}
 
 		/* porteeProfil. */
-		if (this.porteeProfil == null) {
-			if (other.porteeProfil != null) {
+		if (this.getPorteeProfil() == null) {
+			if (other.getPorteeProfil() != null) {
 				return false;
 			}
 		}
-		else if (!this.porteeProfil.equals(other.porteeProfil)) {
+		else if (!this.getPorteeProfil()
+				.equalsIgnoreCase(other.getPorteeProfil())) {
 			return false;
 		}
 
@@ -465,10 +340,10 @@ public abstract class AbstractProfil implements IProfil {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public AbstractProfil clone() throws CloneNotSupportedException {
+	public ProfilEntityJPA clone() throws CloneNotSupportedException {
 
-		final AbstractProfil clone 
-				= (AbstractProfil) super.clone();
+		final ProfilEntityJPA clone 
+				= (ProfilEntityJPA) super.clone();
 
 		clone.setId(this.id);	
 		clone.setProfilString(this.profilString);
@@ -740,4 +615,4 @@ public abstract class AbstractProfil implements IProfil {
 
 
 
-} // FIN DE LA CLASSE AbstractProfil.----------------------------------------
+}

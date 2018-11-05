@@ -2,6 +2,8 @@ package levy.daniel.application.model.dto.metier.internaute;
 
 import java.util.List;
 
+import levy.daniel.application.model.dto.metier.profil.IProfilCerbereDTO;
+
 /**
  * INTERFACE IInternauteDTO :<br/>
  * .<br/>
@@ -135,9 +137,9 @@ public interface IInternauteDTO {
 	 * Getter .<br/>
 	 * <br/>
 	 *
-	 * @return profilsString : List<String> : this.profilsString.<br/>
+	 * @return profilsString : List<IProfilCerbereDTO> : this.profilsString.<br/>
 	 */
-	List<String> getProfilsString();
+	List<IProfilCerbereDTO> getProfilsString();
 
 	
 	
@@ -145,10 +147,10 @@ public interface IInternauteDTO {
 	* .<br/>
 	* <br/>
 	*
-	* @param pProfilsString : List<String> : 
+	* @param pProfilsString : List<IProfilCerbereDTO> : 
 	* valeur à passer à this.profilsString.<br/>
 	*/
-	void setProfilsString(List<String> pProfilsString);
+	void setProfilsString(List<IProfilCerbereDTO> pProfilsString);
 
 	
 	
