@@ -1,7 +1,9 @@
 package levy.daniel.application;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
  * CLASSE TraficwebSpringbootApplication :<br/>
@@ -24,6 +26,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class TraficwebSpringbootApplication { // NOPMD by dan on 04/11/18 09:53
 	
 	

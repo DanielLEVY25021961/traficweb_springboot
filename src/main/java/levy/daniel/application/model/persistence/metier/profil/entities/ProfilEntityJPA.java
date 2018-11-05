@@ -1,5 +1,6 @@
 package levy.daniel.application.model.persistence.metier.profil.entities;
 
+import javax.persistence.Entity;
 import javax.persistence.Transient;
 
 import org.apache.commons.logging.Log;
@@ -28,6 +29,7 @@ import levy.daniel.application.model.metier.profil.IProfil;
  * @since 5 nov. 2018
  *
  */
+@Entity
 public class ProfilEntityJPA implements IProfil {
 
 	// ************************ATTRIBUTS************************************/
