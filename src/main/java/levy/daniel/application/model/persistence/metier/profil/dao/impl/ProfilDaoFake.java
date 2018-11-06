@@ -6,14 +6,17 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import levy.daniel.application.model.metier.profil.IProfil;
 import levy.daniel.application.model.metier.profil.PorteeEnum;
 import levy.daniel.application.model.metier.profil.ProfilEnum;
+import levy.daniel.application.model.persistence.metier.profil.dao.IProfilDao;
 import levy.daniel.application.model.persistence.metier.profil.entities.ProfilEntityJPA;
 
 /**
- * CLASSE ProfilDao :<br/>
+ * CLASSE ProfilDaoFake :<br/>
  * .<br/>
  * <br/>
  *
@@ -33,7 +36,8 @@ import levy.daniel.application.model.persistence.metier.profil.entities.ProfilEn
  *
  */
 @Repository
-public class ProfilDao {
+@Qualifier("ProfilDaoFake")
+public class ProfilDaoFake implements IProfilDao {
 
 	// ************************ATTRIBUTS************************************/
 
@@ -102,7 +106,7 @@ public class ProfilDao {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(ProfilDao.class);
+		= LogFactory.getLog(ProfilDaoFake.class);
 
 	// *************************METHODES************************************/
 	
@@ -110,23 +114,78 @@ public class ProfilDao {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public ProfilDao() {
+	public ProfilDaoFake() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
 
 	
 	/**
-	 * .<br/>
-	 * <ul>
-	 * <li></li>
-	 * </ul>
-	 *
-	 * @return : Collection<ProfilEntityJPA> :  .<br/>
+	 * {@inheritDoc}
 	 */
-	public Collection<ProfilEntityJPA> getAllProfilsFake() {
+	@Override
+	public IProfil create(
+			final ProfilEntityJPA pProfil) {
+		fakeBaseProfils.put(pProfil.getId(), pProfil);
+		return pProfil;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IProfil getById(
+			final Long pId) {
+		return fakeBaseProfils.get(pId);
+	}
+	
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Collection<ProfilEntityJPA> listAll() {
 		return fakeBaseProfils.values();
 	}
 
 	
-} // FIN DE LA CLASSE ProfilDao.---------------------------------------------
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IProfil update(
+			final Long pId, final IProfil pProfil) {
+		
+		final ProfilEntityJPA objetEnBase 
+			= (ProfilEntityJPA) this.getById(pId);
+		
+		if (objetEnBase != null) {
+			
+			objetEnBase.setProfilString(pProfil.getProfilString());
+			objetEnBase.setPorteeProfil(pProfil.getPorteeProfil());
+			objetEnBase.setRestrictionProfil(pProfil.getRestrictionProfil());
+			
+			fakeBaseProfils.put(pId, objetEnBase);
+		}
+		
+		return objetEnBase;
+	}
+
+
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean deleteById(
+			final Long pId) {
+		return fakeBaseProfils.remove(pId, fakeBaseProfils.get(pId));
+	}
+
+
+	
+} // FIN DE LA CLASSE ProfilDaoFake.---------------------------------------------
