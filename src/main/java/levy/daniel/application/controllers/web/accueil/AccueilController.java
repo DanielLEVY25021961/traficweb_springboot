@@ -67,7 +67,7 @@ public class AccueilController {
 		
 		pModelMap.put("name", pName);
 		
-		return "vues/accueil/accueil.html";
+		return "vues/web/accueil/accueil.html";
 	}
 	
 	
