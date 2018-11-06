@@ -1,15 +1,7 @@
 package levy.daniel.application.model.metier.personne.civilite;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.persistence.UniqueConstraint;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -146,11 +138,6 @@ import org.apache.commons.logging.LogFactory;
  * @since 29 déc. 2017
  *
  */
-@Entity(name="AbstractCivilite")
-@Table(name="ABSTRACT_CIVILITES", schema="PUBLIC"
-, uniqueConstraints=@UniqueConstraint(name="UNICITE_CIVILITE"
-, columnNames={"CIVILITE"}))
-@Inheritance(strategy=InheritanceType.JOINED)
 public class AbstractCivilite implements ICivilite {
 
 	// ************************ATTRIBUTS************************************/
@@ -544,9 +531,6 @@ public class AbstractCivilite implements ICivilite {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID_CIVILITE")
 	@Override
 	public Long getId() {	
 		return this.id;

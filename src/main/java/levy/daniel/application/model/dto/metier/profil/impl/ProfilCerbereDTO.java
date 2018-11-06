@@ -8,7 +8,7 @@ import levy.daniel.application.model.metier.profil.IProfil;
 
 /**
  * CLASSE ProfilCerbereDTO :<br/>
- * .<br/>
+ * DTO servant à encapsuler le contenu d'une VUE.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -157,7 +157,8 @@ public class ProfilCerbereDTO implements IProfilCerbereDTO {
 	@Override
 	public String getIdString() {
 		return this.idString;
-	}
+	} // Fin de getIdString()._____________________________________________
+	
 
 
 	/**
@@ -167,7 +168,7 @@ public class ProfilCerbereDTO implements IProfilCerbereDTO {
 	public void setIdString(
 			final String pIdString) {
 		this.idString = pIdString;
-	}
+	} // Fin de setIdString(...).__________________________________________
 
 
 	

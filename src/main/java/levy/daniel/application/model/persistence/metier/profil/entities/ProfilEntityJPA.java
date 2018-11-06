@@ -34,11 +34,10 @@ public class ProfilEntityJPA implements IProfil {
 	// ************************ATTRIBUTS************************************/
 
 	/**
-	 * CLASSE_ABSTRACT_PROFIL : String :<br/>
-	 * "Classe AbstractProfil".<br/>
+	 * "Classe ProfilEntityJPA".<br/>
 	 */
-	public static final String CLASSE_ABSTRACT_PROFIL 
-		= "Classe AbstractProfil";
+	public static final String CLASSE_PROFIL_ENTITY_JPA 
+		= "Classe ProfilEntityJPA";
 
 
 	/**
@@ -198,7 +197,32 @@ public class ProfilEntityJPA implements IProfil {
 	} // Fin de CONSTRUCTEUR COMPLET BASE._________________________________
 
 
-
+	
+	 /**
+	 * CONSTRUCTEUR TRANSFORMATEUR.<br/>
+	 * <b>instancie un Entity JPA à partir 
+	 * d'un Objet Metier</b>.<br/>
+	 *
+	 * @param pProfil : IProfil.<br/>
+	 */
+	public ProfilEntityJPA(
+			final IProfil pProfil) {
+		
+		super();
+		
+		if (pProfil != null) {
+			
+			this.id = pProfil.getId();
+			this.profilString = pProfil.getProfilString();
+			this.porteeProfil = pProfil.getPorteeProfil();
+			this.restrictionProfil = pProfil.getRestrictionProfil();
+			
+		}
+		
+	} // Fin de CONSTRUCTEUR TRANSFORMATEUR._______________________________
+	
+	
+	
 	/**
 	 * {@inheritDoc}
 	 */

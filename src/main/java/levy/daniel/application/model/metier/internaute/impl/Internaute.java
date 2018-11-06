@@ -147,20 +147,20 @@ public class Internaute implements IInternaute {
 
 	
 	 /**
-	 * CONSTRUCTEUR TRANSFORMATEUR.<br/>
+	 * CONSTRUCTEUR TRANSFORMATEUR AVEC DTO.<br/>
 	 * <b>instancie un objet métier à partir 
 	 * d'un contenu de VUE (DTO)</b>.<br/>
 	 *
-	 * @param pInternauteDTO
+	 * @param pDTO : IInternauteDTO.<br/>
 	 */
 	public Internaute(
-			final IInternauteDTO pInternauteDTO) {
+			final IInternauteDTO pDTO) {
 		
 		super();
 		
-		if (pInternauteDTO != null) {
+		if (pDTO != null) {
 			
-			final String idString = pInternauteDTO.getIdString();
+			final String idString = pDTO.getIdString();
 			
 			if (!StringUtils.isBlank(idString)) {
 				this.id = Long.valueOf(idString);
@@ -168,13 +168,13 @@ public class Internaute implements IInternaute {
 				this.id = null;
 			}
 			
-			this.prenom = pInternauteDTO.getPrenom();
-			this.nom = pInternauteDTO.getNom();
-			this.login = pInternauteDTO.getLogin();
-			this.password = pInternauteDTO.getPassword();
+			this.prenom = pDTO.getPrenom();
+			this.nom = pDTO.getNom();
+			this.login = pDTO.getLogin();
+			this.password = pDTO.getPassword();
 			
 			final List<IProfilCerbereDTO> listeProfilsDTO 
-				= pInternauteDTO.getProfilsString();
+				= pDTO.getProfilsString();
 			
 			if (listeProfilsDTO != null) {
 				
@@ -192,12 +192,12 @@ public class Internaute implements IInternaute {
 			}
 		}
 		
-	} // Fin de CONSTRUCTEUR TRANSFORMATEUR._______________________________
+	} // Fin de CONSTRUCTEUR TRANSFORMATEUR AVEC DTO.______________________
 	
 
 	
 	 /**
-	 * CONSTRUCTEUR TRANSFORMATEUR.<br/>
+	 * CONSTRUCTEUR TRANSFORMATEUR AVEC JPA.<br/>
 	 * <b>instancie un objet métier à partir d'une Entity JPA</b>.<br/>
 	 *
 	 * @param pEntityJPA : InternauteEntityJPA.<br/>
@@ -216,7 +216,7 @@ public class Internaute implements IInternaute {
 			this.profils = pEntityJPA.getProfils();
 		}
 		
-	} // Fin de CONSTRUCTEUR TRANSFORMATEUR._______________________________
+	} // Fin de CONSTRUCTEUR TRANSFORMATEUR AVEC JPA.______________________
 	
 	
 	

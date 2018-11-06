@@ -8,10 +8,13 @@ import javax.persistence.ForeignKey;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.model.dto.metier.personne.civilite.ICiviliteDTO;
 import levy.daniel.application.model.metier.personne.civilite.AbstractCivilite;
+import levy.daniel.application.model.persistence.metier.personne.civilite.entities.jpa.CiviliteEntityJPA;
 
 /**
  * CLASSE CONCRETE <b>CiviliteComplete</b> :<br/>
@@ -273,6 +276,57 @@ public class CiviliteComplete extends AbstractCivilite {
 		
 	} // Fin de CONSTRUCTEUR COMPLET BASE._________________________________
 
+	
+	
+	/**
+	 * CONSTRUCTEUR TRANSFORMATEUR AVEC DTO.<br/>
+	 * <b>instancie un objet métier à partir 
+	 * d'un contenu de VUE (DTO)</b>.<br/>
+	 * </ul>
+	 *
+	 * @param pDTO : ICiviliteDTO
+	 */
+	public CiviliteComplete(
+			final ICiviliteDTO pDTO) {
+		
+		super();
+		
+		if (pDTO != null) {
+			
+			final String idString = pDTO.getIdString();
+			
+			if (!StringUtils.isBlank(idString)) {
+				this.id = Long.valueOf(idString);
+			} else {
+				this.id = null;
+			}
+			
+			this.civiliteString = pDTO.getCiviliteString();
+		}
+		
+	} // Fin de CONSTRUCTEUR TRANSFORMATEUR AVEC DTO.______________________
+	
+	
+	
+	 /**
+	 * CONSTRUCTEUR TRANSFORMATEUR AVEC JPA.<br/>
+	 * <b>instancie un objet métier à partir d'une Entity JPA</b>.<br/>
+	 *
+	 * @param pEntityJPA : CiviliteEntityJPA.<br/>
+	 */
+	public CiviliteComplete(
+			final CiviliteEntityJPA pEntityJPA) {
+		
+		super();
+		
+		if (pEntityJPA != null) {
+			this.id = pEntityJPA.getId();
+			this.civiliteString = pEntityJPA.getCiviliteString();
+			
+		}
+		
+	} // Fin de CONSTRUCTEUR TRANSFORMATEUR AVEC JPA.______________________
+	
 	
 	
 	/**

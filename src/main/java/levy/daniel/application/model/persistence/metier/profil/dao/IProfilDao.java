@@ -28,6 +28,8 @@ import levy.daniel.application.model.persistence.metier.profil.entities.ProfilEn
  */
 public interface IProfilDao {
 
+	
+	
 	/**
 	 * .<br/>
 	 * <ul>

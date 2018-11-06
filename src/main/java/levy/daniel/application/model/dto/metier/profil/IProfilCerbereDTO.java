@@ -2,7 +2,7 @@ package levy.daniel.application.model.dto.metier.profil;
 
 /**
  * INTERFACE IProfilCerbereDTO :<br/>
- * .<br/>
+ * DTO servant à encapsuler le contenu d'une VUE.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -25,17 +25,16 @@ public interface IProfilCerbereDTO {
 	
 	
 	/**
-	 * Getter .<br/>
-	 * <br/>
+	 * Getter de l'identifiant en base sous forme de String.<br/>
 	 *
-	 * @return idString : String : this.idString.<br/>
+	 * @return  this.idString : String.<br/>
 	 */
 	String getIdString();
 
 	
 	
 	/**
-	* .<br/>
+	* Setter de l'identifiant en base sous forme de String.<br/>
 	* <br/>
 	*
 	* @param pIdString : String : 

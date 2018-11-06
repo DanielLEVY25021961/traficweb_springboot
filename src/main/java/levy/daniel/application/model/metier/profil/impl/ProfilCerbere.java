@@ -1,10 +1,12 @@
 package levy.daniel.application.model.metier.profil.impl;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.dto.metier.profil.IProfilCerbereDTO;
 import levy.daniel.application.model.metier.profil.AbstractProfil;
+import levy.daniel.application.model.persistence.metier.profil.entities.ProfilEntityJPA;
 
 
 
@@ -263,7 +265,7 @@ public class ProfilCerbere extends AbstractProfil {
 
 
 	 /**
-	 * CONSTRUCTEUR COMPLET AVEC DTO.<br/>
+	 * CONSTRUCTEUR TRANSFORMATEUR AVEC DTO.<br/>
 	 * <ul>
 	 * <li>un DTO est un moyen commode de stocker 
 	 * tous les champs d'un formulaire.</li>
@@ -271,16 +273,54 @@ public class ProfilCerbere extends AbstractProfil {
 	 * d'une VUE (DTO).</li>
 	 * </ul>
 	 *
-	 * @param pProfilCerbereDTO : IProfilCerbereDTO
+	 * @param pDTO : IProfilCerbereDTO
 	 */
 	public ProfilCerbere(
-			final IProfilCerbereDTO pProfilCerbereDTO) {
+			final IProfilCerbereDTO pDTO) {
 		
-		super(pProfilCerbereDTO.getProfilStringString()
-				, pProfilCerbereDTO.getPorteeProfilString()
-				, pProfilCerbereDTO.getRestrictionProfilString());
+		super();
 		
-	} // Fin de CONSTRUCTEUR COMPLET AVEC DTO._____________________________
+		if (pDTO != null) {
+			
+			final String idString = pDTO.getIdString();
+			
+			if (!StringUtils.isBlank(idString)) {
+				this.id = Long.valueOf(idString);
+			} else {
+				this.id = null;
+			}
+			
+			this.profilString = pDTO.getProfilStringString();
+			this.porteeProfil = pDTO.getPorteeProfilString();
+			this.restrictionProfil = pDTO.getRestrictionProfilString();
+
+		}
+		
+	} // Fin de CONSTRUCTEUR TRANSFORMATEUR AVEC DTO.______________________
+	
+
+	
+	 /**
+	 * CONSTRUCTEUR TRANSFORMATEUR AVEC JPA.<br/>
+	 * <b>instancie un objet métier à partir d'une Entity JPA</b>.<br/>
+	 *
+	 * @param pEntityJPA : InternauteEntityJPA.<br/>
+	 */
+	public ProfilCerbere(
+			final ProfilEntityJPA pEntityJPA) {
+		
+		super();
+		
+		if (pEntityJPA != null) {
+			
+			this.id = pEntityJPA.getId();
+			this.profilString = pEntityJPA.getProfilString();
+			this.porteeProfil = pEntityJPA.getPorteeProfil();
+			this.restrictionProfil = pEntityJPA.getRestrictionProfil();
+			
+		}
+		
+	} // Fin de CONSTRUCTEUR TRANSFORMATEUR AVEC JPA.______________________
 	
 	
 	

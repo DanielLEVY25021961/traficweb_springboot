@@ -111,9 +111,15 @@ import levy.daniel.application.model.metier.IExportateurJTable;
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
+ * <code>//Instanciation d'un CiviliteAbregee en lui passant la String 
+ * associée à l'abréviation de l'instance MONSIEUR de l'énumération.</code><br/>
+ * <code>CiviliteAbregee CIVILITE_M = new 
+ * CiviliteAbregee(CivilitesEnum.MONSIEUR.getAbreviationEnum());</code><br/>
  *<br/>
  * 
  * - Mots-clé :<br/>
+ * Enumération, utilisation d'une énumeration dans classe,<br/>
+ * enumeration, utilisation enum, <br/>
  * <br/>
  *
  * - Dépendances :<br/>
