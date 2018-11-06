@@ -1,5 +1,5 @@
 /**
- * class package-info :<br/>
+ * CLASSE package-info :<br/>
  * .<br/>
  * <br/>
  *
@@ -15,7 +15,7 @@
  *
  * @author dan Lévy
  * @version 1.0
- * @since 24 déc. 2017
+ * @since 6 nov. 2018
  *
  */
-package levy.daniel.application.model.metier.user.impl;
+package levy.daniel.application.model.services.metier.personne;

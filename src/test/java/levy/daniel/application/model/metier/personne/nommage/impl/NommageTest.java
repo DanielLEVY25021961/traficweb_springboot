@@ -43,6 +43,11 @@ public class NommageTest {
 	 */
 	public static final Boolean AFFICHAGE_GENERAL = true;
 
+		
+	/**
+	 * "unused".<br/>
+	 */
+	public static final String UNUSED = "unused";
 	
 	/**
 	 * TIRETS : String :<br/>
@@ -200,6 +205,7 @@ public class NommageTest {
 	 * en cas d'inégalité métier.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testEquals() {
 		
@@ -356,6 +362,7 @@ public class NommageTest {
 	 * <li>garantit le bon fonctionnement (bon ordre) de compareTo().</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testCompareTo() {
 		
@@ -481,6 +488,7 @@ public class NommageTest {
 	 * </ul>
 	 * @throws CloneNotSupportedException 
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testClone() throws CloneNotSupportedException {
 		
@@ -493,14 +501,14 @@ public class NommageTest {
 			= new Nommage();
 		
 		final INommage objetNullClone1 
-			= (INommage) objetNull1.clone();
+			= objetNull1.clone();
 		
 		final INommage objet1 
 			= new Nommage(23L
 					, PRENOM1, NOM1);
 		
 		final INommage objetClone1 
-		= (INommage) objet1.clone();
+			= objet1.clone();
 		
 		
 		/* garantit que les null sont bien gérés dans clone(). */
@@ -548,6 +556,7 @@ public class NommageTest {
 	 * <li>garantit le bon affichage de toString().</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testToString() {
 		
@@ -596,6 +605,7 @@ public class NommageTest {
 	 * <li>garantit que getEnTeteCsv() retourne le bon en-tête csv.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testgetEnTeteCsv() {
 		
@@ -633,6 +643,7 @@ public class NommageTest {
 	 * <li>garantit que toStringCsv() retourne la bonne ligne csv.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testToStringCsv() {
 		
@@ -689,6 +700,7 @@ public class NommageTest {
 	 * la bonne en-tête de colonne.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testGetEnTeteColonne() {
 
@@ -754,6 +766,7 @@ public class NommageTest {
 	 * la bonne valeur de colonne.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testGetValeurColonne() {
 

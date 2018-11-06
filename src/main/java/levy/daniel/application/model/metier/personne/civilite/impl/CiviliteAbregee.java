@@ -3,11 +3,6 @@ package levy.daniel.application.model.metier.personne.civilite.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -162,10 +157,6 @@ import levy.daniel.application.model.persistence.metier.personne.civilite.entiti
  * @since 9 déc. 2017
  *
  */
-@Entity(name="CiviliteAbregee")
-@Table(name="CIVILITES_ABREGEES", schema="PUBLIC")
-@PrimaryKeyJoinColumn(name = "ID_CIVILITE"
-, foreignKey=@ForeignKey(name="FK_CIVILITEABREGEE_ABSTRACTCIVILITE"))
 public class CiviliteAbregee extends AbstractCivilite {
 
 	// ************************ATTRIBUTS************************************/

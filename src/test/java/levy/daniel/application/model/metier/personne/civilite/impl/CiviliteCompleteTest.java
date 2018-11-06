@@ -73,6 +73,10 @@ public class CiviliteCompleteTest {
 	public static final String CIVILITE_MADEMOISELLE 
 		= CivilitesEnum.MADEMOISELLE.toString();
 	
+	/**
+	 * "unused".<br/>
+	 */
+	public static final String UNUSED = "unused";
 		
 	/**
 	 * TIRETS : String :<br/>
@@ -190,6 +194,7 @@ public class CiviliteCompleteTest {
 	 * en cas d'inégalité métier.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testEquals() {
 		
@@ -346,6 +351,7 @@ public class CiviliteCompleteTest {
 	 * <li>garantit le bon fonctionnement (bon ordre) de compareTo().</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testCompareTo() {
 		
@@ -471,6 +477,7 @@ public class CiviliteCompleteTest {
 	 * </ul>
 	 * @throws CloneNotSupportedException 
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testClone() throws CloneNotSupportedException {
 		
@@ -483,14 +490,14 @@ public class CiviliteCompleteTest {
 			= new CiviliteComplete();
 		
 		final ICivilite objetNullClone1 
-			= (CiviliteComplete) objetNull1.clone();
+			= objetNull1.clone();
 		
 		final ICivilite objet1 
 			= new CiviliteComplete(23L
 					, CIVILITE_MADAME);
 		
 		final ICivilite objetClone1 
-		= (ICivilite) objet1.clone();
+			= objet1.clone();
 		
 		
 		/* garantit que les null sont bien gérés dans clone(). */
@@ -538,6 +545,7 @@ public class CiviliteCompleteTest {
 	 * <li>garantit le bon affichage de toString().</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testToString() {
 		
@@ -587,6 +595,7 @@ public class CiviliteCompleteTest {
 	 * <li>garantit que getEnTeteCsv() retourne le bon en-tête csv.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testgetEnTeteCsv() {
 		
@@ -624,6 +633,7 @@ public class CiviliteCompleteTest {
 	 * <li>garantit que toStringCsv() retourne la bonne ligne csv.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testToStringCsv() {
 		
@@ -679,6 +689,7 @@ public class CiviliteCompleteTest {
 	 * la bonne en-tête de colonne.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testGetEnTeteColonne() {
 
@@ -735,6 +746,7 @@ public class CiviliteCompleteTest {
 	 * la bonne valeur de colonne.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testGetValeurColonne() {
 
@@ -794,6 +806,7 @@ public class CiviliteCompleteTest {
 	 * les valeurs possibles.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testGetValeursPossibles() {
 

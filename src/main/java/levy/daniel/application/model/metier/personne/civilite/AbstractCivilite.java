@@ -1,6 +1,5 @@
 package levy.daniel.application.model.metier.personne.civilite;
 
-import javax.persistence.Column;
 import javax.persistence.Transient;
 
 import org.apache.commons.logging.Log;
@@ -286,6 +285,8 @@ public class AbstractCivilite implements ICivilite {
 	 * <b>equals(...) pour un AbstractCivilite</b> sur :
 	 * <li>civiliteString.</li>
 	 *</ul>
+	 *<b>Bien utiliser ICivilite et pas AbstractCivilite 
+	 * pour assurer le equals avec les entities</b>.<br/>
 	 * <br/>
 	 */
 	@Override
@@ -300,19 +301,19 @@ public class AbstractCivilite implements ICivilite {
 			return false;
 		}
 		
-		if (!(pObjet instanceof AbstractCivilite)) {
+		if (!(pObjet instanceof ICivilite)) {
 			return false;
 		}
 		
-		final AbstractCivilite other = (AbstractCivilite) pObjet;
+		final ICivilite other = (ICivilite) pObjet;
 		
-		if (this.civiliteString == null) {
-			if (other.civiliteString != null) {
+		if (this.getCiviliteString() == null) {
+			if (other.getCiviliteString() != null) {
 				return false;
 			}
 		}
-		else if (!this.civiliteString
-				.equalsIgnoreCase(other.civiliteString)) {
+		else if (!this.getCiviliteString()
+				.equalsIgnoreCase(other.getCiviliteString())) {
 			return false;
 		}
 		
@@ -552,9 +553,6 @@ public class AbstractCivilite implements ICivilite {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Column(name = "CIVILITE"
-	, unique = false, nullable = false
-	, updatable = true, insertable = true)
 	@Override
 	public String getCiviliteString() {	
 		return this.civiliteString;

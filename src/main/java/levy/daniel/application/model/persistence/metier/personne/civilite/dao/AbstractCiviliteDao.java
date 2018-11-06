@@ -97,11 +97,11 @@ public abstract class AbstractCiviliteDao
 	/**
 	 * SELECT_OBJET : String :<br/>
 	 * "select civilite from 
-	 * CiviliteDaoSpringJPA as civilite ".<br/>
+	 * CiviliteEntityJPA as civilite ".<br/>
 	 */
 	public static final String SELECT_OBJET 
 		= "select civilite from "
-				+ "CiviliteDaoSpringJPA as civilite ";
+				+ "CiviliteEntityJPA as civilite ";
 
 
 	/**
@@ -182,7 +182,7 @@ public abstract class AbstractCiviliteDao
 		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 			= SELECT_OBJET
-				+ "where civilite.civiliteString = :pCiviliteString;";
+				+ "where civilite.civiliteString = :pCiviliteString";
 
 		/* Construction de la requête HQL. */
 		final Query requete 
@@ -253,7 +253,7 @@ public abstract class AbstractCiviliteDao
 		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 			= SELECT_OBJET
-				+ "where civilite.civiliteString = :pCiviliteString;";
+				+ "where civilite.civiliteString = :pCiviliteString";
 
 		/* Construction de la requête HQL. */
 		final Query requete 
@@ -459,7 +459,7 @@ public abstract class AbstractCiviliteDao
 		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 			= SELECT_OBJET
-				+ "where civilite.civiliteString = :pCiviliteString;";
+				+ "where civilite.civiliteString = :pCiviliteString";
 
 		/* Construction de la requête HQL. */
 		final Query requete 

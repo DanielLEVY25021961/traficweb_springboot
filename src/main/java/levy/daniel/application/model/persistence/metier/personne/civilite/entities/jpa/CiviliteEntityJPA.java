@@ -175,7 +175,29 @@ public class CiviliteEntityJPA implements ICivilite {
 	} // Fin de CONSTRUCTEUR COMPLET BASE._________________________________
 
 
+	
+	 /**
+	 * CONSTRUCTEUR TRANSFORMATEUR AVEC OBJET METIER.<br/>
+	 * <b>transforme un Objet metier en Entity JPA</b>.<br/>
+	 *
+	 * @param pObjetMetier : ICivilite.<br/>
+	 */
+	public CiviliteEntityJPA(
+			final ICivilite pObjetMetier) {
 		
+		super();
+		
+		if (pObjetMetier != null) {
+			
+			this.id = pObjetMetier.getId();
+			this.civiliteString = pObjetMetier.getCiviliteString();
+			
+		}
+		
+	} // Fin de CONSTRUCTEUR TRANSFORMATEUR AVEC OBJET METIER._____________
+	
+	
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -197,9 +219,11 @@ public class CiviliteEntityJPA implements ICivilite {
 	 * {@inheritDoc}
 	 * <br/>
 	 * <ul>
-	 * <b>equals(...) pour un AbstractCivilite</b> sur :
+	 * <b>equals(...) pour un ICivilite</b> sur :
 	 * <li>civiliteString.</li>
 	 *</ul>
+	 *<b>Bien utiliser ICivilite et pas AbstractCivilite 
+	 * pour assurer le equals avec les entities</b>.<br/>
 	 * <br/>
 	 */
 	@Override

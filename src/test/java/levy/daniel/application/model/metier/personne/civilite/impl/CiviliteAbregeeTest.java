@@ -164,7 +164,6 @@ public class CiviliteAbregeeTest {
 
 	
 	 /**
-	 * method CONSTRUCTEUR CiviliteAbregeeTest() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * <br/>
 	 */
@@ -491,14 +490,14 @@ public class CiviliteAbregeeTest {
 			= new CiviliteAbregee();
 		
 		final ICivilite objetNullClone1 
-			= (CiviliteAbregee) objetNull1.clone();
+			= objetNull1.clone();
 		
 		final ICivilite objet1 
 			= new CiviliteAbregee(23L
 					, CIVILITE_MME);
 		
 		final ICivilite objetClone1 
-		= (ICivilite) objet1.clone();
+			= objet1.clone();
 		
 		
 		/* garantit que les null sont bien gérés dans clone(). */

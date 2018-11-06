@@ -186,6 +186,7 @@ public interface IDaoGeneric<T, ID extends Serializable> {
 	/**
 	 * <b>retourne la liste de tous les objets métier 
 	 * persistés dans le stockage</b>.<br/>
+	 * - peut retourne null si le stockage ne peut être lu.<br/>
 	 *
 	 * @return : List&lt;T&gt; : 
 	 * liste de tous les objets métier persistés dans le stockage.<br/>
@@ -448,6 +449,10 @@ public interface IDaoGeneric<T, ID extends Serializable> {
 	
 	/**
 	 * <b>écrit le contenu du stockage dans la console</b>.<br/>
+	 * <ul>
+	 * </ul>
+	 * - ne fait rien si findAll() retourne null.<br/>
+	 * <br/>
 	 *
 	 * @throws Exception
 	 */

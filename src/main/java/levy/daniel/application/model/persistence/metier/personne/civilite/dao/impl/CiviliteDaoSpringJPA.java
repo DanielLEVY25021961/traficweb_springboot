@@ -7,9 +7,10 @@ import javax.persistence.PersistenceContext;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
 import levy.daniel.application.model.metier.personne.civilite.ICivilite;
-import levy.daniel.application.model.metier.profil.IProfil;
 import levy.daniel.application.model.persistence.daoexceptions.AbstractDaoException;
 import levy.daniel.application.model.persistence.daoexceptions.GestionnaireDaoException;
 import levy.daniel.application.model.persistence.metier.personne.civilite.dao.AbstractCiviliteDao;
@@ -79,6 +80,8 @@ import levy.daniel.application.model.persistence.metier.personne.civilite.entiti
  * @since 01 mars 2018
  *
  */
+@Repository
+@Qualifier("CiviliteDaoSpringJPA")
 public class CiviliteDaoSpringJPA 
 			extends AbstractCiviliteDao {
 
@@ -123,7 +126,67 @@ public class CiviliteDaoSpringJPA
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
+	
+	
+	@Override
+	public final ICivilite create(
+			final ICivilite pObject) throws AbstractDaoException {
 
+		/* retourne null si pObject == null. */
+		if (pObject == null) {
+			return null;
+		}
+
+		ICivilite persistentObject = null;
+
+		/* Cas où this.entityManager == null. */
+		if (this.entityManager == null) {
+
+			/* LOG. */
+			if (LOG.isFatalEnabled()) {
+				LOG.fatal(MESSAGE_ENTITYMANAGER_NULL);
+			}
+			return null;
+		}
+
+		 final CiviliteEntityJPA entity 
+		 	= new CiviliteEntityJPA(pObject);
+
+		/* retourne null si pObject est un doublon. */
+		if (this.exists(pObject)) {
+			return null;
+		}
+
+		try {
+
+			/* ***************** */
+			/* PERSISTE en base. */
+			this.entityManager.persist(entity);
+
+			persistentObject = entity;
+
+		}
+		catch (Exception e) {
+
+			/* LOG. */
+			if (LOG.isDebugEnabled()) {
+				LOG.debug(e.getMessage(), e);
+			}
+
+			/* Gestion de la DAO Exception. */
+			this.gestionnaireException
+				.gererException(
+						CLASSE_ABSTRACTDAOGENERIC_JPA_SPRING
+							, METHODE_CREATE, e);
+
+		}
+
+		/* retourne l'Objet persistant. */
+		return persistentObject;
+
+	} // Fin de create(...)._______________________________________________
+
+	
 	
 	/**
 	 * {@inheritDoc}
@@ -250,7 +313,9 @@ public class CiviliteDaoSpringJPA
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ICivilite  (Long pIndex, ICivilite pObjectModifie) throws Exception {
+	public ICivilite update(
+			final Long pIndex, final ICivilite pObjectModifie) 
+												throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -260,7 +325,8 @@ public class CiviliteDaoSpringJPA
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void deleteIterable(Iterable<ICivilite> pList) throws Exception {
+	public void deleteIterable(
+			final Iterable<ICivilite> pList) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
@@ -270,27 +336,41 @@ public class CiviliteDaoSpringJPA
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean deleteIterableBoolean(Iterable<ICivilite> pList) throws Exception {
+	public boolean deleteIterableBoolean(
+			final Iterable<ICivilite> pList) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 
+	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void ecrireStockageDansConsole() throws Exception {
-		// TODO Auto-generated method stub
 		
-	}
+		final List<ICivilite> contenuStockage = this.findAll();
+		
+		/* ne fait rien si findAll() retourne null. */
+		if (contenuStockage == null) {
+			return;
+		}
+		
+		for (final ICivilite objet : contenuStockage) {
+			System.out.println(objet.toString());
+		}
+		
+	} // Fin de ecrireStockageDansConsole()._______________________________
+	
 
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String afficherListeObjetsMetier(List<ICivilite> pList) {
+	public String afficherListeObjetsMetier(
+			final List<ICivilite> pList) {
 		// TODO Auto-generated method stub
 		return null;
 	}

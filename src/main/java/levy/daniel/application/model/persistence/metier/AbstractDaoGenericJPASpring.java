@@ -159,7 +159,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final T create(
+	public T create(
 			final T pObject) throws AbstractDaoException {
 
 		/* retourne null si pObject == null. */

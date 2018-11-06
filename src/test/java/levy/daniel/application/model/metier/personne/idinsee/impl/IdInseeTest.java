@@ -54,8 +54,12 @@ public class IdInseeTest {
 	 * "701254 790".<br/>
 	 */
 	public static final String NUM_INSEE2 = "701254 790";
-	
-	
+		
+	/**
+	 * "unused".<br/>
+	 */
+	public static final String UNUSED = "unused";
+			
 	/**
 	 * TIRETS : String :<br/>
 	 * "--------------------------------------------------------".<br/>
@@ -171,6 +175,7 @@ public class IdInseeTest {
 	 * en cas d'inégalité métier.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testEquals() {
 		
@@ -327,6 +332,7 @@ public class IdInseeTest {
 	 * <li>garantit le bon fonctionnement (bon ordre) de compareTo().</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testCompareTo() {
 		
@@ -452,6 +458,7 @@ public class IdInseeTest {
 	 * </ul>
 	 * @throws CloneNotSupportedException 
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testClone() throws CloneNotSupportedException {
 		
@@ -464,14 +471,14 @@ public class IdInseeTest {
 			= new IdInsee();
 		
 		final IIdInsee objetNullClone1 
-			= (IIdInsee) objetNull1.clone();
+			= objetNull1.clone();
 		
 		final IIdInsee objet1 
 			= new IdInsee(23L
 					, NUM_INSEE1);
 		
 		final IIdInsee objetClone1 
-		= (IIdInsee) objet1.clone();
+		 = objet1.clone();
 		
 		
 		/* garantit que les null sont bien gérés dans clone(). */
@@ -519,6 +526,7 @@ public class IdInseeTest {
 	 * <li>garantit le bon affichage de toString().</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testToString() {
 		
@@ -567,6 +575,7 @@ public class IdInseeTest {
 	 * <li>garantit que getEnTeteCsv() retourne le bon en-tête csv.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testgetEnTeteCsv() {
 		
@@ -604,6 +613,7 @@ public class IdInseeTest {
 	 * <li>garantit que toStringCsv() retourne la bonne ligne csv.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testToStringCsv() {
 		
@@ -660,6 +670,7 @@ public class IdInseeTest {
 	 * la bonne en-tête de colonne.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testGetEnTeteColonne() {
 
@@ -716,6 +727,7 @@ public class IdInseeTest {
 	 * la bonne valeur de colonne.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testGetValeurColonne() {
 

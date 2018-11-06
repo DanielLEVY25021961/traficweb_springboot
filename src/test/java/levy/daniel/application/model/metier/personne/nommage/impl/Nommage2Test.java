@@ -42,7 +42,11 @@ public class Nommage2Test {
 	 * Boolean qui commande l'affichage pour tous les tests.<br/>
 	 */
 	public static final Boolean AFFICHAGE_GENERAL = true;
-
+		
+	/**
+	 * "unused".<br/>
+	 */
+	public static final String UNUSED = "unused";
 	
 	/**
 	 * TIRETS : String :<br/>
@@ -222,6 +226,7 @@ public class Nommage2Test {
 	 * en cas d'inégalité métier.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testEquals() {
 		
@@ -378,6 +383,7 @@ public class Nommage2Test {
 	 * <li>garantit le bon fonctionnement (bon ordre) de compareTo().</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testCompareTo() {
 		
@@ -503,6 +509,7 @@ public class Nommage2Test {
 	 * </ul>
 	 * @throws CloneNotSupportedException 
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testClone() throws CloneNotSupportedException {
 		
@@ -515,14 +522,14 @@ public class Nommage2Test {
 			= new Nommage2();
 		
 		final INommage objetNullClone1 
-			= (INommage) objetNull1.clone();
+			= objetNull1.clone();
 		
 		final INommage objet1 
 			= new Nommage2(23L
 					, PRENOM1, PRENOM2_1, NOM1);
 		
 		final INommage objetClone1 
-		= (INommage) objet1.clone();
+			= objet1.clone();
 		
 		
 		/* garantit que les null sont bien gérés dans clone(). */
@@ -570,6 +577,7 @@ public class Nommage2Test {
 	 * <li>garantit le bon affichage de toString().</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testToString() {
 		
@@ -618,6 +626,7 @@ public class Nommage2Test {
 	 * <li>garantit que getEnTeteCsv() retourne le bon en-tête csv.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testgetEnTeteCsv() {
 		
@@ -655,6 +664,7 @@ public class Nommage2Test {
 	 * <li>garantit que toStringCsv() retourne la bonne ligne csv.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testToStringCsv() {
 		
@@ -711,6 +721,7 @@ public class Nommage2Test {
 	 * la bonne en-tête de colonne.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testGetEnTeteColonne() {
 
@@ -785,6 +796,7 @@ public class Nommage2Test {
 	 * la bonne valeur de colonne.</li>
 	 * </ul>
 	 */
+	@SuppressWarnings(UNUSED)
 	@Test
 	public void testGetValeurColonne() {
 
