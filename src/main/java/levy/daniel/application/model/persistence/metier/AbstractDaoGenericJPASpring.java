@@ -1082,7 +1082,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 		final List<T> listePersistants 
 			= new ArrayList<T>();
 
-		/* Récupération préalable des objets persistans en base. */
+		/* Récupération préalable des objets persistants en base. */
 		while (itePersistants.hasNext()) {
 			final T objet = itePersistants.next();
 			final T objetPersistant = this.retrieve(objet);

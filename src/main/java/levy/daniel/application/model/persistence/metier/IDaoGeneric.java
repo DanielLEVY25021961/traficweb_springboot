@@ -260,7 +260,8 @@ public interface IDaoGeneric<T, ID extends Serializable> {
 	 * @param pIndex : ID : 
 	 * index (0-based) de l'objet métier à modifier.<br/>
 	 * @param pObjectModifie : T : 
-	 * Objet métier modifié.<br/>
+	 * Objet métier contenant les modifications 
+	 * à apporter à l'objet persistant en base.<br/>
 	 * 
 	 * @return T : objet métier modifié.<br/>
 	 * 
@@ -360,7 +361,7 @@ public interface IDaoGeneric<T, ID extends Serializable> {
 	 * </ul>
 	 *
 	 * @param pList : Iterable&lt;T&gt; : 
-	 * itérable d'objets àretirer du stockage?<br/>
+	 * itérable d'objets à retirer du stockage.<br/>
 	 *  
 	 * @throws Exception
 	 */
@@ -449,8 +450,6 @@ public interface IDaoGeneric<T, ID extends Serializable> {
 	
 	/**
 	 * <b>écrit le contenu du stockage dans la console</b>.<br/>
-	 * <ul>
-	 * </ul>
 	 * - ne fait rien si findAll() retourne null.<br/>
 	 * <br/>
 	 *
