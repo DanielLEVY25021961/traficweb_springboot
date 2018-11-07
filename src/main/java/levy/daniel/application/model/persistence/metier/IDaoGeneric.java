@@ -75,9 +75,9 @@ public interface IDaoGeneric<T, ID extends Serializable> {
 	 * mais ne retourne rien</b>.<br/>
 	 * <ul>
 	 * <li>ne crée <b>pas de doublon</b>.</li>
-	 * <li>retourne null si pObject existe déjà dans le stockage.</li>
+	 * <li>ne fait rien si pObject existe déjà dans le stockage.</li>
 	 * </ul>
-	 * - retourne null si pObject == null.<br/>
+	 * - ne fait rien si pObject == null.<br/>
 	 * <br/>
 	 *
 	 * @param pObject : T : 
@@ -115,7 +115,7 @@ public interface IDaoGeneric<T, ID extends Serializable> {
 	
 	
 	/**
-	 * <b>crée un iterable d'objets métier pObject 
+	 * <b>crée un iterable d'objets métier pList 
 	 * dans le stockage</b> et retourne l'itérable persisté.<br/>
 	 * <ul>
 	 * <li>ne crée <b>pas de doublon</b>.</li>
@@ -186,7 +186,7 @@ public interface IDaoGeneric<T, ID extends Serializable> {
 	/**
 	 * <b>retourne la liste de tous les objets métier 
 	 * persistés dans le stockage</b>.<br/>
-	 * - peut retourne null si le stockage ne peut être lu.<br/>
+	 * - peut retourner null si le stockage ne peut être lu.<br/>
 	 *
 	 * @return : List&lt;T&gt; : 
 	 * liste de tous les objets métier persistés dans le stockage.<br/>
