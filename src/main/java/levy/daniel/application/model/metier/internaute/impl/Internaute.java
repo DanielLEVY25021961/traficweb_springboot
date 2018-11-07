@@ -14,7 +14,7 @@ import levy.daniel.application.model.dto.metier.profil.IProfilCerbereDTO;
 import levy.daniel.application.model.metier.internaute.IInternaute;
 import levy.daniel.application.model.metier.profil.IProfil;
 import levy.daniel.application.model.metier.profil.impl.ProfilCerbere;
-import levy.daniel.application.model.persistence.metier.internaute.entities.InternauteEntityJPA;
+import levy.daniel.application.model.persistence.metier.internaute.entities.jpa.InternauteEntityJPA;
 
 
 /**

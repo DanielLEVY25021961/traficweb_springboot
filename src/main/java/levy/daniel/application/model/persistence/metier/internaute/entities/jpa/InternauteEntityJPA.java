@@ -1,4 +1,4 @@
-package levy.daniel.application.model.persistence.metier.internaute.entities;
+package levy.daniel.application.model.persistence.metier.internaute.entities.jpa;
 
 import java.util.ArrayList;
 import java.util.List;
