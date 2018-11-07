@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import levy.daniel.application.model.metier.profil.IProfil;
 import levy.daniel.application.model.persistence.metier.profil.dao.IProfilDao;
-import levy.daniel.application.model.persistence.metier.profil.entities.ProfilEntityJPA;
+import levy.daniel.application.model.persistence.metier.profil.entities.jpa.ProfilEntityJPA;
 
 /**
  * CLASSE ProfilServiceFake :<br/>

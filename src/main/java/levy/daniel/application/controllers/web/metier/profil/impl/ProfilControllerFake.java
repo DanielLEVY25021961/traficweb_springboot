@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import levy.daniel.application.controllers.web.metier.profil.IProfilController;
 import levy.daniel.application.model.metier.profil.IProfil;
-import levy.daniel.application.model.persistence.metier.profil.entities.ProfilEntityJPA;
+import levy.daniel.application.model.persistence.metier.profil.entities.jpa.ProfilEntityJPA;
 import levy.daniel.application.model.services.metier.profil.impl.IProfilService;
 
 /**

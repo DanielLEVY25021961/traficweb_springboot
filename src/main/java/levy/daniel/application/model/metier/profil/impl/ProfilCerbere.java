@@ -6,7 +6,7 @@ import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.dto.metier.profil.IProfilCerbereDTO;
 import levy.daniel.application.model.metier.profil.AbstractProfil;
-import levy.daniel.application.model.persistence.metier.profil.entities.ProfilEntityJPA;
+import levy.daniel.application.model.persistence.metier.profil.entities.jpa.ProfilEntityJPA;
 
 
 

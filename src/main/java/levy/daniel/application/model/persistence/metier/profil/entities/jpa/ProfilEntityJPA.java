@@ -1,4 +1,4 @@
-package levy.daniel.application.model.persistence.metier.profil.entities;
+package levy.daniel.application.model.persistence.metier.profil.entities.jpa;
 
 import javax.persistence.Transient;
 

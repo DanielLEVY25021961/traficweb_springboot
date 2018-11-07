@@ -3,7 +3,7 @@ package levy.daniel.application.model.services.metier.profil.impl;
 import java.util.Collection;
 
 import levy.daniel.application.model.metier.profil.IProfil;
-import levy.daniel.application.model.persistence.metier.profil.entities.ProfilEntityJPA;
+import levy.daniel.application.model.persistence.metier.profil.entities.jpa.ProfilEntityJPA;
 
 
 /**
