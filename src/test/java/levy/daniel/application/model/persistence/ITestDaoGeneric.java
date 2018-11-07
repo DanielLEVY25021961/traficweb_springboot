@@ -38,6 +38,11 @@ public interface ITestDaoGeneric<T, ID extends Serializable> {
 	 */
 	String UNUSED = "unused";
 	
+	/**
+	 * "CONTENU DU STOCKAGE : ".<br/>
+	 */
+	String CONTENU_STOCKAGE_SIMPLE 
+		= "CONTENU DU STOCKAGE : ";
 	
 	/**
 	 * "CONTENU DU STOCKAGE : '".<br/>

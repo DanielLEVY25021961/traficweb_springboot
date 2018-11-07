@@ -101,7 +101,7 @@ public abstract class AbstractTestDaoGenericJPASpring<T, ID extends Serializable
 		/* AFFICHAGE A LA CONSOLE. */
 		if (pAffichageGeneral && pAffichage) {
 			System.out.println();
-			System.out.println(CONTENU_STOCKAGE + '\n');
+			System.out.println(CONTENU_STOCKAGE_SIMPLE + '\n');
 			this.daoATester.ecrireStockageDansConsole();
 			System.out.println();
 			System.out.println(NOMBRE_ENREGISTREMENTS + nombreInitial);

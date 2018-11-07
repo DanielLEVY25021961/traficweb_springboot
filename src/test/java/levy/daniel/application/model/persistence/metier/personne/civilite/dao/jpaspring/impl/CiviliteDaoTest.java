@@ -1,4 +1,4 @@
-package levy.daniel.application.model.persistence.metier.personne.civilite.dao.impl;
+package levy.daniel.application.model.persistence.metier.personne.civilite.dao.jpaspring.impl;
 
 import static org.junit.Assert.assertTrue;
 
@@ -20,10 +20,9 @@ import levy.daniel.application.model.metier.personne.civilite.impl.CivilitesEnum
 import levy.daniel.application.model.persistence.AbstractTestDaoGenericJPASpring;
 import levy.daniel.application.model.persistence.metier.personne.civilite.dao.jpaspring.ICiviliteDao;
 
-
 /**
- * CLASSE CiviliteDaoSpringJPATest :<br/>
- * Test JUnit du DAO CiviliteDao.<br/>
+ * CLASSE CiviliteDaoTest :<br/>
+ * Test JUnit du DAO CiviliteDao SPRING JPA.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -31,6 +30,7 @@ import levy.daniel.application.model.persistence.metier.personne.civilite.dao.jp
  * 
  * - Mots-clé :<br/>
  * Test Spring, Test JUnit Spring, SPRING, TEST DAO SPRING,<br/>
+ * Test SPRING BOOT JPA,<br/>
  * fabriquer liste à partir d'un Iterable,<br/>
  * Test Dao, test DAO, Test persistence avec SPRING BOOT,<br/> 
  * UTILISER LES ANNOTATIONS RunWith(SpringRunner.class), DataJpaTest 
@@ -39,22 +39,21 @@ import levy.daniel.application.model.persistence.metier.personne.civilite.dao.jp
  * ne résoud pas les dépendances et ne trouve pas 
  * les Beans lors des tests JUnit.<br/>
  * <br/>
- *
+ * 
  * - Dépendances :<br/>
  * <br/>
  *
- *
- * @author dan Lévy
+ * @author daniel.levy Lévy
  * @version 1.0
- * @since 6 nov. 2018
+ * @since 7 nov. 2018
  *
  */
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @ComponentScan("levy.daniel.application")
-public class CiviliteDaoSpringJPATest 
-			extends AbstractTestDaoGenericJPASpring<ICivilite, Long> {
-	
+public class CiviliteDaoTest 
+	extends AbstractTestDaoGenericJPASpring<ICivilite, Long> {
+
 	// ************************ATTRIBUTS************************************/
 	
 	/**
@@ -69,16 +68,18 @@ public class CiviliteDaoSpringJPATest
      * DAO à tester injecté par SPRING BOOT.<br/>
      */
     @Autowired(required=true)
-    @Qualifier("CiviliteDao")
+    @Qualifier("CiviliteDaoJpaSpring")
     private transient ICiviliteDao civiliteDaoSpringJPA;
+
     
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(CiviliteDaoSpringJPATest.class);
+		= LogFactory.getLog(CiviliteDaoTest.class);
 
+       
 	// *************************METHODES************************************/
 
 	
@@ -86,7 +87,7 @@ public class CiviliteDaoSpringJPATest
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * <br/>
 	 */
-	public CiviliteDaoSpringJPATest() {
+	public CiviliteDaoTest() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -108,9 +109,11 @@ public class CiviliteDaoSpringJPATest
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
-		System.out.println("********** CLASSE CiviliteDaoSpringJPATest - méthode testCreate() ********** ");
+			System.out.println("********** CLASSE CiviliteDaoTest - méthode testCreate() ********** ");
+			System.out.println();
 		}
 		
+		// APPEL DE LA SUPER METHODE
 		super.testCreate(AFFICHAGE_GENERAL, affichage);
 		
 		assertTrue("BIDON : ", 1 == 1);
@@ -137,5 +140,5 @@ public class CiviliteDaoSpringJPATest
 	} // Fin de before().__________________________________________________
 
 	
-	
-} // FIN DE LA CLASSE CiviliteDaoSpringJPATest.------------------------------
+
+}

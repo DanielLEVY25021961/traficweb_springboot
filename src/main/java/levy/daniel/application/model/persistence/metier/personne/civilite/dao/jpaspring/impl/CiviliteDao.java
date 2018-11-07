@@ -17,7 +17,7 @@ import levy.daniel.application.model.persistence.metier.personne.civilite.dao.jp
 import levy.daniel.application.model.persistence.metier.personne.civilite.entities.jpa.CiviliteEntityJPA;
 
 /**
- * CLASSE CONCRETE <b>CiviliteDaoSpringJPA</b> :<br/>
+ * CLASSE CONCRETE <b>CiviliteDao</b> :<br/>
  * <p>
  * <span style="text-decoration: underline;">CONCEPT 
  * CONCERNE PAR CE DAO</span>
@@ -30,7 +30,7 @@ import levy.daniel.application.model.persistence.metier.personne.civilite.entiti
  * 
  * <p>
  * <span style="text-decoration: underline;">DESCRIPTION DE 
- * CiviliteDaoSpringJPA</span>
+ * CiviliteDao</span>
  * </p>
  * <ul>
  * <li>DAO <b>CONCRET</b> pour les <b>Civilite</b>.</li>
@@ -44,22 +44,22 @@ import levy.daniel.application.model.persistence.metier.personne.civilite.entiti
  * </ul>
  * 
  * <p>
- * <span style="text-decoration: underline;">IMPLEMENTATION DES CiviliteDaoSpringJPA</span>
+ * <span style="text-decoration: underline;">IMPLEMENTATION DES CiviliteDao</span>
  * </p>
  * <ul>
  * <li>
- * <img src="../../../../../../../../../../../../../../../javadoc/images/implementation_DAO_Civilite.png" 
- * alt="implémentation des DAOs Civilite" border="1" align="center" />
+ * <img src="../../../../../../../../../../../../../../../javadoc/images/implementation_DAO_Civilite_JpaSpring.png" 
+ * alt="implémentation des DAOs Civilite JPA SPRING" border="1" align="center" />
  * </li>
  * </ul>
  * 
  * <p>
- * <span style="text-decoration: underline;">UTILISATION DES CiviliteDaoSpringJPA</span>
+ * <span style="text-decoration: underline;">UTILISATION DES CiviliteDao</span>
  * </p>
  * <ul>
  * <li>
- * <img src="../../../../../../../../../../../../javadoc/images/utilisation_DaoProfilCerbere.png" 
- * alt="utilisation des DAOs CiviliteDaoSpringJPA" border="1" align="center" />
+ * <img src="../../../../../../../../../../../../javadoc/images/utilisation_CiviliteDao_JpaSpring.png" 
+ * alt="utilisation des DAOs CiviliteDao JPA SPRING" border="1" align="center" />
  * </li>
  * </ul>
  * 
@@ -81,18 +81,18 @@ import levy.daniel.application.model.persistence.metier.personne.civilite.entiti
  *
  */
 @Repository
-@Qualifier("CiviliteDaoSpringJPA")
-public class CiviliteDaoSpringJPA 
+@Qualifier("CiviliteDaoJpaSpring")
+public class CiviliteDao 
 			extends AbstractCiviliteDao {
 
 	// ************************ATTRIBUTS************************************/
 
 
 	/**
-	 * "Classe CiviliteDaoSpringJPA".<br/>
+	 * "Classe CiviliteDao".<br/>
 	 */
 	public static final String CLASSE_CIVILITE_DAO_SPRING_JPA 
-		= "Classe CiviliteDaoSpringJPA";
+		= "Classe CiviliteDao";
 	
 	/**
 	 * entityManager : javax.persistence.EntityManager :<br/>
@@ -114,7 +114,7 @@ public class CiviliteDaoSpringJPA
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(CiviliteDaoSpringJPA.class);
+		= LogFactory.getLog(CiviliteDao.class);
 
 	
 	// *************************METHODES************************************/
@@ -122,7 +122,7 @@ public class CiviliteDaoSpringJPA
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public CiviliteDaoSpringJPA() {
+	public CiviliteDao() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 
@@ -377,4 +377,4 @@ public class CiviliteDaoSpringJPA
 
 	
 
-} // FIN DE LA CLASSE CiviliteDaoSpringJPA.-------------------------------------------
+} // FIN DE LA CLASSE CiviliteDao.-------------------------------------------
