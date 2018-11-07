@@ -18,7 +18,7 @@ import levy.daniel.application.model.metier.personne.civilite.impl.CiviliteAbreg
 import levy.daniel.application.model.metier.personne.civilite.impl.CiviliteComplete;
 import levy.daniel.application.model.metier.personne.civilite.impl.CivilitesEnum;
 import levy.daniel.application.model.persistence.AbstractTestDaoGenericJPASpring;
-import levy.daniel.application.model.persistence.metier.personne.civilite.dao.ICiviliteDao;
+import levy.daniel.application.model.persistence.metier.personne.civilite.dao.jpaspring.ICiviliteDao;
 
 
 /**

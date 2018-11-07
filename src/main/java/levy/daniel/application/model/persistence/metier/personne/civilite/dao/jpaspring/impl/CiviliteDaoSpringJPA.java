@@ -1,4 +1,4 @@
-package levy.daniel.application.model.persistence.metier.personne.civilite.dao.impl;
+package levy.daniel.application.model.persistence.metier.personne.civilite.dao.jpaspring.impl;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import levy.daniel.application.model.metier.personne.civilite.ICivilite;
 import levy.daniel.application.model.persistence.daoexceptions.AbstractDaoException;
 import levy.daniel.application.model.persistence.daoexceptions.GestionnaireDaoException;
-import levy.daniel.application.model.persistence.metier.personne.civilite.dao.AbstractCiviliteDao;
+import levy.daniel.application.model.persistence.metier.personne.civilite.dao.jpaspring.AbstractCiviliteDao;
 import levy.daniel.application.model.persistence.metier.personne.civilite.entities.jpa.CiviliteEntityJPA;
 
 /**

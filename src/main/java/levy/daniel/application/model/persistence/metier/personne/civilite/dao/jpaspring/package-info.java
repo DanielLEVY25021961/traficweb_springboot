@@ -15,7 +15,7 @@
  *
  * @author daniel.levy Lévy
  * @version 1.0
- * @since 6 nov. 2018
+ * @since 7 nov. 2018
  *
  */
-package levy.daniel.application.model.persistence.metier.personne.civilite.dao.impl;
+package levy.daniel.application.model.persistence.metier.personne.civilite.dao.jpaspring;

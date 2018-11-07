@@ -1,4 +1,4 @@
-package levy.daniel.application.model.persistence.metier.personne.civilite.dao;
+package levy.daniel.application.model.persistence.metier.personne.civilite.dao.jpaspring;
 
 import java.util.List;
 
