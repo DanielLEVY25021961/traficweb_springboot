@@ -1,4 +1,4 @@
-package levy.daniel.application.model.persistence.metier.personne.civilite.dao.impl.jpaspring;
+package levy.daniel.application.model.persistence.metier.${nom_classe_metier_en_minuscules}.dao.impl.jpaspring;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -15,30 +15,31 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import levy.daniel.application.model.metier.personne.civilite.ICivilite;
 import levy.daniel.application.model.persistence.daoexceptions.GestionnaireDaoException;
-import levy.daniel.application.model.persistence.metier.personne.civilite.entities.jpa.CiviliteEntityJPA;
+
+import levy.daniel.application.model.metier.${nom_classe_metier_en_minuscules}.I${nom_classe_metier};
+import levy.daniel.application.model.persistence.metier.${nom_classe_metier_en_minuscules}.entities.jpa.${nom_classe_metier}EntityJPA;
 
 /**
- * CLASSE CONCRETE <b>CiviliteDao</b> :<br/>
+ * CLASSE CONCRETE <b>${nom_classe_metier}Dao</b> :<br/>
  * <p>
  * <span style="text-decoration: underline;">CONCEPT 
  * CONCERNE PAR CE DAO</span>
  * </p>
  * <p>
- * <b>Civilite</b> modélise un un <i>concept</i> 
- * de <b>Civilite</b> avec ********
+ * <b>${nom_classe_metier}</b> modélise un un <i>concept</i> 
+ * de <b>${nom_classe_metier}</b> avec ********
  * <b>*****</b>  qui identifie <i>une ou plusieurs</i> <b>****</b>.<br/>
  * </p>
  * 
  * <p>
  * <span style="text-decoration: underline;">DESCRIPTION DE 
- * CiviliteDao</span>
+ * ${nom_classe_metier}Dao</span>
  * </p>
  * <ul>
- * <li>DAO <b>CONCRET</b> pour les <b>Civilite</b>.</li>
+ * <li>DAO <b>CONCRET</b> pour les <b>${nom_classe_metier}</b>.</li>
  * <li>
- * Implémente l'interface <b>ICiviliteDao</b>.
+ * Implémente l'interface <b>I${nom_classe_metier}Dao</b>.
  * </li>
  * <li>
  * Certaines méthodes (getOne(ID), ...) sont 
@@ -47,22 +48,22 @@ import levy.daniel.application.model.persistence.metier.personne.civilite.entiti
  * </ul>
  * 
  * <p>
- * <span style="text-decoration: underline;">IMPLEMENTATION DES CiviliteDao</span>
+ * <span style="text-decoration: underline;">IMPLEMENTATION DES ${nom_classe_metier}Dao</span>
  * </p>
  * <ul>
  * <li>
- * <img src="../../../../../../../../../../../../../../../javadoc/images/implementation_DAO_Civilite_JpaSpring.png" 
- * alt="implémentation des DAOs Civilite JPA SPRING" border="1" align="center" />
+ * <img src="../../../../../../../../../../../../../../../javadoc/images/implementation_DAO_${nom_classe_metier}_JpaSpring.png" 
+ * alt="implémentation des DAOs ${nom_classe_metier} JPA SPRING" border="1" align="center" />
  * </li>
  * </ul>
  * 
  * <p>
- * <span style="text-decoration: underline;">UTILISATION DES CiviliteDao</span>
+ * <span style="text-decoration: underline;">UTILISATION DES ${nom_classe_metier}Dao</span>
  * </p>
  * <ul>
  * <li>
- * <img src="../../../../../../../../../../../../javadoc/images/utilisation_CiviliteDao_JpaSpring.png" 
- * alt="utilisation des DAOs CiviliteDao JPA SPRING" border="1" align="center" />
+ * <img src="../../../../../../../../../../../../javadoc/images/utilisation_${nom_classe_metier}Dao_JpaSpring.png" 
+ * alt="utilisation des DAOs ${nom_classe_metier}Dao JPA SPRING" border="1" align="center" />
  * </li>
  * </ul>
  * 
@@ -84,16 +85,16 @@ import levy.daniel.application.model.persistence.metier.personne.civilite.entiti
  *
  */
 @Repository
-@Qualifier("CiviliteDao")
-public class CiviliteDao {
+@Qualifier("${nom_classe_metier}Dao")
+public class ${nom_classe_metier}Dao {
 
 	// ************************ATTRIBUTS************************************/
 	
 	/**
-	 * "Classe CiviliteDao".<br/>
+	 * "Classe ${nom_classe_metier}Dao".<br/>
 	 */
-	public static final String CLASSE_SQUELETTEDAO_JPA_SPRING 
-		= "Classe CiviliteDao";
+	public static final String CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING 
+		= "Classe ${nom_classe_metier}Dao";
 
 	/**
 	 * SAUT_LIGNE_JAVA : char :<br/>
@@ -103,12 +104,12 @@ public class CiviliteDao {
 
 	/**
 	 * SELECT_OBJET : String :<br/>
-	 * "select civilite from 
-	 * CiviliteEntityJPA as civilite ".<br/>
+	 * "select ${nom_classe_metier_en_minuscules} from 
+	 * ${nom_classe_metier}EntityJPA as ${nom_classe_metier_en_minuscules} ".<br/>
 	 */
 	public static final String SELECT_OBJET 
-		= "select civilite from "
-				+ "CiviliteEntityJPA as civilite ";
+		= "select ${nom_classe_metier_en_minuscules} from "
+				+ "${nom_classe_metier}EntityJPA as ${nom_classe_metier_en_minuscules} ";
 	
 	/**
 	 * JPA EntityManager injecté par SPRING.<br/>
@@ -135,7 +136,7 @@ public class CiviliteDao {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(CiviliteDao.class);
+		= LogFactory.getLog(${nom_classe_metier}Dao.class);
 
 	
 	// *************************METHODES************************************/
@@ -143,7 +144,7 @@ public class CiviliteDao {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public CiviliteDao() {
+	public ${nom_classe_metier}Dao() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -161,23 +162,23 @@ public class CiviliteDao {
 	 * - retourne null si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ICivilite : 
+	 * @param pObject : I${nom_classe_metier} : 
 	 * l'objet métier à persister dans le stockage.<br/>
 	 * 
-	 * @return ICivilite : 
+	 * @return I${nom_classe_metier} : 
 	 * l'objet métier persisté dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	public final ICivilite create(
-			final ICivilite pObject) throws Exception {
+	public final I${nom_classe_metier} create(
+			final I${nom_classe_metier} pObject) throws Exception {
 
 		/* retourne null si pObject == null. */
 		if (pObject == null) {
 			return null;
 		}
 
-		ICivilite persistentObject = null;
+		I${nom_classe_metier} persistentObject = null;
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -197,8 +198,8 @@ public class CiviliteDao {
 		try {
 			
 			/* Obtention d'une Entity JPA à partir de l'objet métier. */
-			final CiviliteEntityJPA entity 
-				= new CiviliteEntityJPA(pObject);
+			final ${nom_classe_metier}EntityJPA entity 
+				= new ${nom_classe_metier}EntityJPA(pObject);
 
 			/* ***************** */
 			/* PERSISTE en base. */
@@ -217,8 +218,8 @@ public class CiviliteDao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_SQUELETTEDAO_JPA_SPRING
-							, "Méthode create(ICivilite pObject)", e);
+						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+							, "Méthode create(I${nom_classe_metier} pObject)", e);
 
 		}
 
@@ -239,13 +240,13 @@ public class CiviliteDao {
 	 * - ne fait rien si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ICivilite : 
+	 * @param pObject : I${nom_classe_metier} : 
 	 * l'objet métier à persister dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
 	public final void persist(
-			final ICivilite pObject) throws Exception {
+			final I${nom_classe_metier} pObject) throws Exception {
 
 		/* ne fait rien si pObject == null. */
 		if (pObject == null) {
@@ -271,8 +272,8 @@ public class CiviliteDao {
 		try {
 			
 			/* Obtention d'une Entity JPA à partir de l'objet métier. */
-			final CiviliteEntityJPA entity 
-				= new CiviliteEntityJPA(pObject);
+			final ${nom_classe_metier}EntityJPA entity 
+				= new ${nom_classe_metier}EntityJPA(pObject);
 
 			/* ***************** */
 			/* PERSISTE en base. */
@@ -289,8 +290,8 @@ public class CiviliteDao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_SQUELETTEDAO_JPA_SPRING
-							, "Méthode persist(ICivilite Object)", e);
+						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+							, "Méthode persist(I${nom_classe_metier} Object)", e);
 
 		}
 
@@ -308,7 +309,7 @@ public class CiviliteDao {
 	 * - retourne null si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ICivilite : 
+	 * @param pObject : I${nom_classe_metier} : 
 	 * l'objet métier à persister dans le stockage.<br/>
 	 * 
 	 * @return : Long : 
@@ -318,7 +319,7 @@ public class CiviliteDao {
 	 * @throws Exception
 	 */
 	public final Long createReturnId(
-			final ICivilite pObject) throws Exception {
+			final I${nom_classe_metier} pObject) throws Exception {
 
 		/* retourne null si pObject == null. */
 		if (pObject == null) {
@@ -342,7 +343,7 @@ public class CiviliteDao {
 
 		/* ******************************************************* */
 		/* Crée l'Objet en base ou jette une Exception. */
-		final ICivilite objectPersistant 
+		final I${nom_classe_metier} objectPersistant 
 			= this.create(pObject);
 
 		/* retourne null si l'objet pObject n'a pu être créé en base. */
@@ -368,16 +369,16 @@ public class CiviliteDao {
 	 * null est contenu dans l'itérable.</li>
 	 * </ul>
 	 *
-	 * @param pList : Iterable&lt;ICivilite&gt; : 
+	 * @param pList : Iterable&lt;I${nom_classe_metier}&gt; : 
 	 * itérable d'objets métier à persister dans le stockage.<br/>
 	 * 
-	 * @return Iterable&lt;ICivilite&gt; : 
+	 * @return Iterable&lt;I${nom_classe_metier}&gt; : 
 	 * itérable d'objets métier persistés dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	public final Iterable<ICivilite> save(
-			final Iterable<ICivilite> pList) 
+	public final Iterable<I${nom_classe_metier}> save(
+			final Iterable<I${nom_classe_metier}> pList) 
 					throws Exception {
 		
 		/* retourne null si pList == null. */
@@ -395,15 +396,15 @@ public class CiviliteDao {
 			return null;
 		}
 
-		final List<ICivilite> resultat = new ArrayList<ICivilite>();
+		final List<I${nom_classe_metier}> resultat = new ArrayList<I${nom_classe_metier}>();
 
-		final Iterator<ICivilite> iteS = pList.iterator();
+		final Iterator<I${nom_classe_metier}> iteS = pList.iterator();
 
 		try {
 
 			while (iteS.hasNext()) {
 
-				final ICivilite objet = iteS.next();
+				final I${nom_classe_metier} objet = iteS.next();
 
 				/* Passe les doublons existants en base. */
 				if (!this.exists(objet)) {
@@ -413,10 +414,10 @@ public class CiviliteDao {
 
 						/* Obtention d'une Entity JPA à partir 
 						 * de l'objet métier. */
-						final CiviliteEntityJPA entity 
-							= new CiviliteEntityJPA(objet);
+						final ${nom_classe_metier}EntityJPA entity 
+							= new ${nom_classe_metier}EntityJPA(objet);
 						
-						ICivilite objectPersistant = null;
+						I${nom_classe_metier} objectPersistant = null;
 
 						try {
 
@@ -436,7 +437,7 @@ public class CiviliteDao {
 							/* Gestion de la DAO Exception. */
 							this.gestionnaireException
 								.gererException(
-										CLASSE_SQUELETTEDAO_JPA_SPRING
+										CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
 											, "Méthode save(Iterable)", e);
 						}
 
@@ -463,7 +464,7 @@ public class CiviliteDao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_SQUELETTEDAO_JPA_SPRING
+						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
 							, "Méthode save(Iterable)", e);
 
 		}
@@ -489,16 +490,16 @@ public class CiviliteDao {
 	 * n'existe pas dans le stockage.</li>
 	 * </ul>
 	 *
-	 * @param pObject : ICivilite : 
+	 * @param pObject : I${nom_classe_metier} : 
 	 * objet métier à rechercher.<br/>
 	 * 
-	 * @return : ICivilite : 
+	 * @return : I${nom_classe_metier} : 
 	 * objet métier recherché.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	public final ICivilite retrieve(
-			final ICivilite pObject) throws Exception {
+	public final I${nom_classe_metier} retrieve(
+			final I${nom_classe_metier} pObject) throws Exception {
 
 		/* return null si pObject == null. */
 		if (pObject == null) {
@@ -515,25 +516,25 @@ public class CiviliteDao {
 			return null;
 		}
 
-		ICivilite objectPersistant = null;
+		I${nom_classe_metier} objectPersistant = null;
 
 		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 			= SELECT_OBJET
-				+ "where civilite.civiliteString = :pCiviliteString";
+				+ "where ${nom_classe_metier_en_minuscules}.${nom_classe_metier_en_minuscules}String = :p${nom_classe_metier}String";
 
 		/* Construction de la requête HQL. */
 		final Query requete 
 			= this.entityManager.createQuery(requeteString);
 
 		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pCiviliteString", pObject.getCiviliteString());
+		requete.setParameter("p${nom_classe_metier}String", pObject.get${nom_classe_metier}String());
 
 		try {
 
 			/* Execution de la requete HQL. */
 			objectPersistant 
-				= (ICivilite) requete.getSingleResult();
+				= (I${nom_classe_metier}) requete.getSingleResult();
 
 		}
 		catch (NoResultException noResultExc) {
@@ -552,8 +553,8 @@ public class CiviliteDao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_SQUELETTEDAO_JPA_SPRING
-						, "Méthode retrieve(ICivilite pObject)", e);
+						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+						, "Méthode retrieve(I${nom_classe_metier} pObject)", e);
 		}
 
 		return objectPersistant;
@@ -574,14 +575,14 @@ public class CiviliteDao {
 	 * index (0-based) ou identifiant en base 
 	 * de l'objet métier à rechercher.<br/>
 	 * 
-	 * @return : ICivilite : objet métier recherché.<br/>
+	 * @return : I${nom_classe_metier} : objet métier recherché.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	public final ICivilite findById(
+	public final I${nom_classe_metier} findById(
 			final Long pId) throws Exception {
 
-		ICivilite objetTrouve = null;
+		I${nom_classe_metier} objetTrouve = null;
 
 		/* retourne null si pId == null. */
 		if (pId == null) {
@@ -604,7 +605,7 @@ public class CiviliteDao {
 			// RECHERCHE EN BASE.
 			objetTrouve 
 				= this.entityManager
-					.find(CiviliteEntityJPA.class, pId);
+					.find(${nom_classe_metier}EntityJPA.class, pId);
 
 		}
 		catch (Exception e) {
@@ -612,7 +613,7 @@ public class CiviliteDao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_SQUELETTEDAO_JPA_SPRING
+						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
 						, "Méthode findById(Long)", e);
 
 		}
@@ -627,7 +628,7 @@ public class CiviliteDao {
 	 * <b>retourne l'identifiant ou l'index (0-based) 
 	 * de l'objet métier pObject dans le stockage</b>.<br/>
 	 *
-	 * @param pObject : ICivilite : 
+	 * @param pObject : I${nom_classe_metier} : 
 	 * objet métier dont on recherche l'identifiant.<br/>
 	 *  
 	 * @return Long : 
@@ -636,9 +637,9 @@ public class CiviliteDao {
 	 * @throws Exception
 	 */
 	public final Long retrieveId(
-			final ICivilite pObject) throws Exception {
+			final I${nom_classe_metier} pObject) throws Exception {
 		
-		final ICivilite object = this.retrieve(pObject);
+		final I${nom_classe_metier} object = this.retrieve(pObject);
 		
 		Long resultat = null;
 		
@@ -657,12 +658,12 @@ public class CiviliteDao {
 	 * persistés dans le stockage</b>.<br/>
 	 * - peut retourner null si le stockage ne peut être lu.<br/>
 	 *
-	 * @return : List&lt;ICivilite&gt; : 
+	 * @return : List&lt;I${nom_classe_metier}&gt; : 
 	 * liste de tous les objets métier persistés dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	public final List<ICivilite> findAll() throws Exception {
+	public final List<I${nom_classe_metier}> findAll() throws Exception {
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -676,9 +677,9 @@ public class CiviliteDao {
 
 		/* Création de la requête HQL sous forme de String. */
 		final String requeteString 
-			= "from CiviliteEntityJPA";
+			= "from ${nom_classe_metier}EntityJPA";
 
-		List<ICivilite> resultat = null;
+		List<I${nom_classe_metier}> resultat = null;
 
 		try {
 
@@ -700,7 +701,7 @@ public class CiviliteDao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_SQUELETTEDAO_JPA_SPRING
+						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
 						, "Méthode findall()", e);
 
 		}
@@ -726,13 +727,13 @@ public class CiviliteDao {
 	 * @param pMaxResult : int : 
 	 * nombre maximum d'objets métier à retourner.<br/>
 	 * 
-	 * @return : List&lt;ICivilite&gt; : 
+	 * @return : List&lt;I${nom_classe_metier}&gt; : 
 	 * liste des pMax objets métier persistés dans le stockage 
 	 * à partir de pStartPosition (0-based).<br/>
 	 * 
 	 * @throws Exception
 	 */
-	public final List<ICivilite> findAllMax(
+	public final List<I${nom_classe_metier}> findAllMax(
 			final int pStartPosition
 				, final int pMaxResult) throws Exception {
 
@@ -749,9 +750,9 @@ public class CiviliteDao {
 
 		/* Création de la requête HQL sous forme de String. */
 		final String requeteString 
-			= "from CiviliteEntityJPA";
+			= "from ${nom_classe_metier}EntityJPA";
 
-		List<ICivilite> resultat = null;
+		List<I${nom_classe_metier}> resultat = null;
 
 		try {
 
@@ -774,7 +775,7 @@ public class CiviliteDao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_SQUELETTEDAO_JPA_SPRING
+						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
 						, "Méthode findAllMax(...)", e);
 
 		}
@@ -791,11 +792,11 @@ public class CiviliteDao {
 	 * Iterable&lt;Long&gt; pIds) :<br/>
 	 * <ul>
 	 * <li>retourne une Collection iterable d'Objets métier 
-	 * (List&lt;ICivilite&gt;) dont les IDs appartiennent 
+	 * (List&lt;I${nom_classe_metier}&gt;) dont les IDs appartiennent 
 	 * à la Collection itérable d'IDs passée en paramètre.</li>
-	 * <li>Inclut dans la liste les sous-classe de ICivilite 
+	 * <li>Inclut dans la liste les sous-classe de I${nom_classe_metier} 
 	 * (strategy=InheritanceType.JOINED) 
-	 * avec la visibilité (Typé) ICivilite.</li>
+	 * avec la visibilité (Typé) I${nom_classe_metier}.</li>
 	 * </ul>
 	 * retourne null si pIds == null.<br/>
 	 * ne retourne que les objets de la collection 
@@ -804,11 +805,11 @@ public class CiviliteDao {
 	 *
 	 * @param pIds : Iterable&lt;Long&gt;.<br/>
 	 * 
-	 * @return Iterable&lt;ICivilite&gt; : List&lt;ICivilite&gt;.<br/>
+	 * @return Iterable&lt;I${nom_classe_metier}&gt; : List&lt;I${nom_classe_metier}&gt;.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	public final Iterable<ICivilite> findAll(
+	public final Iterable<I${nom_classe_metier}> findAll(
 			final Iterable<Long> pIds) throws Exception {
 
 		/* retourne null si pIds == null. */
@@ -826,7 +827,7 @@ public class CiviliteDao {
 			return null;
 		}
 
-		final List<ICivilite> resultat = new ArrayList<ICivilite>();		
+		final List<I${nom_classe_metier}> resultat = new ArrayList<I${nom_classe_metier}>();		
 
 		final Iterator<Long> iteratorID = pIds.iterator();
 
@@ -835,7 +836,7 @@ public class CiviliteDao {
 			final Long id = iteratorID.next();
 			
 			/* Recherche en base sur Long. */
-			final ICivilite objetEnBase = this.findById(id);
+			final I${nom_classe_metier} objetEnBase = this.findById(id);
 
 			if (objetEnBase != null) {
 				resultat.add(objetEnBase);
@@ -853,12 +854,12 @@ public class CiviliteDao {
 	
 	/**
 	 * method update(
-	 * ICivilite pObject) :<br/>
+	 * I${nom_classe_metier} pObject) :<br/>
 	 * <ul>
 	 * <li><b>Modifie</b> un objet métier <b>persistant</b> 
 	 * existant en base.</li>
 	 * <li>Retourne l'objet métier pObject <b>modifié en base</b> 
-	 * avec la visibilité (Typé) ICivilite.</li>
+	 * avec la visibilité (Typé) I${nom_classe_metier}.</li>
 	 * </ul>
 	 * retourne null si pObject == null.<br/>
 	 * ne fait rien et retourne l'instance détachée 
@@ -875,7 +876,7 @@ public class CiviliteDao {
 	 * this.daoUserSimple.<b>update(objet1Persistant)</b>;</code><br/>
 	 * <br/>
 	 *
-	 * @param pObject : ICivilite : objet métier avec ID 
+	 * @param pObject : I${nom_classe_metier} : objet métier avec ID 
 	 * et comportant les modifications.<br/>
 	 * 
 	 * @return : T : objet métier de Type paramétré 
@@ -883,8 +884,8 @@ public class CiviliteDao {
 	 * 
 	 * @throws Exception 
 	 */
-	public final ICivilite update(
-			final ICivilite pObject) throws Exception {
+	public final I${nom_classe_metier} update(
+			final I${nom_classe_metier} pObject) throws Exception {
 
 		/* retourne null si pObject == null. */
 		if (pObject == null) {
@@ -908,13 +909,13 @@ public class CiviliteDao {
 			return pObject;
 		}
 
-		ICivilite persistentObject = null;
+		I${nom_classe_metier} persistentObject = null;
 
 		try {
 
 			/* Obtention d'une Entity JPA à partir de l'objet métier. */
-			final CiviliteEntityJPA entity 
-				= new CiviliteEntityJPA(pObject);
+			final ${nom_classe_metier}EntityJPA entity 
+				= new ${nom_classe_metier}EntityJPA(pObject);
 			
 			/* **************** */
 			/* MODIFIE en base. */
@@ -933,8 +934,8 @@ public class CiviliteDao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_SQUELETTEDAO_JPA_SPRING
-						, "Méthode update(ICivilite Object)", e);
+						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+						, "Méthode update(I${nom_classe_metier} Object)", e);
 
 		}
 
@@ -965,16 +966,16 @@ public class CiviliteDao {
 	 *
 	 * @param pId : Long : 
 	 * index (0-based) de l'objet métier à modifier.<br/>
-	 * @param pObjectModifie : ICivilite : 
+	 * @param pObjectModifie : I${nom_classe_metier} : 
 	 * Objet métier contenant les modifications 
 	 * à apporter à l'objet persistant dans le stockage.<br/>
 	 * 
-	 * @return ICivilite : objet métier persistant modifié.<br/>
+	 * @return I${nom_classe_metier} : objet métier persistant modifié.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	public final ICivilite update(
-			final Long pId, final ICivilite pObjectModifie) 
+	public final I${nom_classe_metier} update(
+			final Long pId, final I${nom_classe_metier} pObjectModifie) 
 												throws Exception {
 
 		/* retourne null si pId == null. */
@@ -998,22 +999,22 @@ public class CiviliteDao {
 		}
 
 		/* récupération de l'objet persistant à modifier. */
-		final ICivilite objectPersistant = this.findById(pId);
+		final I${nom_classe_metier} objectPersistant = this.findById(pId);
 		
 		/* retourne null s'il n'y a pas d'objet persistant à pId. */
 		if (objectPersistant == null) {
 			return null;
 		}
 
-		ICivilite persistentObject = null;
+		I${nom_classe_metier} persistentObject = null;
 		
 		try {
 			
 			final Long id = objectPersistant.getId();
 			
 			/* Obtention d'une Entity JPA à partir de l'objet métier. */
-			final CiviliteEntityJPA entity 
-				= new CiviliteEntityJPA(pObjectModifie);
+			final ${nom_classe_metier}EntityJPA entity 
+				= new ${nom_classe_metier}EntityJPA(pObjectModifie);
 			
 			/* Passage de l'ID à l'entity contenant les modifications. */
 			entity.setId(id);
@@ -1034,9 +1035,9 @@ public class CiviliteDao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_SQUELETTEDAO_JPA_SPRING
+						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
 						, "Méthode update(Long pId"
-								+ ", ICivilite Object)", e);
+								+ ", I${nom_classe_metier} Object)", e);
 			
 		}
 
@@ -1059,7 +1060,7 @@ public class CiviliteDao {
 	 * - retourne false si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ICivilite : objet métier à détruire.<br/>
+	 * @param pObject : I${nom_classe_metier} : objet métier à détruire.<br/>
 	 * 
 	 * @return : boolean : 
 	 * true si l'objet métier a été détruit.<br/>
@@ -1067,7 +1068,7 @@ public class CiviliteDao {
 	 * @throws Exception
 	 */
 	public final boolean delete(
-			final ICivilite pObject) throws Exception {
+			final I${nom_classe_metier} pObject) throws Exception {
 
 		/* retourne false si pObject == null. */
 		if (pObject == null) {
@@ -1085,7 +1086,7 @@ public class CiviliteDao {
 		}
 
 		/* Vérifie qu'il existe une instance persistante. */
-		final ICivilite objectPersistant = this.retrieve(pObject);
+		final I${nom_classe_metier} objectPersistant = this.retrieve(pObject);
 		
 		/* retourne false si pObject n'est pas persisté. */
 		if (objectPersistant == null) {
@@ -1097,8 +1098,8 @@ public class CiviliteDao {
 		try {
 
 			/* Obtention d'une Entity JPA à partir de l'objet métier. */
-			final CiviliteEntityJPA entity 
-				= new CiviliteEntityJPA(objectPersistant);
+			final ${nom_classe_metier}EntityJPA entity 
+				= new ${nom_classe_metier}EntityJPA(objectPersistant);
 
 			/* merge avant de pouvoir détruire. */
 			this.entityManager.merge(entity);
@@ -1119,8 +1120,8 @@ public class CiviliteDao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_SQUELETTEDAO_JPA_SPRING
-						, "Méthode delete(ICivilite pObject)", e);
+						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+						, "Méthode delete(I${nom_classe_metier} pObject)", e);
 
 		}
 
@@ -1162,12 +1163,12 @@ public class CiviliteDao {
 			return;
 		}
 
-		ICivilite objectPersistant = null;
+		I${nom_classe_metier} objectPersistant = null;
 
 		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 		= SELECT_OBJET 
-		+ "where civilite.id = :pId";
+		+ "where ${nom_classe_metier_en_minuscules}.id = :pId";
 
 		/* Construction de la requête HQL. */
 		final Query requete 
@@ -1180,7 +1181,7 @@ public class CiviliteDao {
 			
 			/* Execution de la requete HQL. */
 			objectPersistant 
-			= (ICivilite) requete.getSingleResult();
+			= (I${nom_classe_metier}) requete.getSingleResult();
 		}
 		catch (NoResultException noResultExc) {
 			objectPersistant = null;
@@ -1191,8 +1192,8 @@ public class CiviliteDao {
 			if (objectPersistant != null) {
 
 				/* Obtention d'une Entity JPA à partir de l'objet métier. */
-				final CiviliteEntityJPA entity 
-					= new CiviliteEntityJPA(objectPersistant);
+				final ${nom_classe_metier}EntityJPA entity 
+					= new ${nom_classe_metier}EntityJPA(objectPersistant);
 
 				/* Merge avant destruction. */
 				this.entityManager.merge(entity);
@@ -1214,7 +1215,7 @@ public class CiviliteDao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_SQUELETTEDAO_JPA_SPRING
+						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
 						, "Méthode deleteById(Long pId)", e);
 		}
 
@@ -1259,12 +1260,12 @@ public class CiviliteDao {
 
 		boolean resultat = false;
 
-		ICivilite objectPersistant = null;
+		I${nom_classe_metier} objectPersistant = null;
 
 		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 		= SELECT_OBJET 
-			+ "where civilite.id = :pId";
+			+ "where ${nom_classe_metier_en_minuscules}.id = :pId";
 
 		/* Construction de la requête HQL. */
 		final Query requete 
@@ -1277,7 +1278,7 @@ public class CiviliteDao {
 			
 			/* Execution de la requete HQL. */
 			objectPersistant 
-			= (ICivilite) requete.getSingleResult();
+			= (I${nom_classe_metier}) requete.getSingleResult();
 			
 		}
 		catch (NoResultException noResultExc) {
@@ -1291,8 +1292,8 @@ public class CiviliteDao {
 
 				/* Obtention d'une Entity JPA à 
 				 * partir de l'objet métier. */
-				final CiviliteEntityJPA entity 
-					= new CiviliteEntityJPA(objectPersistant);
+				final ${nom_classe_metier}EntityJPA entity 
+					= new ${nom_classe_metier}EntityJPA(objectPersistant);
 
 				/* Merge avant destruction. */
 				this.entityManager.merge(entity);
@@ -1314,7 +1315,7 @@ public class CiviliteDao {
 
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
-				.gererException(CLASSE_SQUELETTEDAO_JPA_SPRING
+				.gererException(CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
 						, "Méthode deleteByIdBoolean(Long pId)", e);
 		}
 
@@ -1344,7 +1345,7 @@ public class CiviliteDao {
 
 		/* Création de la requête HQL sous forme de String. */
 		final String requeteString 
-			= "delete from CiviliteEntityJPA";
+			= "delete from ${nom_classe_metier}EntityJPA";
 
 		try {
 
@@ -1366,7 +1367,7 @@ public class CiviliteDao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_SQUELETTEDAO_JPA_SPRING
+						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
 						, "Méthode deleteAll()", e);
 
 		}
@@ -1400,7 +1401,7 @@ public class CiviliteDao {
 
 		/* Création de la requête HQL sous forme de String. */
 		final String requeteString 
-			= "delete from CiviliteEntityJPA";
+			= "delete from ${nom_classe_metier}EntityJPA";
 
 		try {
 
@@ -1424,7 +1425,7 @@ public class CiviliteDao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_SQUELETTEDAO_JPA_SPRING
+						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
 						, "Méthode deleteAllBoolean()", e);
 
 		}
@@ -1446,13 +1447,13 @@ public class CiviliteDao {
 	 * - ne fait rien si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : Iterable&lt;ICivilite&gt; : 
+	 * @param pList : Iterable&lt;I${nom_classe_metier}&gt; : 
 	 * itérable d'objets à retirer du stockage.<br/>
 	 *  
 	 * @throws Exception
 	 */
 	public void deleteIterable(
-			final Iterable<ICivilite> pList) throws Exception {
+			final Iterable<I${nom_classe_metier}> pList) throws Exception {
 
 		/* ne fait rien si pList == null. */
 		if (pList == null) {
@@ -1469,17 +1470,17 @@ public class CiviliteDao {
 			return;
 		}
 
-		final Iterator<ICivilite> itePersistants = pList.iterator();
-		final List<ICivilite> listePersistants 
-			= new ArrayList<ICivilite>();
+		final Iterator<I${nom_classe_metier}> itePersistants = pList.iterator();
+		final List<I${nom_classe_metier}> listePersistants 
+			= new ArrayList<I${nom_classe_metier}>();
 
 		/* Récupération préalable des objets persistants en base. */
 		while (itePersistants.hasNext()) {
 			
-			final ICivilite objet = itePersistants.next();
+			final I${nom_classe_metier} objet = itePersistants.next();
 			
 			/* récupère l'objet persistant dans le stockage. */
-			final ICivilite objectPersistant = this.retrieve(objet);
+			final I${nom_classe_metier} objectPersistant = this.retrieve(objet);
 
 			if (objectPersistant != null) {
 				listePersistants.add(objectPersistant);
@@ -1488,18 +1489,18 @@ public class CiviliteDao {
 
 
 		/* Itération uniquement sur la liste des Objets persistants. */
-		final Iterator<ICivilite> ite = listePersistants.iterator();
+		final Iterator<I${nom_classe_metier}> ite = listePersistants.iterator();
 
 		try {
 
 			while (ite.hasNext()) {
 
-				final ICivilite objectPersistant = ite.next();
+				final I${nom_classe_metier} objectPersistant = ite.next();
 				
 				/* Obtention d'une Entity JPA à 
 				 * partir de l'objet métier. */
-				final CiviliteEntityJPA entity 
-					= new CiviliteEntityJPA(objectPersistant);
+				final ${nom_classe_metier}EntityJPA entity 
+					= new ${nom_classe_metier}EntityJPA(objectPersistant);
 				
 				/* Merge avant destruction. */
 				this.entityManager.merge(entity);
@@ -1520,7 +1521,7 @@ public class CiviliteDao {
 
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException.gererException(
-					CLASSE_SQUELETTEDAO_JPA_SPRING
+					CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
 					, "Méthode deleteIterable(Iterable)", e);
 
 		}
@@ -1540,7 +1541,7 @@ public class CiviliteDao {
 	 * - retourne false si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : Iterable&lt;ICivilite&gt; : 
+	 * @param pList : Iterable&lt;I${nom_classe_metier}&gt; : 
 	 * itérable d'objets àretirer du stockage?<br/>
 	 * 
 	 * @return : boolean : true si le retrait a bien été effectué.<br/>
@@ -1548,7 +1549,7 @@ public class CiviliteDao {
 	 * @throws Exception
 	 */
 	public boolean deleteIterableBoolean(
-			final Iterable<ICivilite> pList) throws Exception {
+			final Iterable<I${nom_classe_metier}> pList) throws Exception {
 
 		/* retourne false si pList == null. */
 		if (pList == null) {
@@ -1565,17 +1566,17 @@ public class CiviliteDao {
 			return false;
 		}
 
-		final Iterator<ICivilite> itePersistants = pList.iterator();
-		final List<ICivilite> listePersistants 
-			= new ArrayList<ICivilite>();
+		final Iterator<I${nom_classe_metier}> itePersistants = pList.iterator();
+		final List<I${nom_classe_metier}> listePersistants 
+			= new ArrayList<I${nom_classe_metier}>();
 
 		/* Récupération préalable des objets persistants en base. */
 		while (itePersistants.hasNext()) {
 			
-			final ICivilite objet = itePersistants.next();
+			final I${nom_classe_metier} objet = itePersistants.next();
 			
 			/* récupère l'objet persistant dans le stockage. */
-			final ICivilite objectPersistant = this.retrieve(objet);
+			final I${nom_classe_metier} objectPersistant = this.retrieve(objet);
 
 			if (objectPersistant != null) {
 				listePersistants.add(objectPersistant);
@@ -1586,18 +1587,18 @@ public class CiviliteDao {
 		boolean resultat = false;
 		
 		/* Itération uniquement sur la liste des Objets persistants. */
-		final Iterator<ICivilite> ite = listePersistants.iterator();
+		final Iterator<I${nom_classe_metier}> ite = listePersistants.iterator();
 
 		try {
 
 			while (ite.hasNext()) {
 
-				final ICivilite objectPersistant = ite.next();
+				final I${nom_classe_metier} objectPersistant = ite.next();
 				
 				/* Obtention d'une Entity JPA à 
 				 * partir de l'objet métier. */
-				final CiviliteEntityJPA entity 
-					= new CiviliteEntityJPA(objectPersistant);
+				final ${nom_classe_metier}EntityJPA entity 
+					= new ${nom_classe_metier}EntityJPA(objectPersistant);
 				
 				/* Merge avant destruction. */
 				this.entityManager.merge(entity);
@@ -1620,7 +1621,7 @@ public class CiviliteDao {
 
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException.gererException(
-					CLASSE_SQUELETTEDAO_JPA_SPRING
+					CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
 					, "Méthode deleteIterableBoolean(Iterable)", e);
 
 		}
@@ -1641,7 +1642,7 @@ public class CiviliteDao {
 	 * - retourne false si l'Objet métier pObject n'existe pas en base.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : ICivilite : objet métier à rechercher.<br/>
+	 * @param pObject : I${nom_classe_metier} : objet métier à rechercher.<br/>
 	 * 
 	 * @return boolean : 
 	 * true si l'objet métier pObject existe dans le stockage.<br/>
@@ -1649,7 +1650,7 @@ public class CiviliteDao {
 	 * @throws Exception
 	 */
 	public boolean exists(
-			final ICivilite pObject) throws Exception {
+			final I${nom_classe_metier} pObject) throws Exception {
 
 		/* retourne false si pObject == null. */
 		if (pObject == null) {
@@ -1667,25 +1668,25 @@ public class CiviliteDao {
 		}
 		
 		boolean resultat = false;		
-		ICivilite objectPersistant = null;
+		I${nom_classe_metier} objectPersistant = null;
 
 		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 			= SELECT_OBJET
-				+ "where civilite.civiliteString = :pCiviliteString";
+				+ "where ${nom_classe_metier_en_minuscules}.${nom_classe_metier_en_minuscules}String = :p${nom_classe_metier}String";
 
 		/* Construction de la requête HQL. */
 		final Query requete 
 			= this.entityManager.createQuery(requeteString);
 
 		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pCiviliteString", pObject.getCiviliteString());
+		requete.setParameter("p${nom_classe_metier}String", pObject.get${nom_classe_metier}String());
 
 		try {
 
 			/* Execution de la requete HQL. */
 			objectPersistant 
-			= (ICivilite) requete.getSingleResult();
+			= (I${nom_classe_metier}) requete.getSingleResult();
 
 			/* retourne true si l'objet existe en base. */
 			if (objectPersistant != null) {
@@ -1708,8 +1709,8 @@ public class CiviliteDao {
 
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
-				.gererException(CLASSE_SQUELETTEDAO_JPA_SPRING
-						, "Méthode exists(ICivilite pObject)", e);
+				.gererException(CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+						, "Méthode exists(I${nom_classe_metier} pObject)", e);
 		}
 
 		return resultat;
@@ -1766,8 +1767,8 @@ public class CiviliteDao {
 	 */
 	public final Long count() throws Exception {
 
-		/* Récupère la liste d'Objets métier de Type paramétré ICivilite. */
-		final List<ICivilite> listObjects = this.findAll();
+		/* Récupère la liste d'Objets métier de Type paramétré I${nom_classe_metier}. */
+		final List<I${nom_classe_metier}> listObjects = this.findAll();
 
 		if (listObjects != null) {
 
@@ -1792,14 +1793,14 @@ public class CiviliteDao {
 	public void ecrireStockageDansConsole() throws Exception {
 		
 		/* récupération de tous les objets métier dans le stockage. */
-		final List<ICivilite> contenuStockage = this.findAll();
+		final List<I${nom_classe_metier}> contenuStockage = this.findAll();
 		
 		/* ne fait rien si findAll() retourne null. */
 		if (contenuStockage == null) {
 			return;
 		}
 		
-		for (final ICivilite objet : contenuStockage) {
+		for (final I${nom_classe_metier} objet : contenuStockage) {
 			System.out.println(objet.toString());
 		}
 		
@@ -1814,12 +1815,12 @@ public class CiviliteDao {
 	 * retourne null si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : List&lt;ICivilite&gt;.<br/>
+	 * @param pList : List&lt;I${nom_classe_metier}&gt;.<br/>
 	 * 
 	 * @return : String.<br/>
 	 */
 	public String afficherListeObjetsMetier(
-			final List<ICivilite> pList) {
+			final List<I${nom_classe_metier}> pList) {
 		
 		/* retourne null si pList == null. */
 		if (pList == null) {
@@ -1828,7 +1829,7 @@ public class CiviliteDao {
 		
 		final StringBuilder stb =new StringBuilder();
 		
-		for (final ICivilite objetMetier : pList) {
+		for (final I${nom_classe_metier} objetMetier : pList) {
 			
 			stb.append(objetMetier.toString());
 			stb.append(SAUT_LIGNE_JAVA);
@@ -1840,4 +1841,4 @@ public class CiviliteDao {
 
 
 
-} // FIN DE LA CLASSE CiviliteDao.-------------------------------------------
+} // FIN DE LA CLASSE ${nom_classe_metier}Dao.-------------------------------------------
