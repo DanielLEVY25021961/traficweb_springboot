@@ -1,6 +1,6 @@
 package levy.daniel.application.controllers.web.metier.profil.impl;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -17,8 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import levy.daniel.application.controllers.web.metier.profil.IProfilController;
 import levy.daniel.application.model.metier.profil.IProfil;
-import levy.daniel.application.model.persistence.metier.profil.entities.jpa.ProfilEntityJPA;
-import levy.daniel.application.model.services.metier.profil.impl.IProfilService;
+import levy.daniel.application.model.services.metier.profil.IProfilService;
 
 /**
  * CLASSE ProfilControllerFake :<br/>
@@ -41,7 +40,7 @@ import levy.daniel.application.model.services.metier.profil.impl.IProfilService;
  *
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("/profil")
 public class ProfilControllerFake implements IProfilController {
 
 	// ************************ATTRIBUTS************************************/
@@ -77,7 +76,7 @@ public class ProfilControllerFake implements IProfilController {
 	@Override
 	@PostMapping
 	public IProfil create(
-			@RequestBody final ProfilEntityJPA pProfil) {
+			@RequestBody final IProfil pProfil) throws Exception {
 		return this.profilServiceFake.create(pProfil);
 	}
 
@@ -88,9 +87,9 @@ public class ProfilControllerFake implements IProfilController {
 	 */
 	@Override
 	@GetMapping("/{id}")
-	public IProfil getById(
-			@PathVariable("id") final Long pId) {
-		return this.profilServiceFake.getById(pId);
+	public IProfil findById(
+			@PathVariable("id") final Long pId) throws Exception {
+		return this.profilServiceFake.findById(pId);
 	}
 	
 	
@@ -100,9 +99,9 @@ public class ProfilControllerFake implements IProfilController {
 	 */
 	@Override
 	@GetMapping("/profils")
-	public Collection<ProfilEntityJPA> listAll() {
-		return this.profilServiceFake.listAll();
-	} // Fin de getAllProfilsFake()._______________________________________
+	public List<IProfil> findAll() throws Exception {
+		return this.profilServiceFake.findAll();
+	} // Fin de findAll()._________________________________________________
 
 	
 	
@@ -112,7 +111,8 @@ public class ProfilControllerFake implements IProfilController {
 	@Override
 	@PutMapping("/{id}")
 	public IProfil update(
-			@PathVariable("id") final Long pId, @RequestBody final ProfilEntityJPA pProfil) {		
+			@PathVariable("id") final Long pId, @RequestBody final IProfil pProfil) 
+					throws Exception {		
 		return this.profilServiceFake.update(pId, pProfil);		
 	}
 
@@ -124,8 +124,8 @@ public class ProfilControllerFake implements IProfilController {
 	@Override
 	@DeleteMapping("/{id}")
 	public boolean deleteById(
-			@PathVariable("id") final Long pId) {
-		return this.profilServiceFake.deleteById(pId);
+			@PathVariable("id") final Long pId) throws Exception {
+		return this.profilServiceFake.deleteByIdBoolean(pId);
 	}
 	
 

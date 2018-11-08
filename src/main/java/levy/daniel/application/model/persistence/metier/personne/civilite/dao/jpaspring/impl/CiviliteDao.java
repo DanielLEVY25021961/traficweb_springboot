@@ -7,7 +7,6 @@ import javax.persistence.PersistenceContext;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import levy.daniel.application.model.metier.personne.civilite.ICivilite;
@@ -80,8 +79,8 @@ import levy.daniel.application.model.persistence.metier.personne.civilite.entiti
  * @since 01 mars 2018
  *
  */
-@Repository
-@Qualifier("CiviliteDaoJpaSpring")
+@Repository("CiviliteDaoJpaSpringGeneric")
+//@Qualifier("CiviliteDaoJpaSpringGeneric")
 public class CiviliteDao 
 			extends AbstractCiviliteDao {
 

@@ -1,6 +1,6 @@
 package levy.daniel.application.model.services.metier.profil.impl;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 
 import levy.daniel.application.model.metier.profil.IProfil;
 import levy.daniel.application.model.persistence.metier.profil.dao.IProfilDao;
-import levy.daniel.application.model.persistence.metier.profil.entities.jpa.ProfilEntityJPA;
+import levy.daniel.application.model.services.metier.profil.IProfilService;
 
 /**
  * CLASSE ProfilServiceFake :<br/>
- * .<br/>
+ * SERVICE.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -43,7 +43,7 @@ public class ProfilServiceFake implements IProfilService {
 	 */
 	@Autowired
 	@Qualifier("ProfilDaoFake")
-	private transient IProfilDao profilDaoFake;
+	private transient IProfilDao profilDao;
 	
 	/**
 	 * LOG : Log : 
@@ -68,21 +68,21 @@ public class ProfilServiceFake implements IProfilService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IProfil create(
-			final ProfilEntityJPA pProfil) {
-		return this.profilDaoFake.create(pProfil);
-	}
+	public final IProfil create(
+			final IProfil pProfil) throws Exception {
+		return this.profilDao.create(pProfil);
+	} // Fin de create(...)._______________________________________________
 	
 	
 	
 	/**
-	 * {@inheritDoc}
+	 * {@inheritDoc} 
 	 */
 	@Override
-	public IProfil getById(
-			final Long pId) {
-		return this.profilDaoFake.getById(pId);
-	}
+	public final IProfil findById(
+			final Long pId) throws Exception {
+		return this.profilDao.findById(pId);
+	} // Fin de findById(...)._____________________________________________
 	
 
 		
@@ -90,8 +90,8 @@ public class ProfilServiceFake implements IProfilService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Collection<ProfilEntityJPA> listAll() {
-		return this.profilDaoFake.listAll();
+	public final List<IProfil> findAll() throws Exception {
+		return this.profilDao.findAll();
 	} // Fin de getAllProfilsFake()._______________________________________
 	
 	
@@ -101,9 +101,9 @@ public class ProfilServiceFake implements IProfilService {
 	 */
 	@Override
 	public IProfil update(
-			final Long pId, final IProfil pProfil) {		
-		return this.profilDaoFake.update(pId, pProfil);		
-	}
+			final Long pId, final IProfil pProfil) throws Exception {		
+		return this.profilDao.update(pId, pProfil);		
+	} // Fin de update(...)._______________________________________________
 	
 
 	
@@ -111,10 +111,10 @@ public class ProfilServiceFake implements IProfilService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public boolean deleteById(
-			final Long pId) {
-		return this.profilDaoFake.deleteById(pId);
-	}
+	public boolean deleteByIdBoolean(
+			final Long pId) throws Exception  {
+		return this.profilDao.deleteByIdBoolean(pId);
+	} // Fin de deleteByIdBoolean(...).____________________________________
 
 	
 	

@@ -1,4 +1,4 @@
-﻿package levy.daniel.application.model.persistence.metier.${nom_classe_metier_en_minuscules}.dao.jpaspring.impl;
+package levy.daniel.application.model.persistence.metier.profil.dao.jpaspring.impl;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,29 +17,30 @@ import org.springframework.stereotype.Repository;
 
 import levy.daniel.application.model.persistence.daoexceptions.GestionnaireDaoException;
 
-import levy.daniel.application.model.metier.${nom_classe_metier_en_minuscules}.I${nom_classe_metier};
-import levy.daniel.application.model.persistence.metier.${nom_classe_metier_en_minuscules}.entities.jpa.${nom_classe_metier}EntityJPA;
+import levy.daniel.application.model.metier.profil.IProfil;
+import levy.daniel.application.model.persistence.metier.profil.dao.jpaspring.IProfilDao;
+import levy.daniel.application.model.persistence.metier.profil.entities.jpa.ProfilEntityJPA;
 
 /**
- * CLASSE CONCRETE <b>${nom_classe_metier}Dao</b> :<br/>
+ * CLASSE CONCRETE <b>ProfilDao</b> :<br/>
  * <p>
  * <span style="text-decoration: underline;">CONCEPT 
  * CONCERNE PAR CE DAO</span>
  * </p>
  * <p>
- * <b>${nom_classe_metier}</b> modélise un un <i>concept</i> 
- * de <b>${nom_classe_metier}</b> avec ********
+ * <b>Profil</b> modélise un un <i>concept</i> 
+ * de <b>Profil</b> avec ********
  * <b>*****</b>  qui identifie <i>une ou plusieurs</i> <b>****</b>.<br/>
  * </p>
  * 
  * <p>
  * <span style="text-decoration: underline;">DESCRIPTION DE 
- * ${nom_classe_metier}Dao</span>
+ * ProfilDao</span>
  * </p>
  * <ul>
- * <li>DAO <b>CONCRET</b> pour les <b>${nom_classe_metier}</b>.</li>
+ * <li>DAO <b>CONCRET</b> pour les <b>Profil</b>.</li>
  * <li>
- * Implémente l'interface <b>I${nom_classe_metier}Dao</b>.
+ * Implémente l'interface <b>IProfilDao</b>.
  * </li>
  * <li>
  * Certaines méthodes (getOne(ID), ...) sont 
@@ -48,22 +49,22 @@ import levy.daniel.application.model.persistence.metier.${nom_classe_metier_en_m
  * </ul>
  * 
  * <p>
- * <span style="text-decoration: underline;">IMPLEMENTATION DES ${nom_classe_metier}Dao</span>
+ * <span style="text-decoration: underline;">IMPLEMENTATION DES ProfilDao</span>
  * </p>
  * <ul>
  * <li>
- * <img src="../../../../../../../../../../../../../../../javadoc/images/implementation_DAO_${nom_classe_metier}_JpaSpring.png" 
- * alt="implémentation des DAOs ${nom_classe_metier} JPA SPRING" border="1" align="center" />
+ * <img src="../../../../../../../../../../../../../../../javadoc/images/implementation_DAO_Profil_JpaSpring.png" 
+ * alt="implémentation des DAOs Profil JPA SPRING" border="1" align="center" />
  * </li>
  * </ul>
  * 
  * <p>
- * <span style="text-decoration: underline;">UTILISATION DES ${nom_classe_metier}Dao</span>
+ * <span style="text-decoration: underline;">UTILISATION DES ProfilDao</span>
  * </p>
  * <ul>
  * <li>
- * <img src="../../../../../../../../../../../../javadoc/images/utilisation_${nom_classe_metier}Dao_JpaSpring.png" 
- * alt="utilisation des DAOs ${nom_classe_metier}Dao JPA SPRING" border="1" align="center" />
+ * <img src="../../../../../../../../../../../../javadoc/images/utilisation_ProfilDao_JpaSpring.png" 
+ * alt="utilisation des DAOs ProfilDao JPA SPRING" border="1" align="center" />
  * </li>
  * </ul>
  * 
@@ -85,16 +86,16 @@ import levy.daniel.application.model.persistence.metier.${nom_classe_metier_en_m
  *
  */
 @Repository
-@Qualifier("${nom_classe_metier}Dao")
-public class ${nom_classe_metier}Dao {
+@Qualifier("ProfilDao")
+public class ProfilDao implements IProfilDao {
 
 	// ************************ATTRIBUTS************************************/
 	
 	/**
-	 * "Classe ${nom_classe_metier}Dao".<br/>
+	 * "Classe ProfilDao".<br/>
 	 */
-	public static final String CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING 
-		= "Classe ${nom_classe_metier}Dao";
+	public static final String CLASSE_PROFILDAO_JPA_SPRING 
+		= "Classe ProfilDao";
 
 	/**
 	 * SAUT_LIGNE_JAVA : char :<br/>
@@ -104,12 +105,12 @@ public class ${nom_classe_metier}Dao {
 
 	/**
 	 * SELECT_OBJET : String :<br/>
-	 * "select ${nom_classe_metier_en_minuscules} from 
-	 * ${nom_classe_metier}EntityJPA as ${nom_classe_metier_en_minuscules} ".<br/>
+	 * "select profil from 
+	 * ProfilEntityJPA as profil ".<br/>
 	 */
 	public static final String SELECT_OBJET 
-		= "select ${nom_classe_metier_en_minuscules} from "
-				+ "${nom_classe_metier}EntityJPA as ${nom_classe_metier_en_minuscules} ";
+		= "select profil from "
+				+ "ProfilEntityJPA as profil ";
 	
 	/**
 	 * JPA EntityManager injecté par SPRING.<br/>
@@ -136,7 +137,7 @@ public class ${nom_classe_metier}Dao {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(${nom_classe_metier}Dao.class);
+		= LogFactory.getLog(ProfilDao.class);
 
 	
 	// *************************METHODES************************************/
@@ -144,7 +145,7 @@ public class ${nom_classe_metier}Dao {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public ${nom_classe_metier}Dao() {
+	public ProfilDao() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -153,32 +154,18 @@ public class ${nom_classe_metier}Dao {
 	/* CREATE ************/
 
 	/**
-	 * <b>crée un objet métier pObject dans le stockage 
-	 * et retourne l'objet METIER persisté</b>.<br/>
-	 * <ul>
-	 * <li>ne crée <b>pas de doublon</b>.</li>
-	 * <li>retourne null si pObject existe déjà dans le stockage.</li>
-	 * </ul>
-	 * - retourne null si pObject == null.<br/>
-	 * <br/>
-	 *
-	 * @param pObject : I${nom_classe_metier} : 
-	 * l'objet métier à persister dans le stockage.<br/>
-	 * 
-	 * @return I${nom_classe_metier} : 
-	 * l'objet métier persisté dans le stockage.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
-	public final I${nom_classe_metier} create(
-			final I${nom_classe_metier} pObject) throws Exception {
+	@Override
+	public final IProfil create(
+			final IProfil pObject) throws Exception {
 
 		/* retourne null si pObject == null. */
 		if (pObject == null) {
 			return null;
 		}
 
-		I${nom_classe_metier} persistentObject = null;
+		IProfil persistentObject = null;
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -198,8 +185,8 @@ public class ${nom_classe_metier}Dao {
 		try {
 			
 			/* Obtention d'une Entity JPA à partir de l'objet métier. */
-			final ${nom_classe_metier}EntityJPA entity 
-				= new ${nom_classe_metier}EntityJPA(pObject);
+			final ProfilEntityJPA entity 
+				= new ProfilEntityJPA(pObject);
 
 			/* ***************** */
 			/* PERSISTE en base. */
@@ -218,8 +205,8 @@ public class ${nom_classe_metier}Dao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
-							, "Méthode create(I${nom_classe_metier} pObject)", e);
+						CLASSE_PROFILDAO_JPA_SPRING
+							, "Méthode create(IProfil pObject)", e);
 
 		}
 
@@ -231,22 +218,11 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>crée un objet métier pObject dans le stockage 
-	 * mais ne retourne rien</b>.<br/>
-	 * <ul>
-	 * <li>ne crée <b>pas de doublon</b>.</li>
-	 * <li>ne fait rien si pObject existe déjà dans le stockage.</li>
-	 * </ul>
-	 * - ne fait rien si pObject == null.<br/>
-	 * <br/>
-	 *
-	 * @param pObject : I${nom_classe_metier} : 
-	 * l'objet métier à persister dans le stockage.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final void persist(
-			final I${nom_classe_metier} pObject) throws Exception {
+			final IProfil pObject) throws Exception {
 
 		/* ne fait rien si pObject == null. */
 		if (pObject == null) {
@@ -272,8 +248,8 @@ public class ${nom_classe_metier}Dao {
 		try {
 			
 			/* Obtention d'une Entity JPA à partir de l'objet métier. */
-			final ${nom_classe_metier}EntityJPA entity 
-				= new ${nom_classe_metier}EntityJPA(pObject);
+			final ProfilEntityJPA entity 
+				= new ProfilEntityJPA(pObject);
 
 			/* ***************** */
 			/* PERSISTE en base. */
@@ -290,8 +266,8 @@ public class ${nom_classe_metier}Dao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
-							, "Méthode persist(I${nom_classe_metier} Object)", e);
+						CLASSE_PROFILDAO_JPA_SPRING
+							, "Méthode persist(IProfil Object)", e);
 
 		}
 
@@ -300,26 +276,11 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>crée un objet métier pObject dans le stockage 
-	 * et retourne l'identifiant de l'objet persisté</b>.<br/>
-	 * <ul>
-	 * <li>ne crée <b>pas de doublon</b>.</li>
-	 * <li>retourne null si pObject existe déjà dans le stockage.</li>
-	 * </ul>
-	 * - retourne null si pObject == null.<br/>
-	 * <br/>
-	 *
-	 * @param pObject : I${nom_classe_metier} : 
-	 * l'objet métier à persister dans le stockage.<br/>
-	 * 
-	 * @return : Long : 
-	 * identifiant (ou index 0-based) 
-	 * de l'objet persisté dans le stockage.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final Long createReturnId(
-			final I${nom_classe_metier} pObject) throws Exception {
+			final IProfil pObject) throws Exception {
 
 		/* retourne null si pObject == null. */
 		if (pObject == null) {
@@ -343,7 +304,7 @@ public class ${nom_classe_metier}Dao {
 
 		/* ******************************************************* */
 		/* Crée l'Objet en base ou jette une Exception. */
-		final I${nom_classe_metier} objectPersistant 
+		final IProfil objectPersistant 
 			= this.create(pObject);
 
 		/* retourne null si l'objet pObject n'a pu être créé en base. */
@@ -359,28 +320,11 @@ public class ${nom_classe_metier}Dao {
 
 	
 	/**
-	 * <b>crée un iterable d'objets métier pList 
-	 * dans le stockage</b> et retourne l'itérable persisté.<br/>
-	 * <ul>
-	 * <li>ne crée <b>pas de doublon</b>.</li>
-	 * <li>ne fait rien et continue la sauvegarde si un objet 
-	 * dans l'itérable existe déjà dans le stockage.</li>
-	 * <li>ne fait rien et continue la sauvegarde si un objet 
-	 * null est contenu dans l'itérable.</li>
-	 * </ul>
-	 * - retourne null si pList == null.<br/>
-	 * <br/>
-	 *
-	 * @param pList : Iterable&lt;I${nom_classe_metier}&gt; : 
-	 * itérable d'objets métier à persister dans le stockage.<br/>
-	 * 
-	 * @return Iterable&lt;I${nom_classe_metier}&gt; : 
-	 * itérable d'objets métier persistés dans le stockage.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
-	public final Iterable<I${nom_classe_metier}> save(
-			final Iterable<I${nom_classe_metier}> pList) 
+	@Override
+	public final Iterable<IProfil> save(
+			final Iterable<IProfil> pList) 
 					throws Exception {
 		
 		/* retourne null si pList == null. */
@@ -398,15 +342,15 @@ public class ${nom_classe_metier}Dao {
 			return null;
 		}
 
-		final List<I${nom_classe_metier}> resultat = new ArrayList<I${nom_classe_metier}>();
+		final List<IProfil> resultat = new ArrayList<IProfil>();
 
-		final Iterator<I${nom_classe_metier}> iteS = pList.iterator();
+		final Iterator<IProfil> iteS = pList.iterator();
 
 		try {
 
 			while (iteS.hasNext()) {
 
-				final I${nom_classe_metier} objet = iteS.next();
+				final IProfil objet = iteS.next();
 
 				/* Passe les doublons existants en base. */
 				if (!this.exists(objet)) {
@@ -416,10 +360,10 @@ public class ${nom_classe_metier}Dao {
 
 						/* Obtention d'une Entity JPA à partir 
 						 * de l'objet métier. */
-						final ${nom_classe_metier}EntityJPA entity 
-							= new ${nom_classe_metier}EntityJPA(objet);
+						final ProfilEntityJPA entity 
+							= new ProfilEntityJPA(objet);
 						
-						I${nom_classe_metier} objectPersistant = null;
+						IProfil objectPersistant = null;
 
 						try {
 
@@ -439,7 +383,7 @@ public class ${nom_classe_metier}Dao {
 							/* Gestion de la DAO Exception. */
 							this.gestionnaireException
 								.gererException(
-										CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+										CLASSE_PROFILDAO_JPA_SPRING
 											, "Méthode save(Iterable)", e);
 						}
 
@@ -466,7 +410,7 @@ public class ${nom_classe_metier}Dao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+						CLASSE_PROFILDAO_JPA_SPRING
 							, "Méthode save(Iterable)", e);
 
 		}
@@ -483,25 +427,11 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>recherche un objet métier pObject 
-	 * dans le stockage</b> et retourne l'objet métier persisté.<br/>
-	 * recherche l'objet métier par son égalité métier 
-	 * (equals()).<br/>
-	 * <ul>
-	 * <li>retourne null si l'objet métier 
-	 * n'existe pas dans le stockage.</li>
-	 * </ul>
-	 *
-	 * @param pObject : I${nom_classe_metier} : 
-	 * objet métier à rechercher.<br/>
-	 * 
-	 * @return : I${nom_classe_metier} : 
-	 * objet métier recherché.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
-	public final I${nom_classe_metier} retrieve(
-			final I${nom_classe_metier} pObject) throws Exception {
+	@Override
+	public final IProfil retrieve(
+			final IProfil pObject) throws Exception {
 
 		/* return null si pObject == null. */
 		if (pObject == null) {
@@ -518,25 +448,25 @@ public class ${nom_classe_metier}Dao {
 			return null;
 		}
 
-		I${nom_classe_metier} objectPersistant = null;
+		IProfil objectPersistant = null;
 
 		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 			= SELECT_OBJET
-				+ "where ${nom_classe_metier_en_minuscules}.${nom_classe_metier_en_minuscules}String = :p${nom_classe_metier}String";
+				+ "where profil.profilString = :pProfilString";
 
 		/* Construction de la requête HQL. */
 		final Query requete 
 			= this.entityManager.createQuery(requeteString);
 
 		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("p${nom_classe_metier}String", pObject.get${nom_classe_metier}String());
+		requete.setParameter("pProfilString", pObject.getProfilString());
 
 		try {
 
 			/* Execution de la requete HQL. */
 			objectPersistant 
-				= (I${nom_classe_metier}) requete.getSingleResult();
+				= (IProfil) requete.getSingleResult();
 
 		}
 		catch (NoResultException noResultExc) {
@@ -555,8 +485,8 @@ public class ${nom_classe_metier}Dao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
-						, "Méthode retrieve(I${nom_classe_metier} pObject)", e);
+						CLASSE_PROFILDAO_JPA_SPRING
+						, "Méthode retrieve(IProfil pObject)", e);
 		}
 
 		return objectPersistant;
@@ -566,25 +496,13 @@ public class ${nom_classe_metier}Dao {
 
 	
 	/**
-	 * <b>recherche un objet métier pObject via son identifiant (index) 
-	 * dans le stockage</b> et retourne l'objet métier persisté.<br/>
-	 * <ul>
-	 * <li>retourne null si l'objet métier 
-	 * n'existe pas dans le stockage.</li>
-	 * </ul>
-	 *
-	 * @param pId : Long : 
-	 * index (0-based) ou identifiant en base 
-	 * de l'objet métier à rechercher.<br/>
-	 * 
-	 * @return : I${nom_classe_metier} : objet métier recherché.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
-	public final I${nom_classe_metier} findById(
+	@Override
+	public final IProfil findById(
 			final Long pId) throws Exception {
 
-		I${nom_classe_metier} objetTrouve = null;
+		IProfil objetTrouve = null;
 
 		/* retourne null si pId == null. */
 		if (pId == null) {
@@ -607,7 +525,7 @@ public class ${nom_classe_metier}Dao {
 			// RECHERCHE EN BASE.
 			objetTrouve 
 				= this.entityManager
-					.find(${nom_classe_metier}EntityJPA.class, pId);
+					.find(ProfilEntityJPA.class, pId);
 
 		}
 		catch (Exception e) {
@@ -615,7 +533,7 @@ public class ${nom_classe_metier}Dao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+						CLASSE_PROFILDAO_JPA_SPRING
 						, "Méthode findById(Long)", e);
 
 		}
@@ -627,21 +545,13 @@ public class ${nom_classe_metier}Dao {
 	
 	
 	/**
-	 * <b>retourne l'identifiant ou l'index (0-based) 
-	 * de l'objet métier pObject dans le stockage</b>.<br/>
-	 *
-	 * @param pObject : I${nom_classe_metier} : 
-	 * objet métier dont on recherche l'identifiant.<br/>
-	 *  
-	 * @return Long : 
-	 * identifiant ou index (0-based) dans le stockage.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final Long retrieveId(
-			final I${nom_classe_metier} pObject) throws Exception {
+			final IProfil pObject) throws Exception {
 		
-		final I${nom_classe_metier} object = this.retrieve(pObject);
+		final IProfil object = this.retrieve(pObject);
 		
 		Long resultat = null;
 		
@@ -656,16 +566,10 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>retourne la liste de tous les objets métier 
-	 * persistés dans le stockage</b>.<br/>
-	 * - peut retourner null si le stockage ne peut être lu.<br/>
-	 *
-	 * @return : List&lt;I${nom_classe_metier}&gt; : 
-	 * liste de tous les objets métier persistés dans le stockage.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
-	public final List<I${nom_classe_metier}> findAll() throws Exception {
+	@Override
+	public final List<IProfil> findAll() throws Exception {
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -679,9 +583,9 @@ public class ${nom_classe_metier}Dao {
 
 		/* Création de la requête HQL sous forme de String. */
 		final String requeteString 
-			= "from ${nom_classe_metier}EntityJPA";
+			= "from ProfilEntityJPA";
 
-		List<I${nom_classe_metier}> resultat = null;
+		List<IProfil> resultat = null;
 
 		try {
 
@@ -703,7 +607,7 @@ public class ${nom_classe_metier}Dao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+						CLASSE_PROFILDAO_JPA_SPRING
 						, "Méthode findall()", e);
 
 		}
@@ -716,26 +620,10 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>retourne la liste des pMax objets métier 
-	 * persistés dans le stockage</b> à partir de la 
-	 * position pStartPosition (0-based).<br/>
-	 * <ul>
-	 * <li>retourne par exemple les 50 objets métier stockés 
-	 * à partir du 100ème.</li>
-	 * <li>retourne null si pStartPosition est hors indexes.</li>
-	 * </ul>
-	 *
-	 * @param pStartPosition : int : index (0-based) de départ.<br/>
-	 * @param pMaxResult : int : 
-	 * nombre maximum d'objets métier à retourner.<br/>
-	 * 
-	 * @return : List&lt;I${nom_classe_metier}&gt; : 
-	 * liste des pMax objets métier persistés dans le stockage 
-	 * à partir de pStartPosition (0-based).<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
-	public final List<I${nom_classe_metier}> findAllMax(
+	@Override
+	public final List<IProfil> findAllMax(
 			final int pStartPosition
 				, final int pMaxResult) throws Exception {
 
@@ -752,9 +640,9 @@ public class ${nom_classe_metier}Dao {
 
 		/* Création de la requête HQL sous forme de String. */
 		final String requeteString 
-			= "from ${nom_classe_metier}EntityJPA";
+			= "from ProfilEntityJPA";
 
-		List<I${nom_classe_metier}> resultat = null;
+		List<IProfil> resultat = null;
 
 		try {
 
@@ -777,7 +665,7 @@ public class ${nom_classe_metier}Dao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+						CLASSE_PROFILDAO_JPA_SPRING
 						, "Méthode findAllMax(...)", e);
 
 		}
@@ -790,28 +678,10 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * method findAll(
-	 * Iterable&lt;Long&gt; pIds) :<br/>
-	 * <ul>
-	 * <li>retourne une Collection iterable d'Objets métier 
-	 * (List&lt;I${nom_classe_metier}&gt;) dont les IDs appartiennent 
-	 * à la Collection itérable d'IDs passée en paramètre.</li>
-	 * <li>Inclut dans la liste les sous-classe de I${nom_classe_metier} 
-	 * (strategy=InheritanceType.JOINED) 
-	 * avec la visibilité (Typé) I${nom_classe_metier}.</li>
-	 * </ul>
-	 * retourne null si pIds == null.<br/>
-	 * ne retourne que les objets de la collection 
-	 * effectivement persistés en base.<br/>
-	 * <br/>
-	 *
-	 * @param pIds : Iterable&lt;Long&gt;.<br/>
-	 * 
-	 * @return Iterable&lt;I${nom_classe_metier}&gt; : List&lt;I${nom_classe_metier}&gt;.<br/>
-	 * 
-	 * @throws Exception 
+	 * {@inheritDoc}
 	 */
-	public final Iterable<I${nom_classe_metier}> findAll(
+	@Override
+	public final Iterable<IProfil> findAll(
 			final Iterable<Long> pIds) throws Exception {
 
 		/* retourne null si pIds == null. */
@@ -829,7 +699,7 @@ public class ${nom_classe_metier}Dao {
 			return null;
 		}
 
-		final List<I${nom_classe_metier}> resultat = new ArrayList<I${nom_classe_metier}>();		
+		final List<IProfil> resultat = new ArrayList<IProfil>();		
 
 		final Iterator<Long> iteratorID = pIds.iterator();
 
@@ -838,7 +708,7 @@ public class ${nom_classe_metier}Dao {
 			final Long id = iteratorID.next();
 			
 			/* Recherche en base sur Long. */
-			final I${nom_classe_metier} objetEnBase = this.findById(id);
+			final IProfil objetEnBase = this.findById(id);
 
 			if (objetEnBase != null) {
 				resultat.add(objetEnBase);
@@ -855,39 +725,11 @@ public class ${nom_classe_metier}Dao {
 
 	
 	/**
-	 * method update(
-	 * I${nom_classe_metier} pObject) :<br/>
-	 * <ul>
-	 * <li><b>Modifie</b> un objet métier <b>persistant</b> 
-	 * existant en base.</li>
-	 * <li>Retourne l'objet métier pObject <b>modifié en base</b> 
-	 * avec la visibilité (Typé) I${nom_classe_metier}.</li>
-	 * </ul>
-	 * retourne null si pObject == null.<br/>
-	 * ne fait rien et retourne l'instance détachée 
-	 * si pObject n'est pas déjà persistant en base.<br/>
-	 * <br/>
-	 * <code>Exemple de code : </code><br/>
-	 * <code>// Récupération de l'objet persistant à modifier.</code><br/>
-	 * <code>objet1Persistant = this.daoUserSimple.retrieve(objet1);</code><br/>
-	 * <code>// Modifications.</code><br/>
-	 * <code>objet1Persistant.setPrenom("Jean-Frédéric modifié");</code><br/>
-	 * <code>objet1Persistant.setNom("Bôrne modifié");</code><br/>
-	 * <code>// Application des modifications en base.</code><br/>
-	 * <code>objet1ModifiePersistant = 
-	 * this.daoUserSimple.<b>update(objet1Persistant)</b>;</code><br/>
-	 * <br/>
-	 *
-	 * @param pObject : I${nom_classe_metier} : objet métier avec ID 
-	 * et comportant les modifications.<br/>
-	 * 
-	 * @return : T : objet métier de Type paramétré 
-	 * T modifié en base.<br/>
-	 * 
-	 * @throws Exception 
+	 * {@inheritDoc}
 	 */
-	public final I${nom_classe_metier} update(
-			final I${nom_classe_metier} pObject) throws Exception {
+	@Override
+	public final IProfil update(
+			final IProfil pObject) throws Exception {
 
 		/* retourne null si pObject == null. */
 		if (pObject == null) {
@@ -911,13 +753,13 @@ public class ${nom_classe_metier}Dao {
 			return pObject;
 		}
 
-		I${nom_classe_metier} persistentObject = null;
+		IProfil persistentObject = null;
 
 		try {
 
 			/* Obtention d'une Entity JPA à partir de l'objet métier. */
-			final ${nom_classe_metier}EntityJPA entity 
-				= new ${nom_classe_metier}EntityJPA(pObject);
+			final ProfilEntityJPA entity 
+				= new ProfilEntityJPA(pObject);
 			
 			/* **************** */
 			/* MODIFIE en base. */
@@ -936,8 +778,8 @@ public class ${nom_classe_metier}Dao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
-						, "Méthode update(I${nom_classe_metier} Object)", e);
+						CLASSE_PROFILDAO_JPA_SPRING
+						, "Méthode update(IProfil Object)", e);
 
 		}
 
@@ -949,35 +791,11 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>modifie dans le stockage 
-	 * l'objet d'index (0-based) ou d'identifiant pId 
-	 * avec les valeurs 
-	 * contenues dans pObjectModifie</b>.<br/>
-	 * <ul>
-	 * <li><b>pId doit correspondre à l'index (0-based) 
-	 * de l'objet métier à modifier</b>.</li>
-	 * <li>pObjectModifie est un conteneur contenant les modifications 
-	 * à apporter à un objet persistant dans le stockage. 
-	 * Il n'a pas besoin d'avoir d'ID.</li>
-	 * <li>retourne null s'il n'y a pas d'objet persistant à pId.</li>
-	 * <li>retourne null si pId est en dehors des indexes.</li>
-	 * </ul>
-	 * - retourne null si pId == null.<br/>
-	 * - retourne null si pObjectModifie == null.<br/>
-	 * <br/>
-	 *
-	 * @param pId : Long : 
-	 * index (0-based) de l'objet métier à modifier.<br/>
-	 * @param pObjectModifie : I${nom_classe_metier} : 
-	 * Objet métier contenant les modifications 
-	 * à apporter à l'objet persistant dans le stockage.<br/>
-	 * 
-	 * @return I${nom_classe_metier} : objet métier persistant modifié.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
-	public final I${nom_classe_metier} update(
-			final Long pId, final I${nom_classe_metier} pObjectModifie) 
+	@Override
+	public final IProfil update(
+			final Long pId, final IProfil pObjectModifie) 
 												throws Exception {
 
 		/* retourne null si pId == null. */
@@ -1001,22 +819,22 @@ public class ${nom_classe_metier}Dao {
 		}
 
 		/* récupération de l'objet persistant à modifier. */
-		final I${nom_classe_metier} objectPersistant = this.findById(pId);
+		final IProfil objectPersistant = this.findById(pId);
 		
 		/* retourne null s'il n'y a pas d'objet persistant à pId. */
 		if (objectPersistant == null) {
 			return null;
 		}
 
-		I${nom_classe_metier} persistentObject = null;
+		IProfil persistentObject = null;
 		
 		try {
 			
 			final Long id = objectPersistant.getId();
 			
 			/* Obtention d'une Entity JPA à partir de l'objet métier. */
-			final ${nom_classe_metier}EntityJPA entity 
-				= new ${nom_classe_metier}EntityJPA(pObjectModifie);
+			final ProfilEntityJPA entity 
+				= new ProfilEntityJPA(pObjectModifie);
 			
 			/* Passage de l'ID à l'entity contenant les modifications. */
 			entity.setId(id);
@@ -1037,9 +855,9 @@ public class ${nom_classe_metier}Dao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+						CLASSE_PROFILDAO_JPA_SPRING
 						, "Méthode update(Long pId"
-								+ ", I${nom_classe_metier} Object)", e);
+								+ ", IProfil Object)", e);
 			
 		}
 
@@ -1054,23 +872,11 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>retire l'objet métier pObject dans le stockage</b>.<br/>
-	 * retourne true si le retrait a bien été effectué.<br/>
-	 * <ul>
-	 * <li>retourne false si pObject n'est pas persisté.</li>
-	 * </ul>
-	 * - retourne false si pObject == null.<br/>
-	 * <br/>
-	 *
-	 * @param pObject : I${nom_classe_metier} : objet métier à détruire.<br/>
-	 * 
-	 * @return : boolean : 
-	 * true si l'objet métier a été détruit.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean delete(
-			final I${nom_classe_metier} pObject) throws Exception {
+			final IProfil pObject) throws Exception {
 
 		/* retourne false si pObject == null. */
 		if (pObject == null) {
@@ -1088,7 +894,7 @@ public class ${nom_classe_metier}Dao {
 		}
 
 		/* Vérifie qu'il existe une instance persistante. */
-		final I${nom_classe_metier} objectPersistant = this.retrieve(pObject);
+		final IProfil objectPersistant = this.retrieve(pObject);
 		
 		/* retourne false si pObject n'est pas persisté. */
 		if (objectPersistant == null) {
@@ -1100,8 +906,8 @@ public class ${nom_classe_metier}Dao {
 		try {
 
 			/* Obtention d'une Entity JPA à partir de l'objet métier. */
-			final ${nom_classe_metier}EntityJPA entity 
-				= new ${nom_classe_metier}EntityJPA(objectPersistant);
+			final ProfilEntityJPA entity 
+				= new ProfilEntityJPA(objectPersistant);
 
 			/* merge avant de pouvoir détruire. */
 			this.entityManager.merge(entity);
@@ -1122,8 +928,8 @@ public class ${nom_classe_metier}Dao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
-						, "Méthode delete(I${nom_classe_metier} pObject)", e);
+						CLASSE_PROFILDAO_JPA_SPRING
+						, "Méthode delete(IProfil pObject)", e);
 
 		}
 
@@ -1134,19 +940,9 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>retire l'objet métier d'identifiant ou 
-	 * d'index (0-based) pId dans le stockage</b>.<br/>
-	 * <ul>
-	 * <li>ne fait rien si pId est hors indexes.</li>
-	 * </ul>
-	 * - ne fait rien si pId == null.<br/>
-	 * <br/>
-	 *
-	 * @param pId : Long : 
-	 * index (0-based) de l'objet métier à modifier.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void deleteById(
 			final Long pId) throws Exception {
 
@@ -1165,12 +961,12 @@ public class ${nom_classe_metier}Dao {
 			return;
 		}
 
-		I${nom_classe_metier} objectPersistant = null;
+		IProfil objectPersistant = null;
 
 		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 		= SELECT_OBJET 
-		+ "where ${nom_classe_metier_en_minuscules}.id = :pId";
+		+ "where profil.id = :pId";
 
 		/* Construction de la requête HQL. */
 		final Query requete 
@@ -1183,7 +979,7 @@ public class ${nom_classe_metier}Dao {
 			
 			/* Execution de la requete HQL. */
 			objectPersistant 
-			= (I${nom_classe_metier}) requete.getSingleResult();
+			= (IProfil) requete.getSingleResult();
 		}
 		catch (NoResultException noResultExc) {
 			objectPersistant = null;
@@ -1194,8 +990,8 @@ public class ${nom_classe_metier}Dao {
 			if (objectPersistant != null) {
 
 				/* Obtention d'une Entity JPA à partir de l'objet métier. */
-				final ${nom_classe_metier}EntityJPA entity 
-					= new ${nom_classe_metier}EntityJPA(objectPersistant);
+				final ProfilEntityJPA entity 
+					= new ProfilEntityJPA(objectPersistant);
 
 				/* Merge avant destruction. */
 				this.entityManager.merge(entity);
@@ -1217,7 +1013,7 @@ public class ${nom_classe_metier}Dao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+						CLASSE_PROFILDAO_JPA_SPRING
 						, "Méthode deleteById(Long pId)", e);
 		}
 
@@ -1226,22 +1022,9 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>retire l'objet métier d'identifiant ou 
-	 * d'index (0-based) pId dans le stockage</b>.<br/>
-	 * retourne true si le retrait à bien été effectué.<br/>
-	 * <ul>
-	 * <li>retourne false si pId est hors indexes.</li>
-	 * </ul>
-	 * - retourne false si pId == null.<br/>
-	 * <br/>
-	 *
-	 * @param pId : Long : 
-	 * index (0-based) de l'objet métier à modifier.<br/>
-	 * 
-	 * @return boolean : true si le retrait à bien été effectué.<br/>
-	 * 
-	 * @throws Exception 
+	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean deleteByIdBoolean(
 			final Long pId) throws Exception {
 
@@ -1262,12 +1045,12 @@ public class ${nom_classe_metier}Dao {
 
 		boolean resultat = false;
 
-		I${nom_classe_metier} objectPersistant = null;
+		IProfil objectPersistant = null;
 
 		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 		= SELECT_OBJET 
-			+ "where ${nom_classe_metier_en_minuscules}.id = :pId";
+			+ "where profil.id = :pId";
 
 		/* Construction de la requête HQL. */
 		final Query requete 
@@ -1280,7 +1063,7 @@ public class ${nom_classe_metier}Dao {
 			
 			/* Execution de la requete HQL. */
 			objectPersistant 
-			= (I${nom_classe_metier}) requete.getSingleResult();
+			= (IProfil) requete.getSingleResult();
 			
 		}
 		catch (NoResultException noResultExc) {
@@ -1294,8 +1077,8 @@ public class ${nom_classe_metier}Dao {
 
 				/* Obtention d'une Entity JPA à 
 				 * partir de l'objet métier. */
-				final ${nom_classe_metier}EntityJPA entity 
-					= new ${nom_classe_metier}EntityJPA(objectPersistant);
+				final ProfilEntityJPA entity 
+					= new ProfilEntityJPA(objectPersistant);
 
 				/* Merge avant destruction. */
 				this.entityManager.merge(entity);
@@ -1317,7 +1100,7 @@ public class ${nom_classe_metier}Dao {
 
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
-				.gererException(CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+				.gererException(CLASSE_PROFILDAO_JPA_SPRING
 						, "Méthode deleteByIdBoolean(Long pId)", e);
 		}
 
@@ -1328,10 +1111,9 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>retire tous les objets métier dans le stockage</b>.<br/>
-	 *
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final void deleteAll() throws Exception {
 
 		/* Cas où this.entityManager == null. */
@@ -1347,7 +1129,7 @@ public class ${nom_classe_metier}Dao {
 
 		/* Création de la requête HQL sous forme de String. */
 		final String requeteString 
-			= "delete from ${nom_classe_metier}EntityJPA";
+			= "delete from ProfilEntityJPA";
 
 		try {
 
@@ -1369,7 +1151,7 @@ public class ${nom_classe_metier}Dao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+						CLASSE_PROFILDAO_JPA_SPRING
 						, "Méthode deleteAll()", e);
 
 		}
@@ -1379,14 +1161,9 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>retire tous les objets métier dans le stockage</b>.<br/>
-	 * retourne true si le retrait a bien été effectué.<br/>
-	 *
-	 * @return : boolean : 
-	 * true si le retrait a bien été effectué.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final boolean deleteAllBoolean() throws Exception {
 
 		/* Cas où this.entityManager == null. */
@@ -1403,7 +1180,7 @@ public class ${nom_classe_metier}Dao {
 
 		/* Création de la requête HQL sous forme de String. */
 		final String requeteString 
-			= "delete from ${nom_classe_metier}EntityJPA";
+			= "delete from ProfilEntityJPA";
 
 		try {
 
@@ -1427,7 +1204,7 @@ public class ${nom_classe_metier}Dao {
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
 				.gererException(
-						CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+						CLASSE_PROFILDAO_JPA_SPRING
 						, "Méthode deleteAllBoolean()", e);
 
 		}
@@ -1439,23 +1216,11 @@ public class ${nom_classe_metier}Dao {
 
 	
 	/**
-	 * <b>retire tous les objets de l'itérable pList déjà persistés 
-	 * dans le stockage</b>.<br/>
-	 * ne retourne rien.<br/>
-	 * <ul>
-	 * <li>ne fait rien et continue le processus de retrait 
-	 * si un objet de l'itérable n'est pas persisté.</li>
-	 * </ul>
-	 * - ne fait rien si pList == null.<br/>
-	 * <br/>
-	 *
-	 * @param pList : Iterable&lt;I${nom_classe_metier}&gt; : 
-	 * itérable d'objets à retirer du stockage.<br/>
-	 *  
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void deleteIterable(
-			final Iterable<I${nom_classe_metier}> pList) throws Exception {
+			final Iterable<IProfil> pList) throws Exception {
 
 		/* ne fait rien si pList == null. */
 		if (pList == null) {
@@ -1472,17 +1237,17 @@ public class ${nom_classe_metier}Dao {
 			return;
 		}
 
-		final Iterator<I${nom_classe_metier}> itePersistants = pList.iterator();
-		final List<I${nom_classe_metier}> listePersistants 
-			= new ArrayList<I${nom_classe_metier}>();
+		final Iterator<IProfil> itePersistants = pList.iterator();
+		final List<IProfil> listePersistants 
+			= new ArrayList<IProfil>();
 
 		/* Récupération préalable des objets persistants en base. */
 		while (itePersistants.hasNext()) {
 			
-			final I${nom_classe_metier} objet = itePersistants.next();
+			final IProfil objet = itePersistants.next();
 			
 			/* récupère l'objet persistant dans le stockage. */
-			final I${nom_classe_metier} objectPersistant = this.retrieve(objet);
+			final IProfil objectPersistant = this.retrieve(objet);
 
 			if (objectPersistant != null) {
 				listePersistants.add(objectPersistant);
@@ -1491,18 +1256,18 @@ public class ${nom_classe_metier}Dao {
 
 
 		/* Itération uniquement sur la liste des Objets persistants. */
-		final Iterator<I${nom_classe_metier}> ite = listePersistants.iterator();
+		final Iterator<IProfil> ite = listePersistants.iterator();
 
 		try {
 
 			while (ite.hasNext()) {
 
-				final I${nom_classe_metier} objectPersistant = ite.next();
+				final IProfil objectPersistant = ite.next();
 				
 				/* Obtention d'une Entity JPA à 
 				 * partir de l'objet métier. */
-				final ${nom_classe_metier}EntityJPA entity 
-					= new ${nom_classe_metier}EntityJPA(objectPersistant);
+				final ProfilEntityJPA entity 
+					= new ProfilEntityJPA(objectPersistant);
 				
 				/* Merge avant destruction. */
 				this.entityManager.merge(entity);
@@ -1523,7 +1288,7 @@ public class ${nom_classe_metier}Dao {
 
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException.gererException(
-					CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+					CLASSE_PROFILDAO_JPA_SPRING
 					, "Méthode deleteIterable(Iterable)", e);
 
 		}
@@ -1533,25 +1298,11 @@ public class ${nom_classe_metier}Dao {
 	
 	
 	/**
-	 * <b>retire tous les objets de l'itérable pList déjà persistés 
-	 * dans le stockage</b>.<br/>
-	 * retourne true si le retrait a bien été effectué.<br/>
-	 * <ul>
-	 * <li>ne fait rien et continue le processus de retrait 
-	 * si un objet de l'itérable n'est pas persisté.</li>
-	 * </ul>
-	 * - retourne false si pList == null.<br/>
-	 * <br/>
-	 *
-	 * @param pList : Iterable&lt;I${nom_classe_metier}&gt; : 
-	 * itérable d'objets àretirer du stockage?<br/>
-	 * 
-	 * @return : boolean : true si le retrait a bien été effectué.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean deleteIterableBoolean(
-			final Iterable<I${nom_classe_metier}> pList) throws Exception {
+			final Iterable<IProfil> pList) throws Exception {
 
 		/* retourne false si pList == null. */
 		if (pList == null) {
@@ -1568,17 +1319,17 @@ public class ${nom_classe_metier}Dao {
 			return false;
 		}
 
-		final Iterator<I${nom_classe_metier}> itePersistants = pList.iterator();
-		final List<I${nom_classe_metier}> listePersistants 
-			= new ArrayList<I${nom_classe_metier}>();
+		final Iterator<IProfil> itePersistants = pList.iterator();
+		final List<IProfil> listePersistants 
+			= new ArrayList<IProfil>();
 
 		/* Récupération préalable des objets persistants en base. */
 		while (itePersistants.hasNext()) {
 			
-			final I${nom_classe_metier} objet = itePersistants.next();
+			final IProfil objet = itePersistants.next();
 			
 			/* récupère l'objet persistant dans le stockage. */
-			final I${nom_classe_metier} objectPersistant = this.retrieve(objet);
+			final IProfil objectPersistant = this.retrieve(objet);
 
 			if (objectPersistant != null) {
 				listePersistants.add(objectPersistant);
@@ -1589,18 +1340,18 @@ public class ${nom_classe_metier}Dao {
 		boolean resultat = false;
 		
 		/* Itération uniquement sur la liste des Objets persistants. */
-		final Iterator<I${nom_classe_metier}> ite = listePersistants.iterator();
+		final Iterator<IProfil> ite = listePersistants.iterator();
 
 		try {
 
 			while (ite.hasNext()) {
 
-				final I${nom_classe_metier} objectPersistant = ite.next();
+				final IProfil objectPersistant = ite.next();
 				
 				/* Obtention d'une Entity JPA à 
 				 * partir de l'objet métier. */
-				final ${nom_classe_metier}EntityJPA entity 
-					= new ${nom_classe_metier}EntityJPA(objectPersistant);
+				final ProfilEntityJPA entity 
+					= new ProfilEntityJPA(objectPersistant);
 				
 				/* Merge avant destruction. */
 				this.entityManager.merge(entity);
@@ -1623,7 +1374,7 @@ public class ${nom_classe_metier}Dao {
 
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException.gererException(
-					CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
+					CLASSE_PROFILDAO_JPA_SPRING
 					, "Méthode deleteIterableBoolean(Iterable)", e);
 
 		}
@@ -1638,21 +1389,11 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>retourne true si l'objet métier pObject 
-	 * existe dans le stockage</b>.<br/>
-	 * - retourne false si pObject == null.<br/>
-	 * - retourne false si l'Objet métier pObject n'existe pas en base.<br/>
-	 * <br/>
-	 *
-	 * @param pObject : I${nom_classe_metier} : objet métier à rechercher.<br/>
-	 * 
-	 * @return boolean : 
-	 * true si l'objet métier pObject existe dans le stockage.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean exists(
-			final I${nom_classe_metier} pObject) throws Exception {
+			final IProfil pObject) throws Exception {
 
 		/* retourne false si pObject == null. */
 		if (pObject == null) {
@@ -1670,25 +1411,25 @@ public class ${nom_classe_metier}Dao {
 		}
 		
 		boolean resultat = false;		
-		I${nom_classe_metier} objectPersistant = null;
+		IProfil objectPersistant = null;
 
 		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 			= SELECT_OBJET
-				+ "where ${nom_classe_metier_en_minuscules}.${nom_classe_metier_en_minuscules}String = :p${nom_classe_metier}String";
+				+ "where profil.profilString = :pProfilString";
 
 		/* Construction de la requête HQL. */
 		final Query requete 
 			= this.entityManager.createQuery(requeteString);
 
 		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("p${nom_classe_metier}String", pObject.get${nom_classe_metier}String());
+		requete.setParameter("pProfilString", pObject.getProfilString());
 
 		try {
 
 			/* Execution de la requete HQL. */
 			objectPersistant 
-			= (I${nom_classe_metier}) requete.getSingleResult();
+			= (IProfil) requete.getSingleResult();
 
 			/* retourne true si l'objet existe en base. */
 			if (objectPersistant != null) {
@@ -1711,8 +1452,8 @@ public class ${nom_classe_metier}Dao {
 
 			/* Gestion de la DAO Exception. */
 			this.gestionnaireException
-				.gererException(CLASSE_${nom_classe_metier_en_MAJUSCULE}DAO_JPA_SPRING
-						, "Méthode exists(I${nom_classe_metier} pObject)", e);
+				.gererException(CLASSE_PROFILDAO_JPA_SPRING
+						, "Méthode exists(IProfil pObject)", e);
 		}
 
 		return resultat;
@@ -1722,21 +1463,9 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>retourne true si l'objet métier pObject 
-	 * d'identifiant ou d'index (0-based) pId 
-	 * existe dans le stockage</b>.<br/>
-	 * - retourne false si pId == null.<br/>
-	 * <br/>
-	 *
-	 * @param pId : Long : 
-	 * identifiant ou index (0-based) de l'objet métier à 
-	 * trouver dans le stockage.<br/>
-	 * 
-	 * @return boolean : 
-	 * true si l'objet métier existe dans le stockage.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
+	@Override
 	public boolean exists(
 			final Long pId) throws Exception {
 
@@ -1757,20 +1486,13 @@ public class ${nom_classe_metier}Dao {
 
 
 	/**
-	 * <b>retourne le nombre total d'objets métier</b> 
-	 * stockés dans le stockage.<br/>
-	 * - retourne 0L si this.findAll() retourne null.<br/>
-	 * <br/>
-	 *
-	 * @return : Long : 
-	 * nombre d'enregistrements dans le stockage.<br/>
-	 * 
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
+	@Override
 	public final Long count() throws Exception {
 
-		/* Récupère la liste d'Objets métier de Type paramétré I${nom_classe_metier}. */
-		final List<I${nom_classe_metier}> listObjects = this.findAll();
+		/* Récupère la liste d'Objets métier de Type paramétré IProfil. */
+		final List<IProfil> listObjects = this.findAll();
 
 		if (listObjects != null) {
 
@@ -1786,23 +1508,20 @@ public class ${nom_classe_metier}Dao {
 	
 	
 	/**
-	 * <b>écrit le contenu du stockage dans la console</b>.<br/>
-	 * - ne fait rien si findAll() retourne null.<br/>
-	 * <br/>
-	 *
-	 * @throws Exception
+	 * {@inheritDoc}
 	 */
+	@Override
 	public void ecrireStockageDansConsole() throws Exception {
 		
 		/* récupération de tous les objets métier dans le stockage. */
-		final List<I${nom_classe_metier}> contenuStockage = this.findAll();
+		final List<IProfil> contenuStockage = this.findAll();
 		
 		/* ne fait rien si findAll() retourne null. */
 		if (contenuStockage == null) {
 			return;
 		}
 		
-		for (final I${nom_classe_metier} objet : contenuStockage) {
+		for (final IProfil objet : contenuStockage) {
 			System.out.println(objet.toString());
 		}
 		
@@ -1811,18 +1530,11 @@ public class ${nom_classe_metier}Dao {
 	
 	
 	/**
-	 * fournit une String pour l'affichage à la console 
-	 * d'une Liste d'Objets métier.<br/>
-	 * <br/>
-	 * retourne null si pList == null.<br/>
-	 * <br/>
-	 *
-	 * @param pList : List&lt;I${nom_classe_metier}&gt;.<br/>
-	 * 
-	 * @return : String.<br/>
+	 * {@inheritDoc}
 	 */
+	@Override
 	public String afficherListeObjetsMetier(
-			final List<I${nom_classe_metier}> pList) {
+			final List<IProfil> pList) {
 		
 		/* retourne null si pList == null. */
 		if (pList == null) {
@@ -1831,7 +1543,7 @@ public class ${nom_classe_metier}Dao {
 		
 		final StringBuilder stb =new StringBuilder();
 		
-		for (final I${nom_classe_metier} objetMetier : pList) {
+		for (final IProfil objetMetier : pList) {
 			
 			stb.append(objetMetier.toString());
 			stb.append(SAUT_LIGNE_JAVA);
@@ -1843,4 +1555,4 @@ public class ${nom_classe_metier}Dao {
 
 
 
-} // FIN DE LA CLASSE ${nom_classe_metier}Dao.-------------------------------------------
+} // FIN DE LA CLASSE ProfilDao.-------------------------------------------

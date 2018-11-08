@@ -1,4 +1,4 @@
-package levy.daniel.application.model.persistence.metier.profil.dao;
+package levy.daniel.application.model.persistence.metier.profil.dao.jpaspring;
 
 import java.util.List;
 
@@ -211,9 +211,9 @@ public interface IProfilDao {
 	 */
 	List<IProfil> findAllMax(
 			int pStartPosition, int pMaxResult) throws Exception;
+	
+	
 
-	
-	
 	/**
 	 * method findAll(
 	 * Iterable&lt;Long&gt; pIds) :<br/>
@@ -507,7 +507,7 @@ public interface IProfilDao {
 	 * @return : String.<br/>
 	 */
 	String afficherListeObjetsMetier(List<IProfil> pList);
+	
+	
 
-	
-	
 } // FIN DE L'INTERFACE IProfilDao.------------------------------------------
