@@ -1,0 +1,1 @@
+INSERT INTO profils(profil, portee, restriction) VALUES ('ADMINISTRATEUR', 'TOUT LE RESEAU', null);
