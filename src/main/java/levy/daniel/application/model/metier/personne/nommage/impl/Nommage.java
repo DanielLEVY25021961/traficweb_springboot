@@ -1,10 +1,5 @@
 package levy.daniel.application.model.metier.personne.nommage.impl;
 
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -39,10 +34,6 @@ import levy.daniel.application.model.metier.personne.nommage.AbstractNommage;
  * @since 28 déc. 2017
  *
  */
-@Entity(name="Nommage")
-@Table(name = "NOMMAGES", schema = "PUBLIC")
-@PrimaryKeyJoinColumn(name = "ID_ABSTRACT_NOMMAGE"
-, foreignKey=@ForeignKey(name="FK_NOMMAGE_ABSTRACTNOMMAGE"))
 public class Nommage extends AbstractNommage {
 
 	// ************************ATTRIBUTS************************************/

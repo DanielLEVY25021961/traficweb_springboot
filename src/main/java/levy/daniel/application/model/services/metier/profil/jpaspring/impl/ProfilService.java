@@ -1,4 +1,4 @@
-package levy.daniel.application.model.services.metier.profil.impl;
+package levy.daniel.application.model.services.metier.profil.jpaspring.impl;
 
 import java.util.List;
 
@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import levy.daniel.application.model.metier.profil.IProfil;
-import levy.daniel.application.model.persistence.metier.profil.dao.IProfilDao;
-import levy.daniel.application.model.services.metier.profil.IProfilService;
+import levy.daniel.application.model.persistence.metier.profil.dao.jpaspring.IProfilDao;
+import levy.daniel.application.model.services.metier.profil.jpaspring.IProfilService;
+
+
 
 /**
- * CLASSE ProfilServiceFake :<br/>
- * SERVICE.<br/>
+ * CLASSE ProfilService :<br/>
+ * .<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -27,37 +29,36 @@ import levy.daniel.application.model.services.metier.profil.IProfilService;
  * <br/>
  *
  *
- * @author daniel.levy Lévy
+ * @author dan Lévy
  * @version 1.0
- * @since 5 nov. 2018
+ * @since 9 nov. 2018
  *
  */
-@Service("ProfilServiceFake")
-public class ProfilServiceFake implements IProfilService {
-
+@Service("ProfilServiceJPASpring")
+public class ProfilService implements IProfilService {
+	
 	// ************************ATTRIBUTS************************************/
 
 	/**
 	 * DAO pour les IProfil.<br/>
 	 */
 	@Autowired
-	@Qualifier("ProfilDaoFake")
+	@Qualifier("ProfilDaoJPASpring")
 	private transient IProfilDao profilDao;
-	
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	private static final Log LOG 
-		= LogFactory.getLog(ProfilServiceFake.class);
-
+	private static final Log LOG = LogFactory.getLog(ProfilService.class);
+	
 	// *************************METHODES************************************/
 
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public ProfilServiceFake() {
+	public ProfilService() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -117,4 +118,4 @@ public class ProfilServiceFake implements IProfilService {
 
 	
 	
-} // FIN DE LA CLASSE ProfilServiceFake.-----------------------------------------
+} // FIN DE LA CLASSE ProfilService.-----------------------------------------

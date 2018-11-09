@@ -155,6 +155,42 @@ public class ProfilCerbereDTO implements IProfilCerbereDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public String toString() {
+		
+		final StringBuilder builder = new StringBuilder();
+		
+		builder.append("ProfilCerbereDTO [");
+		if (this.idString != null) {
+			builder.append("idString=");
+			builder.append(this.idString);
+			builder.append(", ");
+		}
+		if (this.profilStringString != null) {
+			builder.append("profilStringString=");
+			builder.append(this.profilStringString);
+			builder.append(", ");
+		}
+		if (this.porteeProfilString != null) {
+			builder.append("porteeProfilString=");
+			builder.append(this.porteeProfilString);
+			builder.append(", ");
+		}
+		if (this.restrictionProfilString != null) {
+			builder.append("restrictionProfilString=");
+			builder.append(this.restrictionProfilString);
+		}
+		builder.append(']');
+		
+		return builder.toString();
+		
+	} // Fin de toString().________________________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public String getIdString() {
 		return this.idString;
 	} // Fin de getIdString()._____________________________________________

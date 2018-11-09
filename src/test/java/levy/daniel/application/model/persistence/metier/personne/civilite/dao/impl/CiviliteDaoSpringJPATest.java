@@ -69,8 +69,8 @@ public class CiviliteDaoSpringJPATest
      * DAO à tester injecté par SPRING BOOT.<br/>
      */
     @Autowired(required=true)
-    @Qualifier("CiviliteDao")
-    private transient ICiviliteDao civiliteDaoSpringJPA;
+    @Qualifier("CiviliteDaoJPASpringGeneric")
+    private transient ICiviliteDao civiliteDao;
     
 	/**
 	 * LOG : Log : 
@@ -132,7 +132,7 @@ public class CiviliteDaoSpringJPATest
 		
 		this.objet3 = new CiviliteAbregee(CivilitesEnum.MONSIEUR.getAbreviationEnum());
 		
-		this.daoATester = this.civiliteDaoSpringJPA;
+		this.daoATester = this.civiliteDao;
 		
 	} // Fin de before().__________________________________________________
 

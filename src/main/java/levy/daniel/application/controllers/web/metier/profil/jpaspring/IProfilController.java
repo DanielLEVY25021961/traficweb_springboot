@@ -1,7 +1,8 @@
-package levy.daniel.application.controllers.web.metier.profil;
+package levy.daniel.application.controllers.web.metier.profil.jpaspring;
 
 import java.util.List;
 
+import levy.daniel.application.model.dto.metier.profil.impl.ProfilCerbereDTO;
 import levy.daniel.application.model.metier.profil.IProfil;
 
 /**
@@ -46,7 +47,7 @@ public interface IProfilController {
 	 * 
 	 * @throws Exception
 	 */
-	IProfil create(IProfil pObject) throws Exception;
+	IProfil create(ProfilCerbereDTO pObject) throws Exception;
 
 
 

@@ -47,7 +47,7 @@ public interface IProfilService {
 	 * 
 	 * @throws Exception
 	 */
-	IProfil create(IProfil pProfil) throws Exception;
+	IProfil create(IProfil pObject) throws Exception;
 
 
 
@@ -113,7 +113,7 @@ public interface IProfilService {
 	 * 
 	 * @throws Exception
 	 */
-	IProfil update(Long pId, IProfil pProfil) throws Exception;
+	IProfil update(Long pId, IProfil pObjectModifie) throws Exception;
 
 
 
@@ -128,6 +128,8 @@ public interface IProfilService {
 	 *
 	 * @param pId : Long : 
 	 * index (0-based) de l'objet métier à modifier.<br/>
+	 * 
+	 * @return boolean : true si l'objet a été détruit.<br/>
 	 * 
 	 * @throws Exception
 	 */

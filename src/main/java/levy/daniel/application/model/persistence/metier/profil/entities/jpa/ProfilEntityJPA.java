@@ -1,6 +1,13 @@
 package levy.daniel.application.model.persistence.metier.profil.entities.jpa;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -28,7 +35,10 @@ import levy.daniel.application.model.metier.profil.IProfil;
  * @since 5 nov. 2018
  *
  */
-//@Entity
+@Entity(name="ProfilEntityJPA")
+@Table(name="PROFILS", schema="PUBLIC"
+, uniqueConstraints=@UniqueConstraint(name="UNICITE_PROFIL_PORTEE"
+, columnNames={"PROFIL", "PORTEE"}))
 public class ProfilEntityJPA implements IProfil {
 
 	// ************************ATTRIBUTS************************************/
@@ -559,6 +569,9 @@ public class ProfilEntityJPA implements IProfil {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID_PROFIL")
 	@Override
 	public Long getId() {
 		return this.id;
@@ -580,6 +593,9 @@ public class ProfilEntityJPA implements IProfil {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name = "PROFIL"
+			, unique = false, nullable = false
+			, updatable = true, insertable = true)
 	@Override
 	public String getProfilString() {
 		return this.profilString;
@@ -601,6 +617,9 @@ public class ProfilEntityJPA implements IProfil {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name = "PORTEE"
+			, unique = false, nullable = false
+			, updatable = true, insertable = true)
 	@Override
 	public String getPorteeProfil() {
 		return this.porteeProfil;
@@ -622,6 +641,9 @@ public class ProfilEntityJPA implements IProfil {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name = "RESTRICTION"
+			, unique = false, nullable = true
+			, updatable = true, insertable = true)
 	@Override
 	public String getRestrictionProfil() {
 		return this.restrictionProfil;
@@ -640,4 +662,4 @@ public class ProfilEntityJPA implements IProfil {
 
 
 
-}
+} // FIN DE LA CLASSE ProfilEntityJPA.---------------------------------------

@@ -1,11 +1,12 @@
-package levy.daniel.application.controllers.web.metier.profil;
+package levy.daniel.application.model.services.metier.profil.jpaspring;
 
 import java.util.List;
 
 import levy.daniel.application.model.metier.profil.IProfil;
 
+
 /**
- * INTERFACE IProfilController :<br/>
+ * INTERFACE IProfilService :<br/>
  * .<br/>
  * <br/>
  *
@@ -24,7 +25,7 @@ import levy.daniel.application.model.metier.profil.IProfil;
  * @since 6 nov. 2018
  *
  */
-public interface IProfilController {
+public interface IProfilService {
 
 	
 	
@@ -83,7 +84,7 @@ public interface IProfilController {
 	List<IProfil> findAll() throws Exception;
 
 
-
+	
 	/**
 	 * <b>modifie dans le stockage 
 	 * l'objet d'index (0-based) ou d'identifiant pId 
@@ -128,12 +129,12 @@ public interface IProfilController {
 	 * @param pId : Long : 
 	 * index (0-based) de l'objet métier à modifier.<br/>
 	 * 
-	 * @return boolan : true si l'objet est détruit.<br/>
+	 * @return boolean : true si l'objet a été détruit.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	boolean deleteById(Long pId) throws Exception;
+	boolean deleteByIdBoolean(Long pId) throws Exception;
 	
 	
 	
-} // FIN DE L'INTERFACE IProfilController.-----------------------------------
+} // FIN DE L'INTERFACE IProfilService.--------------------------------------

@@ -1,7 +1,5 @@
 package levy.daniel.application.model.metier.profil;
 
-import javax.persistence.Transient;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -537,7 +535,6 @@ public abstract class AbstractProfil implements IProfil {
 	 * {@inheritDoc}
 	 */
 	@Override
-	@Transient
 	public String getEnTeteCsv() {
 		return "id;profilString;porteeProfil;restrictionProfil;";
 	} // Fin de getEnTeteCsv().____________________________________________
@@ -578,7 +575,6 @@ public abstract class AbstractProfil implements IProfil {
 	 * {@inheritDoc}
 	 */
 	@Override
-	@Transient
 	public String getEnTeteColonne(
 			final int pI) {
 
@@ -618,7 +614,6 @@ public abstract class AbstractProfil implements IProfil {
 	 * {@inheritDoc}
 	 */
 	@Override
-	@Transient
 	public Object getValeurColonne(
 			final int pI) {
 

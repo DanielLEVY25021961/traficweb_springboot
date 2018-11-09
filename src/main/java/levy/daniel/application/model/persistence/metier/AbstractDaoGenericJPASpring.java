@@ -219,7 +219,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final <S extends T> S save(
+	public <S extends T> S save(
 			final S pObject) throws AbstractDaoException {
 
 		/* retourne null si pObject == null. */
@@ -278,7 +278,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void persist(
+	public void persist(
 			final T pObject) throws AbstractDaoException {
 
 		/* ne fait rien si pObject == null. */
@@ -331,7 +331,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final <S extends T> void persistSousClasse(
+	public <S extends T> void persistSousClasse(
 			final S pObject) throws AbstractDaoException {
 
 		/* ne fait rien si pObject == null. */
@@ -394,7 +394,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Iterable<T> save(
+	public Iterable<T> save(
 			final Iterable<T> pList) 
 					throws AbstractDaoException {
 		
@@ -491,7 +491,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final <S extends T> Iterable<S> saveIterableSousClasse(
+	public <S extends T> Iterable<S> saveIterableSousClasse(
 			final Iterable<S> pObjects) 
 			throws AbstractDaoException {
 
@@ -647,7 +647,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final T getOne(
+	public T getOne(
 			final ID pId) throws AbstractDaoException {
 
 		return this.findById(pId);
@@ -714,7 +714,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final List<T> findAllMax(
+	public List<T> findAllMax(
 			final int pStartPosition
 				, final int pMaxResult) throws AbstractDaoException {
 
@@ -771,7 +771,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Iterable<T> findAll(
+	public Iterable<T> findAll(
 			final Iterable<ID> pIds) throws AbstractDaoException {
 
 		/* retourne null si pIds == null. */
@@ -817,7 +817,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final T update(
+	public T update(
 			final T pObject) throws AbstractDaoException {
 
 		/* retourne null si pObject == null. */
@@ -881,7 +881,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean delete(
+	public boolean delete(
 			final T pObject) throws AbstractDaoException {
 
 		/* retourne false si pObject == null. */
@@ -963,7 +963,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void deleteAll() throws AbstractDaoException {
+	public void deleteAll() throws AbstractDaoException {
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1013,7 +1013,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean deleteAllBoolean() throws AbstractDaoException {
+	public boolean deleteAllBoolean() throws AbstractDaoException {
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1069,7 +1069,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void delete(
+	public void delete(
 			final Iterable<? extends T> pObjects) 
 						throws AbstractDaoException {
 
@@ -1148,7 +1148,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Long count() throws AbstractDaoException {
+	public Long count() throws AbstractDaoException {
 
 		/* Récupère la liste d'Objets métier de Type paramétré T. */
 		final List<T> listObjects = this.findAll();
@@ -1169,7 +1169,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Class<T> getClassObjetMetier() {
+	public Class<T> getClassObjetMetier() {
 		return this.classObjetMetier;
 	} // Fin de getClassObjetMetier()._____________________________________
 
@@ -1179,7 +1179,7 @@ public abstract class AbstractDaoGenericJPASpring<T, ID extends Serializable>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void setClassObjetMetier(
+	public void setClassObjetMetier(
 			final Class<T> pClassObjetMetier) {
 		this.classObjetMetier = pClassObjetMetier;
 	} // Fin de setClassObjetMetier(...).__________________________________

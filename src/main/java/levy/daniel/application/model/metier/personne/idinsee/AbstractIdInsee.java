@@ -1,17 +1,6 @@
 package levy.daniel.application.model.metier.personne.idinsee;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Index;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.Size;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -158,12 +147,6 @@ import org.apache.commons.logging.LogFactory;
  * @since 26 déc. 2017
  *
  */
-@Entity(name="AbstractIdInsee")
-@Table(name = "ABSTRACT_IDS_INSEE", schema = "PUBLIC"
-, uniqueConstraints=@UniqueConstraint(name="UNICITE_NUMEROINSEE"
-, columnNames={"NUMEROINSEE"})
-, indexes={@Index(name = "INDEX_NUMEROINSEE", columnList="NUMEROINSEE")})
-@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class AbstractIdInsee implements IIdInsee {
 
 	// ************************ATTRIBUTS************************************/
@@ -541,9 +524,6 @@ public abstract class AbstractIdInsee implements IIdInsee {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID_ABSTRACT_IDINSEE")
 	@Override
 	public Long getId() {
 		return this.id;
@@ -565,10 +545,6 @@ public abstract class AbstractIdInsee implements IIdInsee {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Column(name = "NUMEROINSEE"
-			, unique = false, nullable = false
-			, updatable = true, insertable = true)
-	@Size(min = 5, max = 30)
 	@Override
 	public String getNumeroInsee() {
 		return this.numeroInsee;

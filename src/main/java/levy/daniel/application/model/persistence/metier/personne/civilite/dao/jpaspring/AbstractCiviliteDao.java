@@ -126,7 +126,7 @@ public abstract class AbstractCiviliteDao
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Long createReturnId(
+	public Long createReturnId(
 			final ICivilite pObject) throws AbstractDaoException {
 
 		/* retourne null si pObject == null. */
@@ -228,7 +228,7 @@ public abstract class AbstractCiviliteDao
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final ICivilite retrieveByIdMetier(
+	public ICivilite retrieveByIdMetier(
 			final ICivilite pObjet) throws AbstractDaoException {
 		return this.retrieve(pObjet);	
 	} // Fin de retrieveByIdMetier(...).___________________________________
@@ -239,7 +239,7 @@ public abstract class AbstractCiviliteDao
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final ICivilite retrieveByAttributs(
+	public ICivilite retrieveByAttributs(
 			final String pCiviliteString)
 					throws AbstractDaoException {
 

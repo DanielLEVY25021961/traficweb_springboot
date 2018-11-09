@@ -11,13 +11,10 @@ import javax.persistence.Query;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import levy.daniel.application.model.persistence.daoexceptions.GestionnaireDaoException;
-
 import levy.daniel.application.model.metier.profil.IProfil;
+import levy.daniel.application.model.persistence.daoexceptions.GestionnaireDaoException;
 import levy.daniel.application.model.persistence.metier.profil.dao.jpaspring.IProfilDao;
 import levy.daniel.application.model.persistence.metier.profil.entities.jpa.ProfilEntityJPA;
 
@@ -85,8 +82,7 @@ import levy.daniel.application.model.persistence.metier.profil.entities.jpa.Prof
  * @since 01 mars 2018
  *
  */
-@Repository
-@Qualifier("ProfilDao")
+@Repository("ProfilDaoJPASpring")
 public class ProfilDao implements IProfilDao {
 
 	// ************************ATTRIBUTS************************************/
@@ -157,7 +153,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IProfil create(
+	public IProfil create(
 			final IProfil pObject) throws Exception {
 
 		/* retourne null si pObject == null. */
@@ -221,7 +217,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void persist(
+	public void persist(
 			final IProfil pObject) throws Exception {
 
 		/* ne fait rien si pObject == null. */
@@ -279,7 +275,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Long createReturnId(
+	public Long createReturnId(
 			final IProfil pObject) throws Exception {
 
 		/* retourne null si pObject == null. */
@@ -323,7 +319,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Iterable<IProfil> save(
+	public Iterable<IProfil> save(
 			final Iterable<IProfil> pList) 
 					throws Exception {
 		
@@ -430,7 +426,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IProfil retrieve(
+	public IProfil retrieve(
 			final IProfil pObject) throws Exception {
 
 		/* return null si pObject == null. */
@@ -499,7 +495,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IProfil findById(
+	public IProfil findById(
 			final Long pId) throws Exception {
 
 		IProfil objetTrouve = null;
@@ -548,7 +544,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Long retrieveId(
+	public Long retrieveId(
 			final IProfil pObject) throws Exception {
 		
 		final IProfil object = this.retrieve(pObject);
@@ -569,7 +565,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final List<IProfil> findAll() throws Exception {
+	public List<IProfil> findAll() throws Exception {
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -623,7 +619,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final List<IProfil> findAllMax(
+	public List<IProfil> findAllMax(
 			final int pStartPosition
 				, final int pMaxResult) throws Exception {
 
@@ -681,7 +677,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Iterable<IProfil> findAll(
+	public Iterable<IProfil> findAll(
 			final Iterable<Long> pIds) throws Exception {
 
 		/* retourne null si pIds == null. */
@@ -728,7 +724,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IProfil update(
+	public IProfil update(
 			final IProfil pObject) throws Exception {
 
 		/* retourne null si pObject == null. */
@@ -794,7 +790,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final IProfil update(
+	public IProfil update(
 			final Long pId, final IProfil pObjectModifie) 
 												throws Exception {
 
@@ -875,7 +871,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean delete(
+	public boolean delete(
 			final IProfil pObject) throws Exception {
 
 		/* retourne false si pObject == null. */
@@ -1114,7 +1110,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final void deleteAll() throws Exception {
+	public void deleteAll() throws Exception {
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1164,7 +1160,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final boolean deleteAllBoolean() throws Exception {
+	public boolean deleteAllBoolean() throws Exception {
 
 		/* Cas où this.entityManager == null. */
 		if (this.entityManager == null) {
@@ -1489,7 +1485,7 @@ public class ProfilDao implements IProfilDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Long count() throws Exception {
+	public Long count() throws Exception {
 
 		/* Récupère la liste d'Objets métier de Type paramétré IProfil. */
 		final List<IProfil> listObjects = this.findAll();

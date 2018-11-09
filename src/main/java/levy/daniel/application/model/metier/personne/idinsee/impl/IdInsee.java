@@ -1,10 +1,5 @@
 package levy.daniel.application.model.metier.personne.idinsee.impl;
 
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -142,10 +137,6 @@ import levy.daniel.application.model.metier.personne.idinsee.AbstractIdInsee;
  * @since 26 déc. 2017
  *
  */
-@Entity(name="IdInsee")
-@Table(name = "IDS_INSEE", schema = "PUBLIC")
-@PrimaryKeyJoinColumn(name = "ID_ABSTRACT_IDINSEE"
-, foreignKey=@ForeignKey(name="FK_IDINSEE_ABSTRACTIDINSEE"))
 public class IdInsee extends AbstractIdInsee {
 
 	// ************************ATTRIBUTS************************************/

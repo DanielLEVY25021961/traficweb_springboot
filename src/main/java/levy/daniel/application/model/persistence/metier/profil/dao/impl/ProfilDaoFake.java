@@ -8,7 +8,6 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import levy.daniel.application.model.metier.profil.IProfil;
@@ -37,8 +36,7 @@ import levy.daniel.application.model.persistence.metier.profil.entities.jpa.Prof
  * @since 5 nov. 2018
  *
  */
-@Repository
-@Qualifier("ProfilDaoFake")
+@Repository("ProfilDaoFake")
 public class ProfilDaoFake implements IProfilDao {
 
 	// ************************ATTRIBUTS************************************/
@@ -250,7 +248,7 @@ public class ProfilDaoFake implements IProfilDao {
 	 */
 	@Override
 	public List<IProfil> findAll() throws Exception {
-		return (List<IProfil>) fakeBaseProfils.values();
+		return new ArrayList<>(fakeBaseProfils.values());
 	} // Fin de findAll()._________________________________________________
 
 

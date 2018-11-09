@@ -1,16 +1,6 @@
 package levy.daniel.application.model.metier.personne.nommage;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Index;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.validation.constraints.Size;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -188,10 +178,6 @@ import org.apache.commons.logging.LogFactory;
  * @since 28 déc. 2017
  *
  */
-@Entity(name="AbstractNommage")
-@Table(name = "ABSTRACT_NOMMAGES", schema = "PUBLIC"
-, indexes={@Index(name = "INDEX_NOM_PRENOM", columnList="NOM, PRENOM")})
-@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class AbstractNommage implements INommage {
 
 	// ************************ATTRIBUTS************************************/
@@ -648,9 +634,6 @@ public abstract class AbstractNommage implements INommage {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID_ABSTRACT_NOMMAGE")
 	@Override
 	public Long getId() {
 		return this.id;
@@ -672,10 +655,6 @@ public abstract class AbstractNommage implements INommage {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Column(name = "PRENOM"
-	, unique = false, nullable = false
-	, updatable = true, insertable = true)
-	@Size(min = 1, max = 30)
 	@Override
 	public String getPrenom() {
 		return this.prenom;
@@ -697,10 +676,6 @@ public abstract class AbstractNommage implements INommage {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Column(name = "NOM"
-	, unique = false, nullable = false
-	, updatable = true, insertable = true)
-	@Size(min = 1, max = 50)
 	@Override
 	public String getNom() {
 		return this.nom;

@@ -1,4 +1,4 @@
-package levy.daniel.application.controllers.web.metier.profil.impl;
+package levy.daniel.application.controllers.web.metier.profil.jpaspring.impl;
 
 import java.util.List;
 
@@ -15,12 +15,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import levy.daniel.application.controllers.web.metier.profil.IProfilController;
+import levy.daniel.application.controllers.web.metier.profil.jpaspring.IProfilController;
+import levy.daniel.application.model.dto.metier.profil.impl.ProfilCerbereDTO;
 import levy.daniel.application.model.metier.profil.IProfil;
-import levy.daniel.application.model.services.metier.profil.IProfilService;
+import levy.daniel.application.model.metier.profil.impl.ProfilCerbere;
+import levy.daniel.application.model.services.metier.profil.jpaspring.IProfilService;
+
+
 
 /**
- * CLASSE ProfilControllerFake :<br/>
+ * CLASSE ProfilController :<br/>
  * .<br/>
  * <br/>
  *
@@ -34,37 +38,38 @@ import levy.daniel.application.model.services.metier.profil.IProfilService;
  * <br/>
  *
  *
- * @author daniel.levy Lévy
+ * @author dan Lévy
  * @version 1.0
- * @since 5 nov. 2018
+ * @since 9 nov. 2018
  *
  */
 @RestController
-@RequestMapping("/profilFake")
-public class ProfilControllerFake implements IProfilController {
-
+@RequestMapping("/profil")
+public class ProfilController implements IProfilController {
+	
 	// ************************ATTRIBUTS************************************/
 
 	/**
 	 * SERVICE pour les Profil.<br/>
 	 */
 	@Autowired
-	@Qualifier("ProfilServiceFake")
+	@Qualifier("ProfilServiceJPASpring")
 	private transient IProfilService profilService;
-	
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	private static final Log LOG = LogFactory.getLog(ProfilControllerFake.class);
-
+	private static final Log LOG = LogFactory.getLog(ProfilController.class);
+	
+	
 	// *************************METHODES************************************/
 	
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public ProfilControllerFake() {
+	public ProfilController() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -74,10 +79,19 @@ public class ProfilControllerFake implements IProfilController {
 	 * {@inheritDoc}
 	 */
 	@Override
-	@PostMapping
+	@PostMapping("/create")
 	public IProfil create(
-			@RequestBody final IProfil pProfil) throws Exception {
-		return this.profilService.create(pProfil);
+			@RequestBody final ProfilCerbereDTO pProfil) throws Exception {
+		
+		System.out.println("DTO : " + pProfil.toString());
+		
+		final ProfilCerbere profil = new ProfilCerbere(pProfil);
+		
+		
+		System.out.println("PROFIL : " + profil.toString());
+		
+		return this.profilService.create(profil);
+		
 	} // Fin de create(...)._______________________________________________
 
 	
@@ -129,6 +143,6 @@ public class ProfilControllerFake implements IProfilController {
 		return this.profilService.deleteByIdBoolean(pId);
 	} // Fin de deleteById(...).___________________________________________
 	
-
 	
-} // FIN DE LA CLASSE ProfilControllerFake.--------------------------------------
+	
+} // FIN DE LA CLASSE ProfilController.--------------------------------------

@@ -79,8 +79,7 @@ import levy.daniel.application.model.persistence.metier.personne.civilite.entiti
  * @since 01 mars 2018
  *
  */
-@Repository("CiviliteDaoJpaSpringGeneric")
-//@Qualifier("CiviliteDaoJpaSpringGeneric")
+@Repository("CiviliteDaoJPASpringGeneric")
 public class CiviliteDao 
 			extends AbstractCiviliteDao {
 
