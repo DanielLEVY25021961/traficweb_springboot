@@ -228,7 +228,6 @@ public class CountryController {
 		
 		pModelMap.addAttribute("listCountrys", this.countryService.findAll());
 		
-//		return "vues/web/metier/country/springmvc/listCountrys.html";
 		return "vues/web/metier/country/springmvc/listCountrys.html";
 	}
 	
