@@ -1,4 +1,4 @@
-package levy.daniel.application.model.metier.profil.impl;
+package levy.daniel.application.model.metier.country.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -11,24 +11,18 @@ import org.apache.commons.logging.LogFactory;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import levy.daniel.application.model.metier.profil.IProfil;
-import levy.daniel.application.model.metier.profil.PorteeEnum;
-import levy.daniel.application.model.metier.profil.ProfilEnum;
+import levy.daniel.application.model.metier.country.ICountry;
 
 
 /**
- * CLASSE ProfilTest :<br/>
- * Test JUnit de la classe Profil.<br/>
+ * CLASSE CountryTest :<br/>
+ * .<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
  *<br/>
  * 
  * - Mots-clé :<br/>
- * test des contrats Java, contrat Java, contrat java, <br/>
- * test equals, test compare, test compareTo, <br/>
- * test objet metier, test objet métier,<br/>
- * <br/>
  * <br/>
  *
  * - Dépendances :<br/>
@@ -37,10 +31,10 @@ import levy.daniel.application.model.metier.profil.ProfilEnum;
  *
  * @author dan Lévy
  * @version 1.0
- * @since 4 nov. 2018
+ * @since 11 nov. 2018
  *
  */
-public class ProfilTest {
+public class CountryTest {
 	
 	// ************************ATTRIBUTS************************************/
 	
@@ -74,107 +68,117 @@ public class ProfilTest {
 	 * "avec".<br/>
 	 */
 	public static final String AVEC = "avec";
+
+	/**
+	 * "France".<br/>
+	 */
+	public static final String FRANCE = "France";
+	
+	/**
+	 * "Paris".<br/>
+	 */
+	public static final String PARIS = "Paris";
 	
 	/**
 	 * objet1, objet2EqualsObj1, objet3EqualsObj1 doivent être equals().
 	 */
-	public static transient IProfil objet1 
-		= new Profil(1L, ProfilEnum.CONSULTANT.toString(), PorteeEnum.DIRA.toString(), "Ain");
+	public static transient ICountry objet1 
+		= new Country(1L, FRANCE, PARIS);
 	
 	/**
 	 * objet1MemeInstance doit être la même instance que objet1.<br/>
 	 */
-	public static transient IProfil objet1MemeInstance = objet1;
+	public static transient ICountry objet1MemeInstance = objet1;
 	
 	/**
 	 * objet1, objet2EqualsObj1, objet3EqualsObj1 doivent être equals().
 	 */
-	public static transient IProfil objet2EqualsObj1 
-		= new Profil(2L, ProfilEnum.CONSULTANT.toString(), PorteeEnum.DIRA.toString(), "Ain");
+	public static transient ICountry objet2EqualsObj1 
+		= new Country(2L, FRANCE, "PARIS");
 	
 	/**
 	 * objet1, objet2EqualsObj1, objet3EqualsObj1 doivent être equals().
 	 */
-	public static transient IProfil objet3EqualsObj1 
-		= new Profil(3L, ProfilEnum.CONSULTANT.toString(), PorteeEnum.DIRA.toString(), "Ain");
+	public static transient ICountry objet3EqualsObj1 
+		= new Country(3L, "FRANCE", PARIS);
 	
 	/**
 	 * objetNull1 et objetNull2 doivent être instanciés 
 	 * avec le constructeur d'arité nulle ou avoir 
 	 * tous les attributs aux valeurs par défaut.
 	 */
-	public static transient IProfil objetNull1 
-		= new Profil(0L, null, null, null);
+	public static transient ICountry objetNull1 
+		= new Country(0L, null, null);
 	
 	/**
 	 * objetNull1 et objetNull2 doivent être instanciés 
 	 * avec le constructeur d'arité nulle ou avoir 
 	 * tous les attributs aux valeurs par défaut.
 	 */
-	public static transient IProfil objetNull2 
-		= new Profil(7L, null, null, null);
+	public static transient ICountry objetNull2 
+		= new Country(7L, null, null);
 	
 	/**
 	 * objet1AvecNull et objet2EqualsObjet1AvecNull 
 	 * doivent être equals() et avoir certains attributs à null.
 	 */
-	public static transient IProfil objet1AvecNull 
-		= new Profil(7L, ProfilEnum.ADMINISTRATEUR.toString(), null, null);
+	public static transient ICountry objet1AvecNull 
+		= new Country(7L, null, PARIS);
 	
 	/**
 	 * objet1AvecNull et objet2EqualsObjet1AvecNull 
 	 * doivent être equals() et avoir certains attributs à null.
 	 */
-	public static transient IProfil objet2EqualsObjet1AvecNull 
-		= new Profil(8L, ProfilEnum.ADMINISTRATEUR.toString(), null, null);
+	public static transient ICountry objet2EqualsObjet1AvecNull 
+		= new Country(8L, null, PARIS);
 	
 	/**
 	 * objetDiff1 doit être différent de objetDiff2
 	 */
-	public static transient IProfil objetDiff1 
-		= new Profil(1L, ProfilEnum.ADMINISTRATEUR.toString(), PorteeEnum.TOUTRESEAU.toString(), null);
+	public static transient ICountry objetDiff1 
+		= new Country(1L, FRANCE, PARIS);
 	
 	/**
 	 * objetDiff2 doit être différent de objetDiff1
 	 */
-	public static transient IProfil objetDiff2 
-		= new Profil(2L, ProfilEnum.ADMINISTRATEUR.toString(), PorteeEnum.DARWIN.toString(), null);
+	public static transient ICountry objetDiff2 
+		= new Country(2L, "Angleterre", "Londres");
 	
 	/**
 	 * objetDiff1AvecNull doit être différent de objetDiff2AvecNull.<br/>
 	 * objetDiff1AvecNull et objetDiff2AvecNull doivent avoir des attributs null.
 	 */
-	public static transient IProfil objetDiff1AvecNull 
-		= new Profil(1L, ProfilEnum.ADMINISTRATEUR.toString(), null, "Savoie");
+	public static transient ICountry objetDiff1AvecNull 
+		= new Country(1L, FRANCE, null);
 	
 	/**
 	 * objetDiff1AvecNull doit être différent de objetDiff2AvecNull.<br/>
 	 * objetDiff1AvecNull et objetDiff2AvecNull doivent avoir des attributs null.
 	 */
-	public static transient IProfil objetDiff2AvecNull 
-		= new Profil(1L, null, PorteeEnum.TOUTRESEAU.toString(), "Ardèche");
+	public static transient ICountry objetDiff2AvecNull 
+		= new Country(1L, "Etats-Unis", null);
 	
 	/**
 	 * objetCompAvant doit être AVANT objetCompApres.
 	 */
-	public static transient IProfil objetCompAvant 
-		= new Profil(1L, ProfilEnum.ADMINISTRATEUR.toString(), PorteeEnum.DIRA.toString(), "Haute-Savoie");
+	public static transient ICountry objetCompAvant 
+		= new Country(1L, "Andorre", "Andorre");
 	
 	/**
 	 * objetCompApres doit être APRES objetCompAvant.
 	 */
-	public static transient IProfil objetCompApres 
-		= new Profil(1L, ProfilEnum.ADMINISTRATEUR.toString(), PorteeEnum.DIRCE.toString(), "Isère");
+	public static transient ICountry objetCompApres 
+		= new Country(1L, FRANCE, PARIS);
 	
 	/**
 	 * clone de objetNull1.<br/>
 	 */
-	public static transient IProfil objetNullClone1;
+	public static transient ICountry objetNullClone1;
 	
 	/**
 	 * clone de objet1.<br/>
 	 */
-	public static transient IProfil objetClone1;
+	public static transient ICountry objetClone1;
 
 
 	/**
@@ -182,7 +186,7 @@ public class ProfilTest {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(ProfilTest.class);
+		= LogFactory.getLog(CountryTest.class);
 
 	// *************************METHODES************************************/
 
@@ -190,7 +194,7 @@ public class ProfilTest {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public ProfilTest() {
+	public CountryTest() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -228,7 +232,7 @@ public class ProfilTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE ProfilTest - méthode testEquals() ********** ");
+		System.out.println("********** CLASSE CountryTest - méthode testEquals() ********** ");
 		}
 
 		/* AFFICHAGE A LA CONSOLE. */
@@ -425,7 +429,7 @@ public class ProfilTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE ProfilTest - méthode testCompareTo() ********** ");
+		System.out.println("********** CLASSE CountryTest - méthode testCompareTo() ********** ");
 		}
 
 		
@@ -554,7 +558,7 @@ public class ProfilTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ProfilTest - méthode testClone() ********** ");
+			System.out.println("********** CLASSE CountryTest - méthode testClone() ********** ");
 		}
 
 		
@@ -633,7 +637,7 @@ public class ProfilTest {
 	
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ProfilTest - méthode testToString() ********** ");
+			System.out.println("********** CLASSE CountryTest - méthode testToString() ********** ");
 		}
 	
 		/* AFFICHAGE A LA CONSOLE. */
@@ -644,7 +648,7 @@ public class ProfilTest {
 		
 		/* garantit que les null sont bien gérés dans toString(). */
 		assertEquals("objetNull1.toString() retourne une chaine : "
-				, "Profil [id=0, profilString=null, porteeProfil=null, restrictionProfil=null]"
+				, "Country [id=0, name=null, capital=null]"
 						, objetNull1.toString());
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -655,7 +659,7 @@ public class ProfilTest {
 		
 		/* garantit le bon affichage de toString(). */
 		assertEquals("affichage : "
-				, "Profil [id=1, profilString=CONSULTANT, porteeProfil=DIRA, restrictionProfil=Ain]"
+				, "Country [id=1, name=France, capital=Paris]"
 						, objet1.toString());
 				
 	} // Fin de testToString().____________________________________________
@@ -681,7 +685,7 @@ public class ProfilTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ProfilTest - méthode testGetEnTeteCsv() ********** ");
+			System.out.println("********** CLASSE CountryTest - méthode testGetEnTeteCsv() ********** ");
 		}
 	
 
@@ -698,7 +702,7 @@ public class ProfilTest {
 		}
 		
 		assertEquals("en-tête csv : "
-				, "id;profilString;porteeProfil;restrictionProfil;"
+				, "id;name;capital;"
 					, entete);
 				
 	} // Fin de testGetEnTeteCsv().________________________________________
@@ -725,7 +729,7 @@ public class ProfilTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ProfilTest - méthode testToStringCsv() ********** ");
+			System.out.println("********** CLASSE CountryTest - méthode testToStringCsv() ********** ");
 		}
 
 		/* garantit que les null sont gérés dans toStringCsv(). */
@@ -742,7 +746,7 @@ public class ProfilTest {
 		}
 
 		assertEquals("ligne csv null : "
-				, "0;null;null;null;"
+				, "0;null;null;"
 					, ligneCsvNull);
 		
 						
@@ -759,7 +763,7 @@ public class ProfilTest {
 		}
 
 		assertEquals("ligne csv : "
-				, "1;CONSULTANT;DIRA;Ain;"
+				, "1;France;Paris;"
 					, ligneCsv);
 				
 	} // Fin de testToStringCsv()._________________________________________
@@ -789,7 +793,7 @@ public class ProfilTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ProfilTest - méthode testGetEnTeteColonne() ********** ");
+			System.out.println("********** CLASSE CountryTest - méthode testGetEnTeteColonne() ********** ");
 		}
 		
 		/* garantit que les null sont gérés 
@@ -819,8 +823,8 @@ public class ProfilTest {
 		assertEquals("entete0 : ", "id", entete0);
 		assertEquals("enteteNull0 : ", "id", enteteNull0);
 		
-		assertEquals("entete1 : ", "profilString", entete1);
-		assertEquals("enteteNull1 : ", "profilString", enteteNull1);
+		assertEquals("entete1 : ", "name", entete1);
+		assertEquals("enteteNull1 : ", "name", enteteNull1);
 				
 
 	} // Fin de testGetEnTeteColonne().____________________________________
@@ -850,7 +854,7 @@ public class ProfilTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ProfilTest - méthode testGetValeurColonne() ********** ");
+			System.out.println("********** CLASSE CountryTest - méthode testGetValeurColonne() ********** ");
 		}
 		
 		/* garantit que les null sont gérés 
@@ -888,7 +892,7 @@ public class ProfilTest {
 		}
 		
 		assertEquals("valeur0 ((String) objet1.getValeurColonne(0)) : ", "1", valeur0);		
-		assertEquals("valeur1 ((String) objet1.getValeurColonne(1)) : ", "CONSULTANT", valeur1);
+		assertEquals("valeur1 ((String) objet1.getValeurColonne(1)) : ", "France", valeur1);
 		
 	} // Fin de testGetValeurColonne().____________________________________
 	
@@ -913,4 +917,4 @@ public class ProfilTest {
 	
 		
 	
-} // FIN DE LA CLASSE ProfilTest.-------------------------------------
+} // FIN DE LA CLASSE CountryTest.-------------------------------------------

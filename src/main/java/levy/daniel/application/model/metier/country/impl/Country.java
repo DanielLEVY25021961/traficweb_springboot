@@ -1,5 +1,7 @@
 package levy.daniel.application.model.metier.country.impl;
 
+import java.util.Locale;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -276,9 +278,11 @@ public class Country implements ICountry {
 		int result = 1;
 		
 		result = prime * result 
-				+ ((this.name == null) ? 0 : this.name.hashCode());
+				+ ((this.name == null) ? 0 
+						: this.name.toUpperCase(Locale.FRANCE).hashCode());
 		result = prime * result 
-				+ ((this.capital == null) ? 0 : this.capital.hashCode());
+				+ ((this.capital == null) ? 0 
+						: this.capital.toUpperCase(Locale.FRANCE).hashCode());
 				
 		return result;
 		
@@ -315,6 +319,7 @@ public class Country implements ICountry {
 		
 		final ICountry other = (ICountry) pObject;
 		
+		/* name. */
 		if (this.getName() == null) {
 			if (other.getName() != null) {
 				return false;
@@ -324,7 +329,8 @@ public class Country implements ICountry {
 				.equalsIgnoreCase(other.getName())) {
 			return false;
 		}
-				
+		
+		/* capital. */
 		if (this.getCapital() == null) {
 			if (other.getCapital() != null) {
 				return false;
@@ -392,7 +398,7 @@ public class Country implements ICountry {
 
 		compareCapital 
 			= this.getCapital()
-				.compareTo(pObject.getCapital());
+				.compareToIgnoreCase(pObject.getCapital());
 
 		return compareCapital;
 
