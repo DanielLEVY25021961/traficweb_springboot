@@ -1,4 +1,4 @@
-package levy.daniel.application.controllers.web.accueil;
+package levy.daniel.application.controllers.web.accueil.springmvc;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * CLASSE AccueilController :<br/>
- * .<br/>
+ * CONTROLLER SPRING WEB MVC (pas REST).<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class AccueilController {
+	
 	// ************************ATTRIBUTS************************************/
 
 	/**

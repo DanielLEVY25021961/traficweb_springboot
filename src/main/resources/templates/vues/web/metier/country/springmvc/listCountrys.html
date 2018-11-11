@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+
+		<meta charset="UTF-8" />
+		<title>listCountrys.html</title>
+
+		<!-- AJOUT DE LA BIBLIOTHEQUE JQUERY -->
+		<script type="text/javascript" src="webjars/jquery/3.3.1-1/jquery.min.js"></script>
+
+		<!-- AJOUT DE LA BIBLIOTHEQUE JavaScript BOOTSTRAP -->
+		<script type="text/javascript" src="webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+		<!-- AJOUT DE LA BIBLIOTHEQUE CSS BOOTSTRAP -->
+		<link rel="stylesheet" href="webjars/bootstrap/4.1.3/css/bootstrap.min.css" />
+
+	</head>
+	
+	<body>
+
+		<h1>PAGE DES COUNTRIES</h1>
+
+		<div class="listCountrys">
+
+			<div classe="toto">
+				
+				<div classe="tata">
+
+					<!-- TABLEAU LISTE DES COUNTRYS -->
+					<table classe="tableau tableau-hover">
+
+						<!-- EN-TETE DU TABLEAU -->
+						<thead>
+
+							<tr>
+								<th>ID</th><th>PAYS</th><th>CAPITALE</th>
+							</tr>
+						
+						</thead>
+
+						<!-- CORPS DU TABLEAU -->
+						<tbody>
+
+							<!-- ITERATION SUR LA LISTE -->
+							<tr th:each="country : ${listCountrys}">
+								<td th:text="${country.id}">identifiant du Pays</td>
+								<td th:text="${country.name}">Pays</td>
+								<td th:text="${country.capital}">Capitale du Pays</td>
+							</tr>
+													
+						</tbody>
+						
+					</table>
+					
+				</div>
+					
+			</div>
+				
+		</div>
+
+		
+	</body>
+	
+</html>

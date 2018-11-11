@@ -1,4 +1,4 @@
-package levy.daniel.application.model.services.metier.profil.jpaspring.impl;
+package levy.daniel.application.model.services.metier.country.jpaspring.impl;
 
 import java.util.List;
 
@@ -9,14 +9,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import levy.daniel.application.model.metier.profil.IProfil;
-import levy.daniel.application.model.persistence.metier.profil.dao.jpaspring.IProfilDAO;
-import levy.daniel.application.model.services.metier.profil.jpaspring.IProfilService;
-
+import levy.daniel.application.model.metier.country.ICountry;
+import levy.daniel.application.model.persistence.metier.country.dao.jpaspring.ICountryDAO;
+import levy.daniel.application.model.services.metier.country.jpaspring.ICountryService;
 
 
 /**
- * CLASSE ProfilService :<br/>
+ * CLASSE CountryService :<br/>
  * SERVICE.<br/>
  * <br/>
  *
@@ -32,11 +31,11 @@ import levy.daniel.application.model.services.metier.profil.jpaspring.IProfilSer
  *
  * @author dan Lévy
  * @version 1.0
- * @since 9 nov. 2018
+ * @since 11 nov. 2018
  *
  */
-@Service("ProfilServiceJPASpring")
-public class ProfilService implements IProfilService {
+@Service("CountryServiceJPASpring")
+public class CountryService implements ICountryService {
 	
 	// ************************ATTRIBUTS************************************/
 
@@ -45,49 +44,47 @@ public class ProfilService implements IProfilService {
 	 * INJECTE PAR SPRING.<br/>
 	 */
 	@Autowired
-	@Qualifier("ProfilDaoJPASpring")
-	private transient IProfilDAO profilDAO;
+	@Qualifier("CountryDaoJPASpring")
+	private transient ICountryDAO countryDAO;
+
 
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
-	private static final Log LOG = LogFactory.getLog(ProfilService.class);
-	
+	private static final Log LOG = LogFactory.getLog(CountryService.class);
+
 	// *************************METHODES************************************/
 
 	
 	 /**
-	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
+	 * CONSTRUCTEUR D'ARITE NULLE.
 	 */
-	public ProfilService() {
+	public CountryService() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
 	
-
-	/* CREATE ************/
-
 	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Transactional
 	@Override
-	public IProfil create(
-			final IProfil pObject) throws Exception {
-		return this.profilDAO.create(pObject);
+	public ICountry create(
+			final ICountry pObject) throws Exception {
+		return this.countryDAO.create(pObject);
 	} // Fin de create(...)._______________________________________________
-	
-	
+
+
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void persist(
-			final IProfil pObject) throws Exception {
-		this.profilDAO.persist(pObject);
+			final ICountry pObject) throws Exception {
+		this.countryDAO.persist(pObject);
 	} // Fin de persist(...).______________________________________________
 
 
@@ -97,8 +94,8 @@ public class ProfilService implements IProfilService {
 	 */
 	@Override
 	public Long createReturnId(
-			final IProfil pObject) throws Exception {
-		return this.profilDAO.createReturnId(pObject);
+			final ICountry pObject) throws Exception {
+		return this.countryDAO.createReturnId(pObject);
 	} // Fin de createReturnId(...)._______________________________________
 
 
@@ -107,9 +104,9 @@ public class ProfilService implements IProfilService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterable<IProfil> save(
-			final Iterable<IProfil> pList) throws Exception {
-		return this.profilDAO.save(pList);
+	public Iterable<ICountry> save(
+			final Iterable<ICountry> pList) throws Exception {
+		return this.countryDAO.save(pList);
 	} // Fin de save(...)._________________________________________________
 
 
@@ -121,22 +118,22 @@ public class ProfilService implements IProfilService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IProfil retrieve(
-			final IProfil pObject) throws Exception {
-		return this.profilDAO.retrieve(pObject);
+	public ICountry retrieve(
+			final ICountry pObject) throws Exception {
+		return this.countryDAO.retrieve(pObject);
 	} // Fin de retrieve(...)._____________________________________________
 
-	
-	
+
+
 	/**
-	 * {@inheritDoc} 
+	 * {@inheritDoc}
 	 */
 	@Override
-	public IProfil findById(
+	public ICountry findById(
 			final Long pId) throws Exception {
-		return this.profilDAO.findById(pId);
+		return this.countryDAO.findById(pId);
 	} // Fin de findById(...)._____________________________________________
-	
+
 
 
 	/**
@@ -144,28 +141,29 @@ public class ProfilService implements IProfilService {
 	 */
 	@Override
 	public Long retrieveId(
-			final IProfil pObject) throws Exception {
-		return this.profilDAO.retrieveId(pObject);
+			final ICountry pObject) throws Exception {
+		return this.countryDAO.retrieveId(pObject);
 	} // Fin de retrieveId(...).___________________________________________
 
 
-		
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public List<IProfil> findAll() throws Exception {
-		return this.profilDAO.findAll();
-	} // Fin de getAllProfilsFake()._______________________________________
-
-
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<IProfil> findAllMax(
-			final int pStartPosition, final int pMaxResult) throws Exception {
+	public List<ICountry> findAll() throws Exception {
+		return this.countryDAO.findAll();
+	} // Fin de findAll()._________________________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<ICountry> findAllMax(
+			final int pStartPosition
+				, final int pMaxResult) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -176,41 +174,37 @@ public class ProfilService implements IProfilService {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Iterable<IProfil> findAll(
+	public Iterable<ICountry> findAll(
 			final Iterable<Long> pIds) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 
-	/* UPDATE *************/
 
-	
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IProfil update(
-			final IProfil pObject) throws Exception {
+	public ICountry update(
+			final Long pId
+				, final ICountry pObjectModifie) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IProfil update(
-			final Long pId, final IProfil pProfil) throws Exception {		
-		return this.profilDAO.update(pId, pProfil);		
-	} // Fin de update(...)._______________________________________________
+	public ICountry update(
+			final ICountry pObject) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-
-
-	/* DELETE *************/
 
 
 	/**
@@ -218,13 +212,13 @@ public class ProfilService implements IProfilService {
 	 */
 	@Override
 	public boolean delete(
-			final IProfil pObject) throws Exception {
+			final ICountry pObject) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -232,7 +226,6 @@ public class ProfilService implements IProfilService {
 	public void deleteById(
 			final Long pId) throws Exception {
 		// TODO Auto-generated method stub
-		
 	}
 
 
@@ -242,9 +235,10 @@ public class ProfilService implements IProfilService {
 	 */
 	@Override
 	public boolean deleteByIdBoolean(
-			final Long pId) throws Exception  {
-		return this.profilDAO.deleteByIdBoolean(pId);
-	} // Fin de deleteByIdBoolean(...).____________________________________
+			final Long pId) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 
 
@@ -254,7 +248,6 @@ public class ProfilService implements IProfilService {
 	@Override
 	public void deleteAll() throws Exception {
 		// TODO Auto-generated method stub
-		
 	}
 
 
@@ -275,9 +268,8 @@ public class ProfilService implements IProfilService {
 	 */
 	@Override
 	public void deleteIterable(
-			final Iterable<IProfil> pList) throws Exception {
+			final Iterable<ICountry> pList) throws Exception {
 		// TODO Auto-generated method stub
-		
 	}
 
 
@@ -287,14 +279,11 @@ public class ProfilService implements IProfilService {
 	 */
 	@Override
 	public boolean deleteIterableBoolean(
-			final Iterable<IProfil> pList) throws Exception {
+			final Iterable<ICountry> pList) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-
-
-	/* TOOLS *************/
 
 
 	/**
@@ -302,8 +291,8 @@ public class ProfilService implements IProfilService {
 	 */
 	@Override
 	public boolean exists(
-			final IProfil pObject) throws Exception {
-		return this.profilDAO.exists(pObject);
+			final ICountry pObject) throws Exception {
+		return this.countryDAO.exists(pObject);
 	} // Fin de exists(...)._______________________________________________
 
 
@@ -314,7 +303,7 @@ public class ProfilService implements IProfilService {
 	@Override
 	public boolean exists(
 			final Long pId) throws Exception {
-		return this.profilDAO.exists(pId);
+		return this.countryDAO.exists(pId);
 	} // Fin de exists(...)._______________________________________________
 
 
@@ -324,7 +313,7 @@ public class ProfilService implements IProfilService {
 	 */
 	@Override
 	public Long count() throws Exception {
-		return this.profilDAO.count();
+		return this.countryDAO.count();
 	} // Fin de count().___________________________________________________
 
 
@@ -334,7 +323,7 @@ public class ProfilService implements IProfilService {
 	 */
 	@Override
 	public void ecrireStockageDansConsole() throws Exception {
-		this.profilDAO.ecrireStockageDansConsole();		
+		this.countryDAO.ecrireStockageDansConsole();
 	} // Fin de ecrireStockageDansConsole()._______________________________
 
 
@@ -344,10 +333,10 @@ public class ProfilService implements IProfilService {
 	 */
 	@Override
 	public String afficherListeObjetsMetier(
-			final List<IProfil> pList) {
-		return this.profilDAO.afficherListeObjetsMetier(pList);
+			final List<ICountry> pList) {
+		return this.countryDAO.afficherListeObjetsMetier(pList);
 	} // Fin de afficherListeObjetsMetier(...).____________________________
 
-
 	
-} // FIN DE LA CLASSE ProfilService.-----------------------------------------
+	
+} // FIN DE LA CLASSE CountryService.----------------------------------------

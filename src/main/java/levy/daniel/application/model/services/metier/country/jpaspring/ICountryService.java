@@ -1,12 +1,11 @@
-package levy.daniel.application.model.services.metier.profil.jpaspring;
+package levy.daniel.application.model.services.metier.country.jpaspring;
 
 import java.util.List;
 
-import levy.daniel.application.model.metier.profil.IProfil;
-
+import levy.daniel.application.model.metier.country.ICountry;
 
 /**
- * INTERFACE IProfilService :<br/>
+ * INTERFACE ICountryService :<br/>
  * SERVICE.<br/>
  * <br/>
  *
@@ -22,10 +21,10 @@ import levy.daniel.application.model.metier.profil.IProfil;
  *
  * @author dan Lévy
  * @version 1.0
- * @since 6 nov. 2018
+ * @since 11 nov. 2018
  *
  */
-public interface IProfilService {
+public interface ICountryService {
 	
 	
 
@@ -41,15 +40,15 @@ public interface IProfilService {
 	 * - retourne null si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : IProfil : 
+	 * @param pObject : ICountry : 
 	 * l'objet métier à persister dans le stockage.<br/>
 	 * 
-	 * @return IProfil : 
+	 * @return ICountry : 
 	 * l'objet métier persisté dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	IProfil create(IProfil pObject) throws Exception;
+	ICountry create(ICountry pObject) throws Exception;
 
 
 	
@@ -63,12 +62,12 @@ public interface IProfilService {
 	 * - ne fait rien si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : IProfil : 
+	 * @param pObject : ICountry : 
 	 * l'objet métier à persister dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	void persist(IProfil pObject) throws Exception;
+	void persist(ICountry pObject) throws Exception;
 	
 	
 
@@ -82,7 +81,7 @@ public interface IProfilService {
 	 * - retourne null si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : IProfil : 
+	 * @param pObject : ICountry : 
 	 * l'objet métier à persister dans le stockage.<br/>
 	 * 
 	 * @return : Long : 
@@ -91,7 +90,7 @@ public interface IProfilService {
 	 * 
 	 * @throws Exception
 	 */
-	Long createReturnId(IProfil pObject) throws Exception;
+	Long createReturnId(ICountry pObject) throws Exception;
 	
 	
 
@@ -108,15 +107,15 @@ public interface IProfilService {
 	 * - retourne null si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : Iterable&lt;IProfil&gt; : 
+	 * @param pList : Iterable&lt;ICountry&gt; : 
 	 * itérable d'objets métier à persister dans le stockage.<br/>
 	 * 
-	 * @return Iterable&lt;IProfil&gt; : 
+	 * @return Iterable&lt;ICountry&gt; : 
 	 * itérable d'objets métier persistés dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	Iterable<IProfil> save(Iterable<IProfil> pList) throws Exception;
+	Iterable<ICountry> save(Iterable<ICountry> pList) throws Exception;
 	
 	
 
@@ -133,15 +132,15 @@ public interface IProfilService {
 	 * n'existe pas dans le stockage.</li>
 	 * </ul>
 	 *
-	 * @param pObject : IProfil : 
+	 * @param pObject : ICountry : 
 	 * objet métier à rechercher.<br/>
 	 * 
-	 * @return : IProfil : 
+	 * @return : ICountry : 
 	 * objet métier recherché.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	IProfil retrieve(IProfil pObject) throws Exception;
+	ICountry retrieve(ICountry pObject) throws Exception;
 	
 	
 
@@ -157,11 +156,11 @@ public interface IProfilService {
 	 * index (0-based) ou identifiant en base 
 	 * de l'objet métier à rechercher.<br/>
 	 * 
-	 * @return : IProfil : objet métier recherché.<br/>
+	 * @return : ICountry : objet métier recherché.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	IProfil findById(Long pId) throws Exception;
+	ICountry findById(Long pId) throws Exception;
 
 	
 	
@@ -169,7 +168,7 @@ public interface IProfilService {
 	 * <b>retourne l'identifiant ou l'index (0-based) 
 	 * de l'objet métier pObject dans le stockage</b>.<br/>
 	 *
-	 * @param pObject : IProfil : 
+	 * @param pObject : ICountry : 
 	 * objet métier dont on recherche l'identifiant.<br/>
 	 *  
 	 * @return Long : 
@@ -177,7 +176,7 @@ public interface IProfilService {
 	 * 
 	 * @throws Exception
 	 */
-	Long retrieveId(IProfil pObject) throws Exception;
+	Long retrieveId(ICountry pObject) throws Exception;
 
 	
 
@@ -186,12 +185,12 @@ public interface IProfilService {
 	 * persistés dans le stockage</b>.<br/>
 	 * - peut retourner null si le stockage ne peut être lu.<br/>
 	 *
-	 * @return : List&lt;IProfil&gt; : 
+	 * @return : List&lt;ICountry&gt; : 
 	 * liste de tous les objets métier persistés dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	List<IProfil> findAll() throws Exception;
+	List<ICountry> findAll() throws Exception;
 
 
 	
@@ -209,13 +208,13 @@ public interface IProfilService {
 	 * @param pMaxResult : int : 
 	 * nombre maximum d'objets métier à retourner.<br/>
 	 * 
-	 * @return : List&lt;IProfil&gt; : 
+	 * @return : List&lt;ICountry&gt; : 
 	 * liste des pMax objets métier persistés dans le stockage 
 	 * à partir de pStartPosition (0-based).<br/>
 	 * 
 	 * @throws Exception
 	 */
-	List<IProfil> findAllMax(
+	List<ICountry> findAllMax(
 			int pStartPosition, int pMaxResult) throws Exception;
 	
 	
@@ -225,11 +224,11 @@ public interface IProfilService {
 	 * Iterable&lt;Long&gt; pIds) :<br/>
 	 * <ul>
 	 * <li>retourne une Collection iterable d'Objets métier 
-	 * (List&lt;IProfil&gt;) dont les IDs appartiennent 
+	 * (List&lt;ICountry&gt;) dont les IDs appartiennent 
 	 * à la Collection itérable d'IDs passée en paramètre.</li>
-	 * <li>Inclut dans la liste les sous-classe de IProfil 
+	 * <li>Inclut dans la liste les sous-classe de ICountry 
 	 * (strategy=InheritanceType.JOINED) 
-	 * avec la visibilité (Typé) IProfil.</li>
+	 * avec la visibilité (Typé) ICountry.</li>
 	 * </ul>
 	 * retourne null si pIds == null.<br/>
 	 * ne retourne que les objets de la collection 
@@ -238,11 +237,11 @@ public interface IProfilService {
 	 *
 	 * @param pIds : Iterable&lt;Long&gt;.<br/>
 	 * 
-	 * @return Iterable&lt;IProfil&gt; : List&lt;IProfil&gt;.<br/>
+	 * @return Iterable&lt;ICountry&gt; : List&lt;ICountry&gt;.<br/>
 	 * 
 	 * @throws Exception 
 	 */
-	Iterable<IProfil> findAll(Iterable<Long> pIds) throws Exception;
+	Iterable<ICountry> findAll(Iterable<Long> pIds) throws Exception;
 
 
 
@@ -269,26 +268,26 @@ public interface IProfilService {
 	 *
 	 * @param pId : Long : 
 	 * index (0-based) de l'objet métier à modifier.<br/>
-	 * @param pObjectModifie : IProfil : 
+	 * @param pObjectModifie : ICountry : 
 	 * Objet métier contenant les modifications 
 	 * à apporter à l'objet persistant dans le stockage.<br/>
 	 * 
-	 * @return IProfil : objet métier persistant modifié.<br/>
+	 * @return ICountry : objet métier persistant modifié.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	IProfil update(Long pId, IProfil pObjectModifie) throws Exception;
+	ICountry update(Long pId, ICountry pObjectModifie) throws Exception;
 
 	
 	
 	/**
 	 * method update(
-	 * IProfil pObject) :<br/>
+	 * ICountry pObject) :<br/>
 	 * <ul>
 	 * <li><b>Modifie</b> un objet métier <b>persistant</b> 
 	 * existant en base.</li>
 	 * <li>Retourne l'objet métier pObject <b>modifié en base</b> 
-	 * avec la visibilité (Typé) IProfil.</li>
+	 * avec la visibilité (Typé) ICountry.</li>
 	 * </ul>
 	 * retourne null si pObject == null.<br/>
 	 * ne fait rien et retourne l'instance détachée 
@@ -305,7 +304,7 @@ public interface IProfilService {
 	 * this.daoUserSimple.<b>update(objet1Persistant)</b>;</code><br/>
 	 * <br/>
 	 *
-	 * @param pObject : IProfil : objet métier avec ID 
+	 * @param pObject : ICountry : objet métier avec ID 
 	 * et comportant les modifications.<br/>
 	 * 
 	 * @return : T : objet métier de Type paramétré 
@@ -313,7 +312,7 @@ public interface IProfilService {
 	 * 
 	 * @throws Exception 
 	 */
-	IProfil update(IProfil pObject) throws Exception;
+	ICountry update(ICountry pObject) throws Exception;
 
 
 
@@ -329,14 +328,14 @@ public interface IProfilService {
 	 * - retourne false si pObject == null.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : IProfil : objet métier à détruire.<br/>
+	 * @param pObject : ICountry : objet métier à détruire.<br/>
 	 * 
 	 * @return : boolean : 
 	 * true si l'objet métier a été détruit.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	boolean delete(IProfil pObject) throws Exception;
+	boolean delete(ICountry pObject) throws Exception;
 	
 	
 
@@ -411,12 +410,12 @@ public interface IProfilService {
 	 * - ne fait rien si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : Iterable&lt;IProfil&gt; : 
+	 * @param pList : Iterable&lt;ICountry&gt; : 
 	 * itérable d'objets à retirer du stockage.<br/>
 	 *  
 	 * @throws Exception
 	 */
-	void deleteIterable(Iterable<IProfil> pList) throws Exception;
+	void deleteIterable(Iterable<ICountry> pList) throws Exception;
 	
 	
 
@@ -431,14 +430,14 @@ public interface IProfilService {
 	 * - retourne false si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : Iterable&lt;IProfil&gt; : 
+	 * @param pList : Iterable&lt;ICountry&gt; : 
 	 * itérable d'objets àretirer du stockage?<br/>
 	 * 
 	 * @return : boolean : true si le retrait a bien été effectué.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	boolean deleteIterableBoolean(Iterable<IProfil> pList) throws Exception;
+	boolean deleteIterableBoolean(Iterable<ICountry> pList) throws Exception;
 
 
 
@@ -452,14 +451,14 @@ public interface IProfilService {
 	 * - retourne false si l'Objet métier pObject n'existe pas en base.<br/>
 	 * <br/>
 	 *
-	 * @param pObject : IProfil : objet métier à rechercher.<br/>
+	 * @param pObject : ICountry : objet métier à rechercher.<br/>
 	 * 
 	 * @return boolean : 
 	 * true si l'objet métier pObject existe dans le stockage.<br/>
 	 * 
 	 * @throws Exception
 	 */
-	boolean exists(IProfil pObject) throws Exception;
+	boolean exists(ICountry pObject) throws Exception;
 	
 	
 
@@ -516,12 +515,12 @@ public interface IProfilService {
 	 * retourne null si pList == null.<br/>
 	 * <br/>
 	 *
-	 * @param pList : List&lt;IProfil&gt;.<br/>
+	 * @param pList : List&lt;ICountry&gt;.<br/>
 	 * 
 	 * @return : String.<br/>
 	 */
-	String afficherListeObjetsMetier(List<IProfil> pList);
+	String afficherListeObjetsMetier(List<ICountry> pList);
 	
 	
-	
-} // FIN DE L'INTERFACE IProfilService.--------------------------------------
+		
+} // FIN DE L'INTERFACE ICountryService.-------------------------------------

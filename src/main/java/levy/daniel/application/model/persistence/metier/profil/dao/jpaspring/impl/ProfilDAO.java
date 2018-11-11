@@ -109,7 +109,7 @@ public class ProfilDAO implements IProfilDAO {
 				+ "ProfilEntityJPA as profil ";
 	
 	/**
-	 * JPA EntityManager injecté par SPRING.<br/>
+	 * JPA EntityManager <b>injecté par SPRING</b>.<br/>
 	 */
 	@PersistenceContext
 	private transient EntityManager entityManager;

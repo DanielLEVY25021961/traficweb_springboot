@@ -11,6 +11,7 @@ import javax.persistence.Query;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Repository;
 
 import levy.daniel.application.model.metier.country.ICountry;
 import levy.daniel.application.model.persistence.daoexceptions.GestionnaireDaoException;
@@ -82,6 +83,7 @@ import levy.daniel.application.model.persistence.metier.country.entities.jpa.Cou
  * @since 11 nov. 2018
  *
  */
+@Repository("CountryDaoJPASpring")
 public class CountryDAO implements ICountryDAO {
 	
 	// ************************ATTRIBUTS************************************/
@@ -108,7 +110,7 @@ public class CountryDAO implements ICountryDAO {
 				+ "CountryEntityJPA as country ";
 	
 	/**
-	 * JPA EntityManager injecté par SPRING.<br/>
+	 * JPA EntityManager <b>injecté par SPRING</b>.<br/>
 	 */
 	@PersistenceContext
 	private transient EntityManager entityManager;
@@ -448,16 +450,16 @@ public class CountryDAO implements ICountryDAO {
 		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 			= SELECT_OBJET
-				+ "where country.nameString = :pNameString" 
-					+ "and country.capitalString = :pCapitalString";
+				+ "where country.name = :pName" 
+					+ "and country.capital = :pCapital";
 
 		/* Construction de la requête HQL. */
 		final Query requete 
 			= this.entityManager.createQuery(requeteString);
 
 		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pNameString", pObject.getName());
-		requete.setParameter("pCapitalString", pObject.getCapital());
+		requete.setParameter("pName", pObject.getName());
+		requete.setParameter("pCapital", pObject.getCapital());
 
 		try {
 
@@ -1413,16 +1415,16 @@ public class CountryDAO implements ICountryDAO {
 		/* REQUETE HQL PARAMETREE. */
 		final String requeteString 
 			= SELECT_OBJET
-				+ "where country.nameString = :pNameString "
-				+ "and country.capitalString = :pCapitalString";
+				+ "where country.name = :pName "
+				+ "and country.capital = :pCapital";
 
 		/* Construction de la requête HQL. */
 		final Query requete 
 			= this.entityManager.createQuery(requeteString);
 
 		/* Passage des paramètres de la requête HQL. */
-		requete.setParameter("pNameString", pObject.getName());
-		requete.setParameter("pCapitalString", pObject.getCapital());
+		requete.setParameter("pName", pObject.getName());
+		requete.setParameter("pCapital", pObject.getCapital());
 
 		try {
 

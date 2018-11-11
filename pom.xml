@@ -97,6 +97,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		<log4j-core.version>2.9.1</log4j-core.version>
 		<!-- 				Version de junit						    -->
 		<junit.version>4.12</junit.version>
+		<!--  				Version de bootstrap						-->
+		<bootstrap.version>4.1.3</bootstrap.version>
+		<!-- 				Version de JQuery 							-->
+		<jquery.version>3.3.1-1</jquery.version>
 		
 	</properties>
 
@@ -140,6 +144,31 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 			<scope>compile</scope>
 		</dependency>
+
+
+		<!-- ================================ -->
+		<!-- dépendances pour bootstrap 	  -->
+		<!-- ================================ -->		
+		<!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>bootstrap</artifactId>
+		    <version>${bootstrap.version}</version>
+		    <scope>compile</scope>
+		</dependency>
+
+
+		<!-- ================================ -->
+		<!-- dépendances pour bootstrap 	  -->
+		<!-- ================================ -->				
+		<!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>jquery</artifactId>
+		    <version>${jquery.version}</version>
+		    <scope>compile</scope>
+		</dependency>
+
 
 		<!-- ================================ -->
 		<!-- dépendances pour apache.commons -->
@@ -218,9 +247,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			<!-- VERSION MANAGEE PAR SPRING BOOT -->
 			<scope>test</scope>
 		</dependency>
-				
-	</dependencies>
 
+	</dependencies>
 
 				<!-- ======================================  -->
 				<!--   REPOSITORIES	POUR LES DEPENDANCES  	 -->
