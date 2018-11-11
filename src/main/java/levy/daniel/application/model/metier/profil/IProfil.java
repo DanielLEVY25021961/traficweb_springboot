@@ -126,7 +126,7 @@ import levy.daniel.application.model.metier.IExportateurJTable;
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
- * <code>IProfil objet1 = new ProfilCerbere(1L, 
+ * <code>IProfil objet1 = new Profil(1L, 
  * ProfilEnum.CONSULTANT.toString()
  * , PorteeEnum.DIRA.toString()
  * , "Ain");</code><br/>

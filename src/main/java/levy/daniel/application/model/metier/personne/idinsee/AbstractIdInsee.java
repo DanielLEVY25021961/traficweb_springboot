@@ -308,18 +308,18 @@ public abstract class AbstractIdInsee implements IIdInsee {
 			return false;
 		}
 		
-		if (!(pObject instanceof AbstractIdInsee)) {
+		if (!(pObject instanceof IIdInsee)) {
 			return false;
 		}
 		
-		final AbstractIdInsee other = (AbstractIdInsee) pObject;
+		final IIdInsee other = (IIdInsee) pObject;
 		
-		if (this.numeroInsee == null) {
-			if (other.numeroInsee != null) {
+		if (this.getNumeroInsee() == null) {
+			if (other.getNumeroInsee() != null) {
 				return false;
 			}
-		} else if (!this.numeroInsee
-				.equalsIgnoreCase(other.numeroInsee)) {
+		} else if (!this.getNumeroInsee()
+				.equalsIgnoreCase(other.getNumeroInsee())) {
 			return false;
 		}
 		

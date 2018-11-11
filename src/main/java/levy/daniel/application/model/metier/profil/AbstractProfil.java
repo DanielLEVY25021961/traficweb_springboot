@@ -354,6 +354,8 @@ public abstract class AbstractProfil implements IProfil {
 	 * <li>profilString.</li>
 	 * <li>porteeProfil.</li>
 	 * </ul>
+	 * <b>Bien utiliser IProfil et pas AbstractProfil 
+	 * pour assurer le equals avec les entities</b>.<br/>
 	 * <br/>
 	 */
 	@Override
@@ -368,29 +370,31 @@ public abstract class AbstractProfil implements IProfil {
 			return false;
 		}
 
-		if (!(pObject instanceof AbstractProfil)) {
+		if (!(pObject instanceof IProfil)) {
 			return false;
 		}
 
-		final AbstractProfil other = (AbstractProfil) pObject;
+		final IProfil other = (IProfil) pObject;
 
 		/* profilString. */
-		if (this.profilString == null) {
-			if (other.profilString != null) {
+		if (this.getProfilString() == null) {
+			if (other.getProfilString() != null) {
 				return false;
 			}
 		}
-		else if (!this.profilString.equals(other.profilString)) {
+		else if (!this.getProfilString()
+				.equalsIgnoreCase(other.getProfilString())) {
 			return false;
 		}
 
 		/* porteeProfil. */
-		if (this.porteeProfil == null) {
-			if (other.porteeProfil != null) {
+		if (this.getPorteeProfil() == null) {
+			if (other.getPorteeProfil() != null) {
 				return false;
 			}
 		}
-		else if (!this.porteeProfil.equals(other.porteeProfil)) {
+		else if (!this.getPorteeProfil()
+				.equalsIgnoreCase(other.getPorteeProfil())) {
 			return false;
 		}
 
@@ -487,7 +491,7 @@ public abstract class AbstractProfil implements IProfil {
 
 		final StringBuilder builder = new StringBuilder();
 
-		builder.append("AbstractProfil [");
+		builder.append("Profil [");
 
 		builder.append("id=");
 		if (this.id != null) {			

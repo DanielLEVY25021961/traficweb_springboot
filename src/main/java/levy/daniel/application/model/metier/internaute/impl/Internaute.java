@@ -10,10 +10,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.dto.metier.internaute.IInternauteDTO;
-import levy.daniel.application.model.dto.metier.profil.IProfilCerbereDTO;
+import levy.daniel.application.model.dto.metier.profil.IProfilDTO;
 import levy.daniel.application.model.metier.internaute.IInternaute;
 import levy.daniel.application.model.metier.profil.IProfil;
-import levy.daniel.application.model.metier.profil.impl.ProfilCerbere;
+import levy.daniel.application.model.metier.profil.impl.Profil;
 import levy.daniel.application.model.persistence.metier.internaute.entities.jpa.InternauteEntityJPA;
 
 
@@ -173,16 +173,16 @@ public class Internaute implements IInternaute {
 			this.login = pDTO.getLogin();
 			this.password = pDTO.getPassword();
 			
-			final List<IProfilCerbereDTO> listeProfilsDTO 
+			final List<IProfilDTO> listeProfilsDTO 
 				= pDTO.getProfilsString();
 			
 			if (listeProfilsDTO != null) {
 				
 				this.profils = new ArrayList<IProfil>();
 				
-				for (final IProfilCerbereDTO profilDTO : listeProfilsDTO) {
+				for (final IProfilDTO profilDTO : listeProfilsDTO) {
 					
-					final IProfil profil = new ProfilCerbere(profilDTO);
+					final IProfil profil = new Profil(profilDTO);
 					this.profils.add(profil);
 					
 				}
@@ -258,22 +258,22 @@ public class Internaute implements IInternaute {
 		final IInternaute other = (IInternaute) pObject;
 		
 		/* 1 - login. */
-		if (this.login == null) {
+		if (this.getLogin() == null) {
 			if (other.getLogin() != null) {
 				return false;
 			}
 		}
-		else if (!this.login.equalsIgnoreCase(other.getLogin())) {
+		else if (!this.getLogin().equalsIgnoreCase(other.getLogin())) {
 			return false;
 		}
 		
 		/* 2 - password. */
-		if (this.password == null) {
+		if (this.getPassword() == null) {
 			if (other.getPassword() != null) {
 				return false;
 			}
 		}
-		else if (!this.password.equalsIgnoreCase(other.getPassword())) {
+		else if (!this.getPassword().equalsIgnoreCase(other.getPassword())) {
 			return false;
 		}
 		

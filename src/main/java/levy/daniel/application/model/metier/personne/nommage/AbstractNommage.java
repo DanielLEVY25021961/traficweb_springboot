@@ -370,29 +370,29 @@ public abstract class AbstractNommage implements INommage {
 			return false;
 		}
 		
-		if (!(pObject instanceof AbstractNommage)) {
+		if (!(pObject instanceof INommage)) {
 			return false;
 		}
 		
-		final AbstractNommage other = (AbstractNommage) pObject;
+		final INommage other = (INommage) pObject;
 		
 		/* nom. */
-		if (this.nom == null) {
-			if (other.nom != null) {
+		if (this.getNom() == null) {
+			if (other.getNom() != null) {
 				return false;
 			}
 		}
-		else if (!this.nom.equals(other.nom)) {
+		else if (!this.getNom().equalsIgnoreCase(other.getNom())) {
 			return false;
 		}
 		
 		/* prenom. */
-		if (this.prenom == null) {
-			if (other.prenom != null) {
+		if (this.getPrenom() == null) {
+			if (other.getPrenom() != null) {
 				return false;
 			}
 		}
-		else if (!this.prenom.equals(other.prenom)) {
+		else if (!this.getPrenom().equals(other.getPrenom())) {
 			return false;
 		}
 		

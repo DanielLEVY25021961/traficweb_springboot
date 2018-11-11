@@ -4,19 +4,19 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.model.dto.metier.profil.IProfilCerbereDTO;
+import levy.daniel.application.model.dto.metier.profil.IProfilDTO;
 import levy.daniel.application.model.metier.profil.AbstractProfil;
 import levy.daniel.application.model.persistence.metier.profil.entities.jpa.ProfilEntityJPA;
 
 
 
 /**
- * CLASSE CONCRETE <b>ProfilCerbere</b> :<br/>
+ * CLASSE CONCRETE <b>Profil</b> :<br/>
  * <p>
  * <span style="text-decoration: underline;">CONCEPT MODELISE</span>
  * </p>
  * <p>
- * <b>ProfilCerbere</b> modélise un un <i>concept</i> 
+ * <b>Profil</b> modélise un un <i>concept</i> 
  * de <b>Profil</b>, c'est à dire 
  * <b></b> ou  <b></b> 
  * qui  <i></i> <b></b>.
@@ -47,7 +47,7 @@ import levy.daniel.application.model.persistence.metier.profil.entities.jpa.Prof
  * <span style="text-decoration: underline;">EGALITE METIER</span>
  * </p>
  * <ul>
- * <li>L'<b>égalité metier</b> d'un ProfilCerbere est vérifiée sur :</li>
+ * <li>L'<b>égalité metier</b> d'un Profil est vérifiée sur :</li>
  * <ul>
  * <li><b>profilString</b>.</li>
  * <li><b>porteeProfil</b>.</li>
@@ -70,7 +70,7 @@ import levy.daniel.application.model.persistence.metier.profil.entities.jpa.Prof
  * </span>
  * </p>
  * <ul>
- * <li>la classe concrète ProfilCerbere 
+ * <li>la classe concrète Profil 
  * est transformée en <b>Entity JPA</b> au moyen de 
  * <b>javax.persistence annotations</b>.</li>
  * <li>La <b>stratégie de jointure des tables</b> entre la classe abstraite 
@@ -155,16 +155,16 @@ import levy.daniel.application.model.persistence.metier.profil.entities.jpa.Prof
  * @since 26 février 2018
  *
  */
-public class ProfilCerbere extends AbstractProfil {
+public class Profil extends AbstractProfil {
 
 	// ************************ATTRIBUTS************************************/
 
 	/**
 	 * CLASSE_PROFIL_CERBERE : String :<br/>
-	 * "Classe ProfilCerbere".<br/>
+	 * "Classe Profil".<br/>
 	 */
 	public static final String CLASSE_PROFIL_CERBERE 
-		= "Classe ProfilCerbere";
+		= "Classe Profil";
 
 
 	/**
@@ -179,17 +179,17 @@ public class ProfilCerbere extends AbstractProfil {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(ProfilCerbere.class);
+		= LogFactory.getLog(Profil.class);
 
 
 	// *************************METHODES************************************/
 
 
 	/**
-	 * method CONSTRUCTEUR ProfilCerbere() :<br/>
+	 * method CONSTRUCTEUR Profil() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public ProfilCerbere() {
+	public Profil() {
 
 		this(null, null, null, null);
 
@@ -198,27 +198,27 @@ public class ProfilCerbere extends AbstractProfil {
 
 
 	/**
-	 * method CONSTRUCTEUR ProfilCerbere(
+	 * method CONSTRUCTEUR Profil(
 	 *  String pProfilString
 	 * , String pPorteeProfil
 	 * , String pRestrictionProfil) :<br/>
 	 * <ul>
 	 * <li>CONSTRUCTEUR COMPLET.</li>
 	 * <li>SANS ID en base.</li>
-	 * <li><code>IProfil objet1 = new ProfilCerbere( 
+	 * <li><code>IProfil objet1 = new Profil( 
 	 * ProfilEnum.CONSULTANT.toString()
 	 * , PorteeEnum.DIRA.toString()
 	 * , "Ain");</code></li>
 	 * </ul>
 	 * 
 	 * @param pProfilString : String : 
-	 * profilString du ProfilCerbere.<br/>
+	 * profilString du Profil.<br/>
 	 * @param pPorteeProfil : String : 
-	 * porteeProfil du ProfilCerbere.<br/>
+	 * porteeProfil du Profil.<br/>
 	 * @param pRestrictionProfil : String : 
-	 * restrictionProfil du ProfilCerbere.<br/>
+	 * restrictionProfil du Profil.<br/>
 	 */
-	public ProfilCerbere(
+	public Profil(
 			final String pProfilString
 				, final String pPorteeProfil
 					, final String pRestrictionProfil) {
@@ -230,7 +230,7 @@ public class ProfilCerbere extends AbstractProfil {
 
 
 	/**
-	 * method CONSTRUCTEUR ProfilCerbere(
+	 * method CONSTRUCTEUR Profil(
 	 * Long pId
 	 * , String pProfilString
 	 * , String pPorteeProfil
@@ -238,7 +238,7 @@ public class ProfilCerbere extends AbstractProfil {
 	 * <ul>
 	 * <li>CONSTRUCTEUR COMPLET BASE.</li>
 	 * <li>AVEC ID en base.</li>
-	 * <li><code>IProfil objet1 = new ProfilCerbere(1L, 
+	 * <li><code>IProfil objet1 = new Profil(1L, 
 	 * ProfilEnum.CONSULTANT.toString()
 	 * , PorteeEnum.DIRA.toString()
 	 * , "Ain");</code></li>
@@ -246,13 +246,13 @@ public class ProfilCerbere extends AbstractProfil {
 	 * 
 	 * @param pId : Long : ID en base.<br/>
 	 * @param pProfilString : String : 
-	 * profilString du ProfilCerbere.<br/>
+	 * profilString du Profil.<br/>
 	 * @param pPorteeProfil : String : 
-	 * porteeProfil du ProfilCerbere.<br/>
+	 * porteeProfil du Profil.<br/>
 	 * @param pRestrictionProfil : String : 
-	 * restrictionProfil du ProfilCerbere.<br/>
+	 * restrictionProfil du Profil.<br/>
 	 */
-	public ProfilCerbere(
+	public Profil(
 			final Long pId
 				, final String pProfilString
 					, final String pPorteeProfil
@@ -273,10 +273,10 @@ public class ProfilCerbere extends AbstractProfil {
 	 * d'une VUE (DTO).</li>
 	 * </ul>
 	 *
-	 * @param pDTO : IProfilCerbereDTO
+	 * @param pDTO : IProfilDTO
 	 */
-	public ProfilCerbere(
-			final IProfilCerbereDTO pDTO) {
+	public Profil(
+			final IProfilDTO pDTO) {
 		
 		super();
 		
@@ -306,7 +306,7 @@ public class ProfilCerbere extends AbstractProfil {
 	 *
 	 * @param pEntityJPA : InternauteEntityJPA.<br/>
 	 */
-	public ProfilCerbere(
+	public Profil(
 			final ProfilEntityJPA pEntityJPA) {
 		
 		super();
@@ -324,4 +324,4 @@ public class ProfilCerbere extends AbstractProfil {
 	
 	
 	
-} // FIN DE LA CLASSE ProfilCerbere.-----------------------------------------
+} // FIN DE LA CLASSE Profil.-----------------------------------------

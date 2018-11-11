@@ -26,7 +26,9 @@ import levy.daniel.application.model.metier.profil.IProfil;
  */
 public interface IProfilDao {
 
-	
+		
+	/* CREATE ************/
+
 	
 	/**
 	 * <b>crée un objet métier pObject dans le stockage 
@@ -117,6 +119,9 @@ public interface IProfilDao {
 	
 	
 
+	/* READ *************/
+
+
 	/**
 	 * <b>recherche un objet métier pObject 
 	 * dans le stockage</b> et retourne l'objet métier persisté.<br/>
@@ -158,6 +163,9 @@ public interface IProfilDao {
 	IProfil findById(Long pId) throws Exception;
 	
 	
+
+	/* READ *************/
+
 
 	/**
 	 * <b>retourne l'identifiant ou l'index (0-based) 
@@ -237,9 +245,12 @@ public interface IProfilDao {
 	 * @throws Exception 
 	 */
 	Iterable<IProfil> findAll(Iterable<Long> pIds) throws Exception;
-	
-	
 
+
+
+	/* UPDATE *************/
+
+	
 	/**
 	 * method update(
 	 * IProfil pObject) :<br/>
@@ -305,8 +316,11 @@ public interface IProfilDao {
 	 * @throws Exception
 	 */
 	IProfil update(Long pId, IProfil pObjectModifie) throws Exception;
-	
-	
+
+
+
+	/* DELETE *************/
+
 
 	/**
 	 * <b>retire l'objet métier pObject dans le stockage</b>.<br/>
@@ -428,8 +442,11 @@ public interface IProfilDao {
 	 * @throws Exception
 	 */
 	boolean deleteIterableBoolean(Iterable<IProfil> pList) throws Exception;
-	
-	
+
+
+
+	/* TOOLS *************/
+
 
 	/**
 	 * <b>retourne true si l'objet métier pObject 

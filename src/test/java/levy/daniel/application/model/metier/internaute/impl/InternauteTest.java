@@ -18,7 +18,7 @@ import levy.daniel.application.model.metier.internaute.IInternaute;
 import levy.daniel.application.model.metier.profil.IProfil;
 import levy.daniel.application.model.metier.profil.PorteeEnum;
 import levy.daniel.application.model.metier.profil.ProfilEnum;
-import levy.daniel.application.model.metier.profil.impl.ProfilCerbere;
+import levy.daniel.application.model.metier.profil.impl.Profil;
 
 
 /**
@@ -962,42 +962,42 @@ public class InternauteTest {
 		objetClone1 = objet1.clone();
 		
 		final IProfil profilAdmin 
-			= new ProfilCerbere(
+			= new Profil(
 					1L
 					, ProfilEnum.ADMINISTRATEUR.toString()
 					, PorteeEnum.TOUTRESEAU.toString()
 					, null);
 		
 		final IProfil profilCharge1 
-			= new ProfilCerbere(
+			= new Profil(
 					2L
 					, ProfilEnum.CHARGEETUDE.toString()
 					, PorteeEnum.TOUTRESEAU.toString()
 					, null);
 
 		final IProfil profilCharge2 
-			= new ProfilCerbere(
+			= new Profil(
 					3L
 					, ProfilEnum.CHARGEETUDE.toString()
 					, PorteeEnum.TOUTRESEAU.toString()
 					, "Vosges");
 		
 		final IProfil profilExploitantDIRA 
-			= new ProfilCerbere(
+			= new Profil(
 				4L
 				, ProfilEnum.EXPLOITANT.toString()
 				, PorteeEnum.DIRA.toString()
 				, "Ouest");
 
 		final IProfil profilExploitantDIRO 
-			= new ProfilCerbere(
+			= new Profil(
 				5L
 				, ProfilEnum.EXPLOITANT.toString()
 				, PorteeEnum.DIRO.toString()
 				, "Bretagne");
 
 		final IProfil profilConsultant1 
-			= new ProfilCerbere(
+			= new Profil(
 				5L
 				, ProfilEnum.CONSULTANT.toString()
 				, PorteeEnum.TOUTRESEAU.toString()

@@ -1,5 +1,7 @@
 package levy.daniel.application.model.dto.metier.personne.civilite;
 
+import java.io.Serializable;
+
 /**
  * INTERFACE ICiviliteDTO :<br/>
  * .<br/>
@@ -20,7 +22,7 @@ package levy.daniel.application.model.dto.metier.personne.civilite;
  * @since 6 nov. 2018
  *
  */
-public interface ICiviliteDTO {
+public interface ICiviliteDTO extends Serializable {
 
 	
 	

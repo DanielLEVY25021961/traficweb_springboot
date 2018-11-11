@@ -291,21 +291,21 @@ public class AbstractCivilite implements ICivilite {
 	 */
 	@Override
 	public final boolean equals(
-			final Object pObjet) {
+			final Object pObject) {
 
-		if (this == pObjet) {
+		if (this == pObject) {
 			return true;
 		}
 		
-		if (pObjet == null) {
+		if (pObject == null) {
 			return false;
 		}
 		
-		if (!(pObjet instanceof ICivilite)) {
+		if (!(pObject instanceof ICivilite)) {
 			return false;
 		}
 		
-		final ICivilite other = (ICivilite) pObjet;
+		final ICivilite other = (ICivilite) pObject;
 		
 		if (this.getCiviliteString() == null) {
 			if (other.getCiviliteString() != null) {

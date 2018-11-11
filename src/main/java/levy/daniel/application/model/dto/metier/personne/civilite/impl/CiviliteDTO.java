@@ -31,6 +31,11 @@ public class CiviliteDTO implements ICiviliteDTO {
 	// ************************ATTRIBUTS************************************/
 
 	/**
+	 * .<br/>
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * "Classe CiviliteDTO".<br/>
 	 */
 	public static final String CLASSE_CIVILITE_DTO 

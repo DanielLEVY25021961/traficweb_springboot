@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import levy.daniel.application.controllers.web.metier.profil.jpaspring.IProfilController;
-import levy.daniel.application.model.dto.metier.profil.impl.ProfilCerbereDTO;
+import levy.daniel.application.model.dto.metier.profil.impl.ProfilDTO;
 import levy.daniel.application.model.metier.profil.IProfil;
-import levy.daniel.application.model.metier.profil.impl.ProfilCerbere;
+import levy.daniel.application.model.metier.profil.impl.Profil;
 import levy.daniel.application.model.services.metier.profil.jpaspring.IProfilService;
 
 
@@ -73,6 +73,9 @@ public class ProfilController implements IProfilController {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
+	
+
+	/* CREATE ************/
 
 	
 	/**
@@ -81,20 +84,74 @@ public class ProfilController implements IProfilController {
 	@Override
 	@PostMapping("/create")
 	public IProfil create(
-			@RequestBody final ProfilCerbereDTO pProfil) throws Exception {
+			@RequestBody final ProfilDTO pDTO) throws Exception {
 		
-		System.out.println("DTO : " + pProfil.toString());
+		/* retourne null si pDTO == null. */
+		if (pDTO == null) {
+			return null;
+		}
 		
-		final ProfilCerbere profil = new ProfilCerbere(pProfil);
+		/* instanciation d'un objet métier concret 
+		 * (passé avec la visibilité Interface) à partir du DTO. */
+		final IProfil profil = new Profil(pDTO);
 		
-		
-		System.out.println("PROFIL : " + profil.toString());
-		
+		/* délégation au SERVICE. */
 		return this.profilService.create(profil);
 		
 	} // Fin de create(...)._______________________________________________
+	
 
 	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void persist(
+			final IProfil pObject) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Long createReturnId(
+			final IProfil pObject) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Iterable<IProfil> save(
+			final Iterable<IProfil> pList) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+	/* READ *************/
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IProfil retrieve(
+			final IProfil pObject) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	
 	/**
 	 * {@inheritDoc}
@@ -107,6 +164,18 @@ public class ProfilController implements IProfilController {
 	} // Fin de findById(...)._____________________________________________
 	
 	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Long retrieveId(
+			final IProfil pObject) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	
 	/**
 	 * {@inheritDoc}
@@ -117,7 +186,46 @@ public class ProfilController implements IProfilController {
 		return this.profilService.findAll();
 	} // Fin de findAll()._________________________________________________
 
+
 	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<IProfil> findAllMax(
+			final int pStartPosition, final int pMaxResult) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Iterable<IProfil> findAll(
+			final Iterable<Long> pIds) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/* UPDATE *************/
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IProfil update(
+			final IProfil pObject) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	
 	/**
 	 * {@inheritDoc}
@@ -131,7 +239,22 @@ public class ProfilController implements IProfilController {
 		return this.profilService.update(pId, pProfil);		
 	} // Fin de update(...)._______________________________________________
 
-	
+
+
+	/* DELETE *************/
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean delete(
+			final IProfil pObject) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
 	
 	/**
 	 * {@inheritDoc}
@@ -142,7 +265,123 @@ public class ProfilController implements IProfilController {
 			@PathVariable("id") final Long pId) throws Exception {
 		return this.profilService.deleteByIdBoolean(pId);
 	} // Fin de deleteById(...).___________________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean deleteByIdBoolean(
+			final Long pId) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void deleteAll() throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean deleteAllBoolean() throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void deleteIterable(
+			final Iterable<IProfil> pList) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean deleteIterableBoolean(
+			final Iterable<IProfil> pList) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
 	
-	
+	/* TOOLS *************/
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean exists(
+			final IProfil pObject) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean exists(
+			final Long pId) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Long count() throws Exception {
+		return this.profilService.count();
+	} // Fin de count().___________________________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void ecrireStockageDansConsole() throws Exception {
+		this.profilService.ecrireStockageDansConsole();		
+	} // Fin de ecrireStockageDansConsole().________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String afficherListeObjetsMetier(
+			final List<IProfil> pList) {
+		return this.profilService.afficherListeObjetsMetier(pList);
+	} // Fin de afficherListeObjetsMetier(...).____________________________
+
+
 	
 } // FIN DE LA CLASSE ProfilController.--------------------------------------

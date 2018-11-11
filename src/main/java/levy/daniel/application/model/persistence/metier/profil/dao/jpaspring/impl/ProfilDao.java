@@ -149,6 +149,7 @@ public class ProfilDao implements IProfilDao {
 
 	/* CREATE ************/
 
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -188,7 +189,7 @@ public class ProfilDao implements IProfilDao {
 			/* PERSISTE en base. */
 			this.entityManager.persist(entity);
 
-			persistentObject = pObject;
+			persistentObject = entity;
 
 		}
 		catch (Exception e) {
@@ -417,7 +418,6 @@ public class ProfilDao implements IProfilDao {
 	} // Fin de save(...)._________________________________________________
 	
 	
-
 
 	/* READ *************/
 

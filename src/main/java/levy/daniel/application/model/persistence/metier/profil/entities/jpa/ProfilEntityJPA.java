@@ -12,7 +12,6 @@ import javax.persistence.UniqueConstraint;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.model.metier.profil.AbstractProfil;
 import levy.daniel.application.model.metier.profil.IProfil;
 
 /**
@@ -160,11 +159,11 @@ public class ProfilEntityJPA implements IProfil {
 	 * </ul>
 	 * 
 	 * @param pProfilString : String : 
-	 * profilString du AbstractProfil.<br/>
+	 * profilString du Profil.<br/>
 	 * @param pPorteeProfil : String : 
-	 * porteeProfil du AbstractProfil.<br/>
+	 * porteeProfil du Profil.<br/>
 	 * @param pRestrictionProfil : String : 
-	 * restrictionProfil du AbstractProfil.<br/>
+	 * restrictionProfil du Profil.<br/>
 	 */
 	public ProfilEntityJPA(
 			final String pProfilString
@@ -185,11 +184,11 @@ public class ProfilEntityJPA implements IProfil {
 	 * 
 	 * @param pId : Long : ID en base.<br/>
 	 * @param pProfilString : String : 
-	 * profilString du AbstractProfil.<br/>
+	 * profilString du Profil.<br/>
 	 * @param pPorteeProfil : String : 
-	 * porteeProfil du AbstractProfil.<br/>
+	 * porteeProfil du Profil.<br/>
 	 * @param pRestrictionProfil : String : 
-	 * restrictionProfil du AbstractProfil.<br/>
+	 * restrictionProfil du Profil.<br/>
 	 */
 	public ProfilEntityJPA(
 			final Long pId
@@ -260,7 +259,7 @@ public class ProfilEntityJPA implements IProfil {
 	 * {@inheritDoc}
 	 * <br/>
 	 * <ul>
-	 * <b>equals(...) pour un AbstractProfil</b> sur :
+	 * <b>equals(...) pour un Profil</b> sur :
 	 * <li>profilString.</li>
 	 * <li>porteeProfil.</li>
 	 * </ul>
@@ -278,7 +277,7 @@ public class ProfilEntityJPA implements IProfil {
 			return false;
 		}
 
-		if (!(pObject instanceof AbstractProfil)) {
+		if (!(pObject instanceof IProfil)) {
 			return false;
 		}
 
@@ -399,7 +398,7 @@ public class ProfilEntityJPA implements IProfil {
 
 		final StringBuilder builder = new StringBuilder();
 
-		builder.append("AbstractProfil [");
+		builder.append("Profil [");
 
 		builder.append("id=");
 		if (this.id != null) {			

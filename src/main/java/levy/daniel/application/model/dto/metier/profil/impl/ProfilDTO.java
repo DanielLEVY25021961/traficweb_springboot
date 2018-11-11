@@ -3,11 +3,11 @@ package levy.daniel.application.model.dto.metier.profil.impl;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.model.dto.metier.profil.IProfilCerbereDTO;
+import levy.daniel.application.model.dto.metier.profil.IProfilDTO;
 import levy.daniel.application.model.metier.profil.IProfil;
 
 /**
- * CLASSE ProfilCerbereDTO :<br/>
+ * CLASSE ProfilDTO :<br/>
  * DTO servant à encapsuler le contenu d'une VUE.<br/>
  * <br/>
  *
@@ -26,15 +26,20 @@ import levy.daniel.application.model.metier.profil.IProfil;
  * @since 5 nov. 2018
  *
  */
-public class ProfilCerbereDTO implements IProfilCerbereDTO {
+public class ProfilDTO implements IProfilDTO {
 
 	// ************************ATTRIBUTS************************************/
 
 	/**
-	 * "Classe ProfilCerbereDTO".<br/>
+	 * .<br/>
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * "Classe ProfilDTO".<br/>
 	 */
 	public static final String CLASSE_PROFIL_CERBERE_DTO 
-		= "Classe ProfilCerbereDTO";
+		= "Classe ProfilDTO";
 	
 	/**
 	 * identifiant en base sous forme de String.<br/>
@@ -72,7 +77,7 @@ public class ProfilCerbereDTO implements IProfilCerbereDTO {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(ProfilCerbereDTO.class);
+		= LogFactory.getLog(ProfilDTO.class);
 
 	// *************************METHODES************************************/
 	
@@ -80,7 +85,7 @@ public class ProfilCerbereDTO implements IProfilCerbereDTO {
 	/**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public ProfilCerbereDTO() {
+	public ProfilDTO() {
 
 		this(null, null, null, null);
 
@@ -102,7 +107,7 @@ public class ProfilCerbereDTO implements IProfilCerbereDTO {
 	 * @param pRestrictionProfilString : String : 
 	 * restrictionProfilString du ProfilCerbereForm.<br/>
 	 */
-	public ProfilCerbereDTO(
+	public ProfilDTO(
 			final String pIdString
 				, final String pProfilStringString
 					, final String pPorteeProfilString
@@ -128,7 +133,7 @@ public class ProfilCerbereDTO implements IProfilCerbereDTO {
 	 *
 	 * @param pProfil : IProfil : Objet métier.<br/>
 	 */
-	public ProfilCerbereDTO(
+	public ProfilDTO(
 			final IProfil pProfil) {
 		
 		super();
@@ -159,7 +164,7 @@ public class ProfilCerbereDTO implements IProfilCerbereDTO {
 		
 		final StringBuilder builder = new StringBuilder();
 		
-		builder.append("ProfilCerbereDTO [");
+		builder.append("ProfilDTO [");
 		if (this.idString != null) {
 			builder.append("idString=");
 			builder.append(this.idString);
@@ -271,4 +276,4 @@ public class ProfilCerbereDTO implements IProfilCerbereDTO {
 
 	
 
-} // FIN DE LA CLASSE ProfilCerbereDTO.--------------------------------------
+} // FIN DE LA CLASSE ProfilDTO.--------------------------------------

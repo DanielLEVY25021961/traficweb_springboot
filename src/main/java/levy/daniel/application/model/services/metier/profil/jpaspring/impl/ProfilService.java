@@ -7,6 +7,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import levy.daniel.application.model.metier.profil.IProfil;
 import levy.daniel.application.model.persistence.metier.profil.dao.jpaspring.IProfilDao;
@@ -62,39 +63,145 @@ public class ProfilService implements IProfilService {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
+	
+
+	/* CREATE ************/
 
 	
 	/**
 	 * {@inheritDoc}
 	 */
+	@Transactional
 	@Override
-	public final IProfil create(
+	public IProfil create(
 			final IProfil pProfil) throws Exception {
 		return this.profilDao.create(pProfil);
 	} // Fin de create(...)._______________________________________________
 	
+	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void persist(
+			final IProfil pObject) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Long createReturnId(
+			final IProfil pObject) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Iterable<IProfil> save(
+			final Iterable<IProfil> pList) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/* READ *************/
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IProfil retrieve(
+			final IProfil pObject) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 	/**
 	 * {@inheritDoc} 
 	 */
 	@Override
-	public final IProfil findById(
+	public IProfil findById(
 			final Long pId) throws Exception {
 		return this.profilDao.findById(pId);
 	} // Fin de findById(...)._____________________________________________
 	
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Long retrieveId(
+			final IProfil pObject) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 		
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final List<IProfil> findAll() throws Exception {
+	public List<IProfil> findAll() throws Exception {
 		return this.profilDao.findAll();
 	} // Fin de getAllProfilsFake()._______________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<IProfil> findAllMax(
+			final int pStartPosition, final int pMaxResult) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Iterable<IProfil> findAll(
+			final Iterable<Long> pIds) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
+
+	/* UPDATE *************/
+
 	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public IProfil update(
+			final IProfil pObject) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	
 	/**
 	 * {@inheritDoc}
@@ -104,9 +211,36 @@ public class ProfilService implements IProfilService {
 			final Long pId, final IProfil pProfil) throws Exception {		
 		return this.profilDao.update(pId, pProfil);		
 	} // Fin de update(...)._______________________________________________
-	
+
+
+
+	/* DELETE *************/
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean delete(
+			final IProfil pObject) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 
 	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void deleteById(
+			final Long pId) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -116,6 +250,108 @@ public class ProfilService implements IProfilService {
 		return this.profilDao.deleteByIdBoolean(pId);
 	} // Fin de deleteByIdBoolean(...).____________________________________
 
-	
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void deleteAll() throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean deleteAllBoolean() throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void deleteIterable(
+			final Iterable<IProfil> pList) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean deleteIterableBoolean(
+			final Iterable<IProfil> pList) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	/* TOOLS *************/
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean exists(
+			final IProfil pObject) throws Exception {
+		return this.profilDao.exists(pObject);
+	} // Fin de exists(...)._______________________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean exists(
+			final Long pId) throws Exception {
+		return this.profilDao.exists(pId);
+	} // Fin de exists(...)._______________________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Long count() throws Exception {
+		return this.profilDao.count();
+	} // Fin de count().___________________________________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void ecrireStockageDansConsole() throws Exception {
+		this.profilDao.ecrireStockageDansConsole();		
+	} // Fin de ecrireStockageDansConsole()._______________________________
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String afficherListeObjetsMetier(
+			final List<IProfil> pList) {
+		return this.profilDao.afficherListeObjetsMetier(pList);
+	} // Fin de afficherListeObjetsMetier(...).____________________________
+
+
 	
 } // FIN DE LA CLASSE ProfilService.-----------------------------------------

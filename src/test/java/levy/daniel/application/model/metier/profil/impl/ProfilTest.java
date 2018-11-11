@@ -17,8 +17,8 @@ import levy.daniel.application.model.metier.profil.ProfilEnum;
 
 
 /**
- * CLASSE ProfilCerbereTest :<br/>
- * Test JUnit de la classe ProfilCerbere.<br/>
+ * CLASSE ProfilTest :<br/>
+ * Test JUnit de la classe Profil.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -40,7 +40,7 @@ import levy.daniel.application.model.metier.profil.ProfilEnum;
  * @since 4 nov. 2018
  *
  */
-public class ProfilCerbereTest {
+public class ProfilTest {
 	
 	// ************************ATTRIBUTS************************************/
 	
@@ -79,7 +79,7 @@ public class ProfilCerbereTest {
 	 * objet1, objet2EqualsObj1, objet3EqualsObj1 doivent être equals().
 	 */
 	public static transient IProfil objet1 
-		= new ProfilCerbere(1L, ProfilEnum.CONSULTANT.toString(), PorteeEnum.DIRA.toString(), "Ain");
+		= new Profil(1L, ProfilEnum.CONSULTANT.toString(), PorteeEnum.DIRA.toString(), "Ain");
 	
 	/**
 	 * objet1MemeInstance doit être la même instance que objet1.<br/>
@@ -90,13 +90,13 @@ public class ProfilCerbereTest {
 	 * objet1, objet2EqualsObj1, objet3EqualsObj1 doivent être equals().
 	 */
 	public static transient IProfil objet2EqualsObj1 
-		= new ProfilCerbere(2L, ProfilEnum.CONSULTANT.toString(), PorteeEnum.DIRA.toString(), "Ain");
+		= new Profil(2L, ProfilEnum.CONSULTANT.toString(), PorteeEnum.DIRA.toString(), "Ain");
 	
 	/**
 	 * objet1, objet2EqualsObj1, objet3EqualsObj1 doivent être equals().
 	 */
 	public static transient IProfil objet3EqualsObj1 
-		= new ProfilCerbere(3L, ProfilEnum.CONSULTANT.toString(), PorteeEnum.DIRA.toString(), "Ain");
+		= new Profil(3L, ProfilEnum.CONSULTANT.toString(), PorteeEnum.DIRA.toString(), "Ain");
 	
 	/**
 	 * objetNull1 et objetNull2 doivent être instanciés 
@@ -104,7 +104,7 @@ public class ProfilCerbereTest {
 	 * tous les attributs aux valeurs par défaut.
 	 */
 	public static transient IProfil objetNull1 
-		= new ProfilCerbere(0L, null, null, null);
+		= new Profil(0L, null, null, null);
 	
 	/**
 	 * objetNull1 et objetNull2 doivent être instanciés 
@@ -112,59 +112,59 @@ public class ProfilCerbereTest {
 	 * tous les attributs aux valeurs par défaut.
 	 */
 	public static transient IProfil objetNull2 
-		= new ProfilCerbere(7L, null, null, null);
+		= new Profil(7L, null, null, null);
 	
 	/**
 	 * objet1AvecNull et objet2EqualsObjet1AvecNull 
 	 * doivent être equals() et avoir certains attributs à null.
 	 */
 	public static transient IProfil objet1AvecNull 
-		= new ProfilCerbere(7L, ProfilEnum.ADMINISTRATEUR.toString(), null, null);
+		= new Profil(7L, ProfilEnum.ADMINISTRATEUR.toString(), null, null);
 	
 	/**
 	 * objet1AvecNull et objet2EqualsObjet1AvecNull 
 	 * doivent être equals() et avoir certains attributs à null.
 	 */
 	public static transient IProfil objet2EqualsObjet1AvecNull 
-		= new ProfilCerbere(8L, ProfilEnum.ADMINISTRATEUR.toString(), null, null);
+		= new Profil(8L, ProfilEnum.ADMINISTRATEUR.toString(), null, null);
 	
 	/**
 	 * objetDiff1 doit être différent de objetDiff2
 	 */
 	public static transient IProfil objetDiff1 
-		= new ProfilCerbere(1L, ProfilEnum.ADMINISTRATEUR.toString(), PorteeEnum.TOUTRESEAU.toString(), null);
+		= new Profil(1L, ProfilEnum.ADMINISTRATEUR.toString(), PorteeEnum.TOUTRESEAU.toString(), null);
 	
 	/**
 	 * objetDiff2 doit être différent de objetDiff1
 	 */
 	public static transient IProfil objetDiff2 
-		= new ProfilCerbere(2L, ProfilEnum.ADMINISTRATEUR.toString(), PorteeEnum.DARWIN.toString(), null);
+		= new Profil(2L, ProfilEnum.ADMINISTRATEUR.toString(), PorteeEnum.DARWIN.toString(), null);
 	
 	/**
 	 * objetDiff1AvecNull doit être différent de objetDiff2AvecNull.<br/>
 	 * objetDiff1AvecNull et objetDiff2AvecNull doivent avoir des attributs null.
 	 */
 	public static transient IProfil objetDiff1AvecNull 
-		= new ProfilCerbere(1L, ProfilEnum.ADMINISTRATEUR.toString(), null, "Savoie");
+		= new Profil(1L, ProfilEnum.ADMINISTRATEUR.toString(), null, "Savoie");
 	
 	/**
 	 * objetDiff1AvecNull doit être différent de objetDiff2AvecNull.<br/>
 	 * objetDiff1AvecNull et objetDiff2AvecNull doivent avoir des attributs null.
 	 */
 	public static transient IProfil objetDiff2AvecNull 
-		= new ProfilCerbere(1L, null, PorteeEnum.TOUTRESEAU.toString(), "Ardèche");
+		= new Profil(1L, null, PorteeEnum.TOUTRESEAU.toString(), "Ardèche");
 	
 	/**
 	 * objetCompAvant doit être AVANT objetCompApres.
 	 */
 	public static transient IProfil objetCompAvant 
-		= new ProfilCerbere(1L, ProfilEnum.ADMINISTRATEUR.toString(), PorteeEnum.DIRA.toString(), "Haute-Savoie");
+		= new Profil(1L, ProfilEnum.ADMINISTRATEUR.toString(), PorteeEnum.DIRA.toString(), "Haute-Savoie");
 	
 	/**
 	 * objetCompApres doit être APRES objetCompAvant.
 	 */
 	public static transient IProfil objetCompApres 
-		= new ProfilCerbere(1L, ProfilEnum.ADMINISTRATEUR.toString(), PorteeEnum.DIRCE.toString(), "Isère");
+		= new Profil(1L, ProfilEnum.ADMINISTRATEUR.toString(), PorteeEnum.DIRCE.toString(), "Isère");
 	
 	/**
 	 * clone de objetNull1.<br/>
@@ -182,7 +182,7 @@ public class ProfilCerbereTest {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(ProfilCerbereTest.class);
+		= LogFactory.getLog(ProfilTest.class);
 
 	// *************************METHODES************************************/
 
@@ -190,7 +190,7 @@ public class ProfilCerbereTest {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public ProfilCerbereTest() {
+	public ProfilTest() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -227,7 +227,7 @@ public class ProfilCerbereTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE ProfilCerbereTest - méthode testEquals() ********** ");
+		System.out.println("********** CLASSE ProfilTest - méthode testEquals() ********** ");
 		}
 
 		/* AFFICHAGE A LA CONSOLE. */
@@ -424,7 +424,7 @@ public class ProfilCerbereTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-		System.out.println("********** CLASSE ProfilCerbereTest - méthode testCompareTo() ********** ");
+		System.out.println("********** CLASSE ProfilTest - méthode testCompareTo() ********** ");
 		}
 
 		
@@ -553,7 +553,7 @@ public class ProfilCerbereTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ProfilCerbereTest - méthode testClone() ********** ");
+			System.out.println("********** CLASSE ProfilTest - méthode testClone() ********** ");
 		}
 
 		
@@ -632,7 +632,7 @@ public class ProfilCerbereTest {
 	
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ProfilCerbereTest - méthode testToString() ********** ");
+			System.out.println("********** CLASSE ProfilTest - méthode testToString() ********** ");
 		}
 	
 		/* AFFICHAGE A LA CONSOLE. */
@@ -643,7 +643,7 @@ public class ProfilCerbereTest {
 		
 		/* garantit que les null sont bien gérés dans toString(). */
 		assertEquals("objetNull1.toString() retourne une chaine : "
-				, "AbstractProfil [id=0, profilString=null, porteeProfil=null, restrictionProfil=null]"
+				, "Profil [id=0, profilString=null, porteeProfil=null, restrictionProfil=null]"
 						, objetNull1.toString());
 		
 		/* AFFICHAGE A LA CONSOLE. */
@@ -654,7 +654,7 @@ public class ProfilCerbereTest {
 		
 		/* garantit le bon affichage de toString(). */
 		assertEquals("affichage : "
-				, "AbstractProfil [id=1, profilString=CONSULTANT, porteeProfil=DIRA, restrictionProfil=Ain]"
+				, "Profil [id=1, profilString=CONSULTANT, porteeProfil=DIRA, restrictionProfil=Ain]"
 						, objet1.toString());
 				
 	} // Fin de testToString().____________________________________________
@@ -680,7 +680,7 @@ public class ProfilCerbereTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ProfilCerbereTest - méthode testgetEnTeteCsv() ********** ");
+			System.out.println("********** CLASSE ProfilTest - méthode testgetEnTeteCsv() ********** ");
 		}
 	
 
@@ -724,7 +724,7 @@ public class ProfilCerbereTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ProfilCerbereTest - méthode testToStringCsv() ********** ");
+			System.out.println("********** CLASSE ProfilTest - méthode testToStringCsv() ********** ");
 		}
 
 		/* garantit que les null sont gérés dans toStringCsv(). */
@@ -788,7 +788,7 @@ public class ProfilCerbereTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ProfilCerbereTest - méthode testGetEnTeteColonne() ********** ");
+			System.out.println("********** CLASSE ProfilTest - méthode testGetEnTeteColonne() ********** ");
 		}
 		
 		/* garantit que les null sont gérés 
@@ -849,7 +849,7 @@ public class ProfilCerbereTest {
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
-			System.out.println("********** CLASSE ProfilCerbereTest - méthode testGetValeurColonne() ********** ");
+			System.out.println("********** CLASSE ProfilTest - méthode testGetValeurColonne() ********** ");
 		}
 		
 		/* garantit que les null sont gérés 
@@ -912,4 +912,4 @@ public class ProfilCerbereTest {
 	
 		
 	
-} // FIN DE LA CLASSE ProfilCerbereTest.-------------------------------------
+} // FIN DE LA CLASSE ProfilTest.-------------------------------------

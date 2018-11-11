@@ -1,8 +1,9 @@
 package levy.daniel.application.model.dto.metier.internaute;
 
+import java.io.Serializable;
 import java.util.List;
 
-import levy.daniel.application.model.dto.metier.profil.IProfilCerbereDTO;
+import levy.daniel.application.model.dto.metier.profil.IProfilDTO;
 
 /**
  * INTERFACE IInternauteDTO :<br/>
@@ -24,7 +25,7 @@ import levy.daniel.application.model.dto.metier.profil.IProfilCerbereDTO;
  * @since 5 nov. 2018
  *
  */
-public interface IInternauteDTO {
+public interface IInternauteDTO extends Serializable {
 
 	
 	
@@ -137,9 +138,9 @@ public interface IInternauteDTO {
 	 * Getter .<br/>
 	 * <br/>
 	 *
-	 * @return profilsString : List<IProfilCerbereDTO> : this.profilsString.<br/>
+	 * @return profilsString : List<IProfilDTO> : this.profilsString.<br/>
 	 */
-	List<IProfilCerbereDTO> getProfilsString();
+	List<IProfilDTO> getProfilsString();
 
 	
 	
@@ -147,10 +148,10 @@ public interface IInternauteDTO {
 	* .<br/>
 	* <br/>
 	*
-	* @param pProfilsString : List<IProfilCerbereDTO> : 
+	* @param pProfilsString : List<IProfilDTO> : 
 	* valeur à passer à this.profilsString.<br/>
 	*/
-	void setProfilsString(List<IProfilCerbereDTO> pProfilsString);
+	void setProfilsString(List<IProfilDTO> pProfilsString);
 
 	
 	

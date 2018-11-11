@@ -63,8 +63,6 @@ public class CiviliteDaoSpringJPATest
 	 */
 	public static final Boolean AFFICHAGE_GENERAL = true;
 
-
- 
     /**
      * DAO à tester injecté par SPRING BOOT.<br/>
      */
@@ -84,7 +82,6 @@ public class CiviliteDaoSpringJPATest
 	
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
-	 * <br/>
 	 */
 	public CiviliteDaoSpringJPATest() {
 		super();
@@ -108,7 +105,7 @@ public class CiviliteDaoSpringJPATest
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
 			System.out.println();
-		System.out.println("********** CLASSE CiviliteDaoSpringJPATest - méthode testCreate() ********** ");
+			System.out.println("********** CLASSE CiviliteDaoSpringJPATest - méthode testCreate() ********** ");
 		}
 		
 		super.testCreate(AFFICHAGE_GENERAL, affichage);

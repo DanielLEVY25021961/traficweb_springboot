@@ -7,8 +7,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.dto.metier.internaute.IInternauteDTO;
-import levy.daniel.application.model.dto.metier.profil.IProfilCerbereDTO;
-import levy.daniel.application.model.dto.metier.profil.impl.ProfilCerbereDTO;
+import levy.daniel.application.model.dto.metier.profil.IProfilDTO;
+import levy.daniel.application.model.dto.metier.profil.impl.ProfilDTO;
 import levy.daniel.application.model.metier.internaute.IInternaute;
 import levy.daniel.application.model.metier.profil.IProfil;
 
@@ -35,6 +35,13 @@ import levy.daniel.application.model.metier.profil.IProfil;
 public class InternauteDTO implements IInternauteDTO {
 
 	// ************************ATTRIBUTS************************************/
+	
+	/**
+	 * .<br/>
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	/**
 	 * "Classe InternauteDTO".<br/>
 	 */
@@ -69,7 +76,7 @@ public class InternauteDTO implements IInternauteDTO {
 	/**
 	 * profils (ADMINISTRATEUR, CONSULTANT, ...) de l'internaute.<br/>
 	 */
-	private List<IProfilCerbereDTO> profilsString;
+	private List<IProfilDTO> profilsString;
 	
 
 	/**
@@ -101,13 +108,13 @@ public class InternauteDTO implements IInternauteDTO {
 	 * @param pNom : String :
 	 * @param pLogin : String :
 	 * @param pPassword : String :
-	 * @param pProfilsString : List&lt;IProfilCerbereDTO&gt; :
+	 * @param pProfilsString : List&lt;IProfilDTO&gt; :
 	 */
 	public InternauteDTO(
 			final String pIdString
 			, final String pPrenom, final String pNom
 			, final String pLogin, final String pPassword
-			, final List<IProfilCerbereDTO> pProfilsString) {
+			, final List<IProfilDTO> pProfilsString) {
 		
 		super();
 		
@@ -151,10 +158,10 @@ public class InternauteDTO implements IInternauteDTO {
 			
 			if (pInternaute.getProfils() != null) {
 				
-				this.profilsString = new ArrayList<IProfilCerbereDTO>();
+				this.profilsString = new ArrayList<IProfilDTO>();
 				
 				for (final IProfil profil : pInternaute.getProfils()) {
-					final IProfilCerbereDTO dto = new ProfilCerbereDTO(profil);
+					final IProfilDTO dto = new ProfilDTO(profil);
 					this.profilsString.add(dto);
 				}
 			} else {
@@ -266,7 +273,7 @@ public class InternauteDTO implements IInternauteDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<IProfilCerbereDTO> getProfilsString() {
+	public List<IProfilDTO> getProfilsString() {
 		return this.profilsString;
 	}
 
@@ -276,7 +283,7 @@ public class InternauteDTO implements IInternauteDTO {
 	 */
 	@Override
 	public void setProfilsString(
-			final List<IProfilCerbereDTO> pProfilsString) {
+			final List<IProfilDTO> pProfilsString) {
 		this.profilsString = pProfilsString;
 	}
 

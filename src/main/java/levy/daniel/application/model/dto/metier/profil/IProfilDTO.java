@@ -1,7 +1,9 @@
 package levy.daniel.application.model.dto.metier.profil;
 
+import java.io.Serializable;
+
 /**
- * INTERFACE IProfilCerbereDTO :<br/>
+ * INTERFACE IProfilDTO :<br/>
  * DTO servant à encapsuler le contenu d'une VUE.<br/>
  * <br/>
  *
@@ -20,7 +22,7 @@ package levy.daniel.application.model.dto.metier.profil;
  * @since 5 nov. 2018
  *
  */
-public interface IProfilCerbereDTO {
+public interface IProfilDTO extends Serializable {
 
 	
 	
@@ -116,4 +118,4 @@ public interface IProfilCerbereDTO {
 
 	
 
-} // FIN DE L'INTERFACE IProfilCerbereDTO.------------------------------------
+} // FIN DE L'INTERFACE IProfilDTO.------------------------------------
