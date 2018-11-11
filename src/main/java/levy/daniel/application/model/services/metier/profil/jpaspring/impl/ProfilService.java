@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import levy.daniel.application.model.metier.profil.IProfil;
-import levy.daniel.application.model.persistence.metier.profil.dao.jpaspring.IProfilDao;
+import levy.daniel.application.model.persistence.metier.profil.dao.jpaspring.IProfilDAO;
 import levy.daniel.application.model.services.metier.profil.jpaspring.IProfilService;
 
 
@@ -45,7 +45,7 @@ public class ProfilService implements IProfilService {
 	 */
 	@Autowired
 	@Qualifier("ProfilDaoJPASpring")
-	private transient IProfilDao profilDao;
+	private transient IProfilDAO profilDAO;
 
 	/**
 	 * LOG : Log : 
@@ -75,7 +75,7 @@ public class ProfilService implements IProfilService {
 	@Override
 	public IProfil create(
 			final IProfil pProfil) throws Exception {
-		return this.profilDao.create(pProfil);
+		return this.profilDAO.create(pProfil);
 	} // Fin de create(...)._______________________________________________
 	
 	
@@ -137,7 +137,7 @@ public class ProfilService implements IProfilService {
 	@Override
 	public IProfil findById(
 			final Long pId) throws Exception {
-		return this.profilDao.findById(pId);
+		return this.profilDAO.findById(pId);
 	} // Fin de findById(...)._____________________________________________
 	
 
@@ -159,7 +159,7 @@ public class ProfilService implements IProfilService {
 	 */
 	@Override
 	public List<IProfil> findAll() throws Exception {
-		return this.profilDao.findAll();
+		return this.profilDAO.findAll();
 	} // Fin de getAllProfilsFake()._______________________________________
 
 
@@ -209,7 +209,7 @@ public class ProfilService implements IProfilService {
 	@Override
 	public IProfil update(
 			final Long pId, final IProfil pProfil) throws Exception {		
-		return this.profilDao.update(pId, pProfil);		
+		return this.profilDAO.update(pId, pProfil);		
 	} // Fin de update(...)._______________________________________________
 
 
@@ -247,7 +247,7 @@ public class ProfilService implements IProfilService {
 	@Override
 	public boolean deleteByIdBoolean(
 			final Long pId) throws Exception  {
-		return this.profilDao.deleteByIdBoolean(pId);
+		return this.profilDAO.deleteByIdBoolean(pId);
 	} // Fin de deleteByIdBoolean(...).____________________________________
 
 
@@ -307,7 +307,7 @@ public class ProfilService implements IProfilService {
 	@Override
 	public boolean exists(
 			final IProfil pObject) throws Exception {
-		return this.profilDao.exists(pObject);
+		return this.profilDAO.exists(pObject);
 	} // Fin de exists(...)._______________________________________________
 
 
@@ -318,7 +318,7 @@ public class ProfilService implements IProfilService {
 	@Override
 	public boolean exists(
 			final Long pId) throws Exception {
-		return this.profilDao.exists(pId);
+		return this.profilDAO.exists(pId);
 	} // Fin de exists(...)._______________________________________________
 
 
@@ -328,7 +328,7 @@ public class ProfilService implements IProfilService {
 	 */
 	@Override
 	public Long count() throws Exception {
-		return this.profilDao.count();
+		return this.profilDAO.count();
 	} // Fin de count().___________________________________________________
 
 
@@ -338,7 +338,7 @@ public class ProfilService implements IProfilService {
 	 */
 	@Override
 	public void ecrireStockageDansConsole() throws Exception {
-		this.profilDao.ecrireStockageDansConsole();		
+		this.profilDAO.ecrireStockageDansConsole();		
 	} // Fin de ecrireStockageDansConsole()._______________________________
 
 
@@ -349,7 +349,7 @@ public class ProfilService implements IProfilService {
 	@Override
 	public String afficherListeObjetsMetier(
 			final List<IProfil> pList) {
-		return this.profilDao.afficherListeObjetsMetier(pList);
+		return this.profilDAO.afficherListeObjetsMetier(pList);
 	} // Fin de afficherListeObjetsMetier(...).____________________________
 
 

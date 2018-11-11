@@ -1,4 +1,4 @@
-package levy.daniel.application.model.persistence.metier.profil.dao;
+package levy.daniel.application.model.persistence.metier.profil.dao.jpaspring;
 
 import java.util.List;
 
@@ -24,9 +24,11 @@ import levy.daniel.application.model.metier.profil.IProfil;
  * @since 8 nov. 2018
  *
  */
-public interface IProfilDao {
+public interface IProfilDAO {
 
-	
+		
+	/* CREATE ************/
+
 	
 	/**
 	 * <b>crée un objet métier pObject dans le stockage 
@@ -117,6 +119,9 @@ public interface IProfilDao {
 	
 	
 
+	/* READ *************/
+
+
 	/**
 	 * <b>recherche un objet métier pObject 
 	 * dans le stockage</b> et retourne l'objet métier persisté.<br/>
@@ -158,6 +163,9 @@ public interface IProfilDao {
 	IProfil findById(Long pId) throws Exception;
 	
 	
+
+	/* READ *************/
+
 
 	/**
 	 * <b>retourne l'identifiant ou l'index (0-based) 
@@ -211,9 +219,9 @@ public interface IProfilDao {
 	 */
 	List<IProfil> findAllMax(
 			int pStartPosition, int pMaxResult) throws Exception;
+	
+	
 
-	
-	
 	/**
 	 * method findAll(
 	 * Iterable&lt;Long&gt; pIds) :<br/>
@@ -237,9 +245,12 @@ public interface IProfilDao {
 	 * @throws Exception 
 	 */
 	Iterable<IProfil> findAll(Iterable<Long> pIds) throws Exception;
-	
-	
 
+
+
+	/* UPDATE *************/
+
+	
 	/**
 	 * method update(
 	 * IProfil pObject) :<br/>
@@ -305,8 +316,11 @@ public interface IProfilDao {
 	 * @throws Exception
 	 */
 	IProfil update(Long pId, IProfil pObjectModifie) throws Exception;
-	
-	
+
+
+
+	/* DELETE *************/
+
 
 	/**
 	 * <b>retire l'objet métier pObject dans le stockage</b>.<br/>
@@ -428,8 +442,11 @@ public interface IProfilDao {
 	 * @throws Exception
 	 */
 	boolean deleteIterableBoolean(Iterable<IProfil> pList) throws Exception;
-	
-	
+
+
+
+	/* TOOLS *************/
+
 
 	/**
 	 * <b>retourne true si l'objet métier pObject 
@@ -507,7 +524,7 @@ public interface IProfilDao {
 	 * @return : String.<br/>
 	 */
 	String afficherListeObjetsMetier(List<IProfil> pList);
+	
+	
 
-	
-	
 } // FIN DE L'INTERFACE IProfilDAO.------------------------------------------

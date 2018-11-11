@@ -15,11 +15,11 @@ import org.springframework.stereotype.Repository;
 
 import levy.daniel.application.model.metier.profil.IProfil;
 import levy.daniel.application.model.persistence.daoexceptions.GestionnaireDaoException;
-import levy.daniel.application.model.persistence.metier.profil.dao.jpaspring.IProfilDao;
+import levy.daniel.application.model.persistence.metier.profil.dao.jpaspring.IProfilDAO;
 import levy.daniel.application.model.persistence.metier.profil.entities.jpa.ProfilEntityJPA;
 
 /**
- * CLASSE CONCRETE <b>ProfilDao</b> :<br/>
+ * CLASSE CONCRETE <b>ProfilDAO</b> :<br/>
  * <p>
  * <span style="text-decoration: underline;">CONCEPT 
  * CONCERNE PAR CE DAO</span>
@@ -32,12 +32,12 @@ import levy.daniel.application.model.persistence.metier.profil.entities.jpa.Prof
  * 
  * <p>
  * <span style="text-decoration: underline;">DESCRIPTION DE 
- * ProfilDao</span>
+ * ProfilDAO</span>
  * </p>
  * <ul>
  * <li>DAO <b>CONCRET</b> pour les <b>Profil</b>.</li>
  * <li>
- * Implémente l'interface <b>IProfilDao</b>.
+ * Implémente l'interface <b>IProfilDAO</b>.
  * </li>
  * <li>
  * Certaines méthodes (getOne(ID), ...) sont 
@@ -46,22 +46,22 @@ import levy.daniel.application.model.persistence.metier.profil.entities.jpa.Prof
  * </ul>
  * 
  * <p>
- * <span style="text-decoration: underline;">IMPLEMENTATION DES ProfilDao</span>
+ * <span style="text-decoration: underline;">IMPLEMENTATION DES ProfilDAO</span>
  * </p>
  * <ul>
  * <li>
- * <img src="../../../../../../../../../../../../../../../javadoc/images/implementation_DAO_Profil_JpaSpring.png" 
+ * <img src="../../../../../../../../../../../../../../../javadoc/images/implementation_Profil_DAO_JpaSpring.png" 
  * alt="implémentation des DAOs Profil JPA SPRING" border="1" align="center" />
  * </li>
  * </ul>
  * 
  * <p>
- * <span style="text-decoration: underline;">UTILISATION DES ProfilDao</span>
+ * <span style="text-decoration: underline;">UTILISATION DES ProfilDAO</span>
  * </p>
  * <ul>
  * <li>
- * <img src="../../../../../../../../../../../../javadoc/images/utilisation_ProfilDao_JpaSpring.png" 
- * alt="utilisation des DAOs ProfilDao JPA SPRING" border="1" align="center" />
+ * <img src="../../../../../../../../../../../../javadoc/images/utilisation_Profil_DAO_JpaSpring.png" 
+ * alt="utilisation des DAOs ProfilDAO JPA SPRING" border="1" align="center" />
  * </li>
  * </ul>
  * 
@@ -83,15 +83,15 @@ import levy.daniel.application.model.persistence.metier.profil.entities.jpa.Prof
  *
  */
 @Repository("ProfilDaoJPASpring")
-public class ProfilDao implements IProfilDao {
+public class ProfilDAO implements IProfilDAO {
 
 	// ************************ATTRIBUTS************************************/
 	
 	/**
-	 * "Classe ProfilDao".<br/>
+	 * "Classe ProfilDAO".<br/>
 	 */
 	public static final String CLASSE_PROFILDAO_JPA_SPRING 
-		= "Classe ProfilDao";
+		= "Classe ProfilDAO";
 
 	/**
 	 * SAUT_LIGNE_JAVA : char :<br/>
@@ -133,7 +133,7 @@ public class ProfilDao implements IProfilDao {
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(ProfilDao.class);
+		= LogFactory.getLog(ProfilDAO.class);
 
 	
 	// *************************METHODES************************************/
@@ -141,7 +141,7 @@ public class ProfilDao implements IProfilDao {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public ProfilDao() {
+	public ProfilDAO() {
 		super();
 	} // Fin de CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -1551,4 +1551,4 @@ public class ProfilDao implements IProfilDao {
 
 
 
-} // FIN DE LA CLASSE ProfilDao.-------------------------------------------
+} // FIN DE LA CLASSE ProfilDAO.-------------------------------------------

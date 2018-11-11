@@ -38,8 +38,29 @@ public class ProfilDTO implements IProfilDTO {
 	/**
 	 * "Classe ProfilDTO".<br/>
 	 */
-	public static final String CLASSE_PROFIL_CERBERE_DTO 
+	public static final String CLASSE_PROFIL_DTO 
 		= "Classe ProfilDTO";
+	
+	/**
+	 * POINT_VIRGULE : char :<br/>
+	 * ';'.<br/>
+	 */
+	public static final char POINT_VIRGULE = ';';
+	
+	
+	/**
+	 * VIRGULE_ESPACE : String :<br/>
+	 * ", ".<br/>
+	 */
+	public static final String VIRGULE_ESPACE = ", ";
+	
+	
+	/**
+	 * NULL : String :<br/>
+	 * "null".<br/>
+	 */
+	public static final String NULL = "null";
+	
 	
 	/**
 	 * identifiant en base sous forme de String.<br/>
@@ -96,10 +117,9 @@ public class ProfilDTO implements IProfilDTO {
 	/**
 	 * <ul>
 	 * <li>CONSTRUCTEUR COMPLET.</li>
-	 * <li>SANS ID en base.</li>
 	 * </ul>
 	 * 
-	 * @param pIdString : String :
+	 * @param pIdString : String : ID sous forme de String
 	 * @param pProfilStringString : String : 
 	 * profilStringString du ProfilCerbereForm.<br/>
 	 * @param pPorteeProfilString : String : 
@@ -131,24 +151,24 @@ public class ProfilDTO implements IProfilDTO {
 	 * pour affichage.</li>
 	 * </ul>
 	 *
-	 * @param pProfil : IProfil : Objet métier.<br/>
+	 * @param pObject : IProfil : Objet métier.<br/>
 	 */
 	public ProfilDTO(
-			final IProfil pProfil) {
+			final IProfil pObject) {
 		
 		super();
 		
-		if (pProfil != null) {
+		if (pObject != null) {
 			
-			if (pProfil.getId() != null) {
-				this.idString = String.valueOf(pProfil.getId());
+			if (pObject.getId() != null) {
+				this.idString = String.valueOf(pObject.getId());
 			} else {
 				this.idString = null;
 			}
 			
-			this.profilStringString = pProfil.getProfilString();
-			this.porteeProfilString = pProfil.getPorteeProfil();
-			this.restrictionProfilString = pProfil.getRestrictionProfil();
+			this.profilStringString = pObject.getProfilString();
+			this.porteeProfilString = pObject.getPorteeProfil();
+			this.restrictionProfilString = pObject.getRestrictionProfil();
 			
 		}
 		
@@ -165,25 +185,41 @@ public class ProfilDTO implements IProfilDTO {
 		final StringBuilder builder = new StringBuilder();
 		
 		builder.append("ProfilDTO [");
-		if (this.idString != null) {
-			builder.append("idString=");
+		
+		builder.append("idString=");
+		if (this.idString != null) {			
 			builder.append(this.idString);
-			builder.append(", ");
+		} else {
+			builder.append(NULL);
 		}
+		
+		builder.append(VIRGULE_ESPACE);
+		
+		builder.append("profilStringString=");
 		if (this.profilStringString != null) {
-			builder.append("profilStringString=");
 			builder.append(this.profilStringString);
-			builder.append(", ");
+		} else {
+			builder.append(NULL);
 		}
-		if (this.porteeProfilString != null) {
-			builder.append("porteeProfilString=");
+		
+		builder.append(VIRGULE_ESPACE);
+		
+		builder.append("porteeProfilString=");
+		if (this.porteeProfilString != null) {			
 			builder.append(this.porteeProfilString);
-			builder.append(", ");
+		} else {
+			builder.append(NULL);
 		}
+		
+		builder.append(VIRGULE_ESPACE);
+		
+		builder.append("restrictionProfilString=");
 		if (this.restrictionProfilString != null) {
-			builder.append("restrictionProfilString=");
 			builder.append(this.restrictionProfilString);
+		} else {
+			builder.append(NULL);
 		}
+		
 		builder.append(']');
 		
 		return builder.toString();

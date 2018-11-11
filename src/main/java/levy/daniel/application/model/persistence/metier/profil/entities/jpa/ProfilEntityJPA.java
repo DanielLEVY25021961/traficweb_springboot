@@ -16,7 +16,9 @@ import levy.daniel.application.model.metier.profil.IProfil;
 
 /**
  * CLASSE ProfilEntityJPA :<br/>
- * .<br/>
+ * Entity JPA modélisant un Objet Métier en vue de son stockage.<br/>
+ * l'Entity doit <b>implémenter la même interface 
+ * que l'objet métier et être equals</b>.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -212,19 +214,19 @@ public class ProfilEntityJPA implements IProfil {
 	 * <b>instancie un Entity JPA à partir 
 	 * d'un Objet Metier</b>.<br/>
 	 *
-	 * @param pProfil : IProfil.<br/>
+	 * @param pObject : IProfil.<br/>
 	 */
 	public ProfilEntityJPA(
-			final IProfil pProfil) {
+			final IProfil pObject) {
 		
 		super();
 		
-		if (pProfil != null) {
+		if (pObject != null) {
 			
-			this.id = pProfil.getId();
-			this.profilString = pProfil.getProfilString();
-			this.porteeProfil = pProfil.getPorteeProfil();
-			this.restrictionProfil = pProfil.getRestrictionProfil();
+			this.id = pObject.getId();
+			this.profilString = pObject.getProfilString();
+			this.porteeProfil = pObject.getPorteeProfil();
+			this.restrictionProfil = pObject.getRestrictionProfil();
 			
 		}
 		

@@ -304,7 +304,7 @@ public class Profil extends AbstractProfil {
 	 * CONSTRUCTEUR TRANSFORMATEUR AVEC JPA.<br/>
 	 * <b>instancie un objet métier à partir d'une Entity JPA</b>.<br/>
 	 *
-	 * @param pEntityJPA : InternauteEntityJPA.<br/>
+	 * @param pEntityJPA : ProfilEntityJPA
 	 */
 	public Profil(
 			final ProfilEntityJPA pEntityJPA) {

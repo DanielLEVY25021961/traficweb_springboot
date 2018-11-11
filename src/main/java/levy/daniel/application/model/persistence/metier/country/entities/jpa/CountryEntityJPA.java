@@ -1,154 +1,26 @@
-package levy.daniel.application.model.metier.country.impl;
+package levy.daniel.application.model.persistence.metier.country.entities.jpa;
 
 import java.util.Locale;
 
-import org.apache.commons.lang3.StringUtils;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import levy.daniel.application.model.dto.metier.country.ICountryDTO;
 import levy.daniel.application.model.metier.country.ICountry;
-import levy.daniel.application.model.persistence.metier.country.entities.jpa.CountryEntityJPA;
 
 
 /**
- * CLASSE Country :<br/>
- * CLASSE CONCRETE <b>Country</b> :<br/>
- * <p>
- * <span style="text-decoration: underline;">CONCEPT MODELISE</span>
- * </p>
- * <p>
- * <b>Country</b> Modélise un <i>concept</i> de <b>Pays</b>, 
- * (FRANCE, ANGLETERRE, US ...).
- * </p>
- * 
- * <p>
- * <span style="text-decoration: underline;">DESCRIPTION DE Country</span>
- * </p>
- * <ul>
- * <li>Classe CONCRETE modélisant un <b>Country</b> 
- * (FRANCE, ANGLETERRE, US ...).</li>
- * </ul>
- * 
- * <ul>
- * <li>Implémentation <b>CONCRETE</b> de ICountry.</li>
- * </ul>
- * 
- * <p>
- * <span style="text-decoration: underline;">ATTRIBUTS</span>
- * </p>
- * <ul>
- * <li>Les <b>attributs</b> d'un Country sont : </li>
- * <ul>
- * <li><b>id</b> pour la mise en base.</li>
- * <li><b>name</b> pour le nom du Pays.</li>
- * <li><b>capital</b> pour la capitale du Pays.</li>
- * </ul>
- * </ul>
- * 
- * <p>
- * <span style="text-decoration: underline;">EGALITE METIER</span>
- * </p>
- * <ul>
- * <li>L'<b>égalité metier</b> d'un Country est vérifiée sur :</li>
-  * <ul>
- * <li><b>name</b></li>
- * <li><b>capital</b></li>
- * </ul>
- * </ul>
- * 
- * <p>
- * <span style="text-decoration: underline;">COMPARAISON</span>
- * </p>
- * <ul>
- * <li>Le <b>tri (comparable)</b> d'un Country est réalisé sur :</li>
-  * <ol>
- * <li><b>name</b></li>
- * <li><b>capital</b></li>
- * </0l>
- * </ul>
- * 
- * <p>
- * <span style="text-decoration: underline;">DIAGRAMME DE CLASSES D'IMPLEMENTATION</span>
- * </p>
- * <ul>
- * <li>
- * <img src="../../../../../../../../../../javadoc/images/classes_implementation_country.png" 
- * alt="classes d'implémentation des ICountry" border="1" align="center" />
- * </li>
- * </ul>
- * 
- * 
- * 
- * <br/>
- * <p>
- * <span style="text-decoration: underline;">REGLES DE GESTION</span>
- * </p>
- * <ul>
- * <li>
- * Les <b>Règles de Gestion (RG)</b> applicables aux attributs 
- * d'un ICountry sont les suivantes :
- * </li>
- * <br/>
- * <table border="1">
- * <tr>
- * <th>Attribut</th><th>Règle de Gestion</th>
- * </tr>
- * 
- *  
- * <tr>
- * <td rowspan="3">
- * name
- * </td>
- * <td>
- * "RG_NOMMAGE_NAME_RENSEIGNE_04
- *  : le name du Country doit être renseigné (obligatoire)"
- * </td>
- * </tr>
- * <tr>
- * <td>
- * "RG_NOMMAGE_NAME_LITTERAL_05
- *  : le name du Country 
- *  ne doit contenir que des lettres ou des caractères spéciaux 
- *  '-', '_', ... (aucun chiffre)"
- * </td>
- * </tr>
- * <tr>
- * <td>
- * "RG_NOMMAGE_NAME_LONGUEUR_06
- *  : le name du Country doit contenir entre 
- *  [1] et [50] lettres"
- * </td>
- * </tr>
-
- * <tr>
- * <td rowspan="3">
- * capital
- * </td>
- * <td>
- * "RG_NOMMAGE_CAPITAL_RENSEIGNE_01 : 
- * le capital du Country doit être renseigné (obligatoire)"
- * </td>
- * </tr>
- * <tr>
- * <td>
- * "RG_NOMMAGE_CAPITAL_LITTERAL_02 : 
- * le capital du Country 
- * ne doit contenir que des lettres ou des 
- * caractères spéciaux '-', '_', ... (aucun chiffre)"
- * </td>
- * </tr>
- * <tr>
- * <td>
- * "RG_NOMMAGE_CAPITAL_LONGUEUR_03 : 
- * le capital du Country doit contenir 
- * entre [1] et [30] lettres"
- * </td>
- * </tr>
- * 
- * </table>
- * </ul>
- * 
+ * CLASSE CountryEntityJPA :<br/>
+ * Entity JPA modélisant un Objet Métier en vue de son stockage.<br/>
+ * l'Entity doit <b>implémenter la même interface 
+ * que l'objet métier et être equals</b>.<br/>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -166,37 +38,61 @@ import levy.daniel.application.model.persistence.metier.country.entities.jpa.Cou
  * @since 11 nov. 2018
  *
  */
-public class Country implements ICountry {
+@Entity(name="CountryEntityJPA")
+@Table(name="COUNTRYS", schema="PUBLIC"
+, uniqueConstraints=@UniqueConstraint(name="UNICITE_NAME_CAPITAL"
+, columnNames={"NAME", "CAPITAL"}))
+public class CountryEntityJPA implements ICountry {
 	
 	// ************************ATTRIBUTS************************************/
 
 	/**
-	 * serialVersionUID : long :<br/>
-	 * .<br/>
+	 * "Classe CountryEntityJPA".<br/>
 	 */
-	private static final long serialVersionUID = 1L;
-	
+	public static final String CLASSE_COUNTRY_ENTITY_JPA 
+		= "Classe CountryEntityJPA";
 
 	/**
 	 * POINT_VIRGULE : char :<br/>
 	 * ';'.<br/>
 	 */
 	public static final char POINT_VIRGULE = ';';
-	
-	
+
+
 	/**
 	 * VIRGULE_ESPACE : String :<br/>
 	 * ", ".<br/>
 	 */
 	public static final String VIRGULE_ESPACE = ", ";
-	
-	
+
+
+	/**
+	 * SEPARATEUR_MOINS_AERE : String :<br/>
+	 * " - ".<br/>
+	 */
+	public static final String SEPARATEUR_MOINS_AERE = " - ";
+
+
+	/**
+	 * UNDERSCORE : String :<br/>
+	 * "_".<br/>
+	 */
+	public static final String UNDERSCORE = "_";
+
+
 	/**
 	 * NULL : String :<br/>
 	 * "null".<br/>
 	 */
 	public static final String NULL = "null";
-	
+
+
+	/**
+	 * serialVersionUID : long :<br/>
+	 * serialVersionUID = 1L.<br/>
+	 */
+	private static final long serialVersionUID = 1L;
+
 	
 	/**
 	 * id : Long :<br/>
@@ -214,14 +110,14 @@ public class Country implements ICountry {
 	 */
 	private String capital;
 	
-	
+
+
 	/**
 	 * LOG : Log : 
 	 * Logger pour Log4j (utilisant commons-logging).
 	 */
 	private static final Log LOG 
-		= LogFactory.getLog(Country.class);
-
+		= LogFactory.getLog(CountryEntityJPA.class);
 	
 	// *************************METHODES************************************/
 	
@@ -229,7 +125,7 @@ public class Country implements ICountry {
 	 /**
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 */
-	public Country() {
+	public CountryEntityJPA() {
 		this(null, null, null);
 	} // Fin du CONSTRUCTEUR D'ARITE NULLE.________________________________
 	
@@ -241,7 +137,7 @@ public class Country implements ICountry {
 	 * @param pName : String : nom du pays
 	 * @param pCapital : String : capitale du pays
 	 */
-	public Country(
+	public CountryEntityJPA(
 				final String pName
 					, final String pCapital) {
 		this(null, pName, pCapital);
@@ -256,7 +152,7 @@ public class Country implements ICountry {
 	 * @param pName : String : nom du pays
 	 * @param pCapital : String : capitale du pays
 	 */
-	public Country(
+	public CountryEntityJPA(
 			final Long pId
 				, final String pName
 					, final String pCapital) {
@@ -270,64 +166,30 @@ public class Country implements ICountry {
 	} // Fin de CONSTRUCTEUR COMPLET BASE._________________________________
 
 
-
+	
 	 /**
-	 * CONSTRUCTEUR TRANSFORMATEUR AVEC DTO.<br/>
-	 * <ul>
-	 * <li>un DTO est un moyen commode de stocker 
-	 * tous les champs d'un formulaire.</li>
-	 * <li>instancie un objet métier à partir du contenu 
-	 * d'une VUE (DTO).</li>
-	 * </ul>
+	 * CONSTRUCTEUR TRANSFORMATEUR.<br/>
+	 * <b>instancie un Entity JPA à partir 
+	 * d'un Objet Metier</b>.<br/>
 	 *
-	 * @param pDTO : ICountryDTO
+	 * @param pObject : ICountry
 	 */
-	public Country(
-			final ICountryDTO pDTO) {
+	public CountryEntityJPA(
+			final ICountry pObject) {
 		
 		super();
 		
-		if (pDTO != null) {
+		if (pObject != null) {
 			
-			final String idString = pDTO.getIdString();
-			
-			if (!StringUtils.isBlank(idString)) {
-				this.id = Long.valueOf(idString);
-			} else {
-				this.id = null;
-			}
-			
-			this.name = pDTO.getNameString();
-			this.capital = pDTO.getCapitalString();
-
-		}
-		
-	} // Fin de CONSTRUCTEUR TRANSFORMATEUR AVEC DTO.______________________
-	
-
-	
-	 /**
-	 * CONSTRUCTEUR TRANSFORMATEUR AVEC JPA.<br/>
-	 * <b>instancie un objet métier à partir d'une Entity JPA</b>.<br/>
-	 *
-	 * @param pEntityJPA : CountryEntityJPA
-	 */
-	public Country(
-			final CountryEntityJPA pEntityJPA) {
-		
-		super();
-		
-		if (pEntityJPA != null) {
-			
-			this.id = pEntityJPA.getId();
-			this.name = pEntityJPA.getName();
-			this.capital = pEntityJPA.getCapital();
+			this.id = pObject.getId();
+			this.name = pObject.getName();
+			this.capital = pObject.getCapital();
 			
 		}
 		
-	} // Fin de CONSTRUCTEUR TRANSFORMATEUR AVEC JPA.______________________
+	} // Fin de CONSTRUCTEUR TRANSFORMATEUR._______________________________
 	
-
+	
 	
 	/**
 	 * {@inheritDoc}
@@ -472,10 +334,10 @@ public class Country implements ICountry {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Country clone() throws CloneNotSupportedException {
+	public CountryEntityJPA clone() throws CloneNotSupportedException {
 
-		final Country clone 
-				= (Country) super.clone();
+		final CountryEntityJPA clone 
+				= (CountryEntityJPA) super.clone();
 
 		clone.setId(this.id);	
 		clone.setName(this.name);
@@ -657,6 +519,9 @@ public class Country implements ICountry {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID_COUNTRY")
 	@Override
 	public Long getId() {
 		return this.id;
@@ -678,6 +543,9 @@ public class Country implements ICountry {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name = "NAME"
+			, unique = false, nullable = false
+			, updatable = true, insertable = true)
 	@Override
 	public String getName() {
 		return this.name;
@@ -699,6 +567,9 @@ public class Country implements ICountry {
 	/**
 	 * {@inheritDoc}
 	 */
+	@Column(name = "CAPITAL"
+			, unique = false, nullable = true
+			, updatable = true, insertable = true)
 	@Override
 	public String getCapital() {
 		return this.capital;
@@ -717,4 +588,4 @@ public class Country implements ICountry {
 	
 	
 	
-} // FIN DE LA CLASSE Country.-----------------------------------------------
+}

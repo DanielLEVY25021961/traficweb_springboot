@@ -37,7 +37,6 @@ public interface IProfilDTO extends Serializable {
 	
 	/**
 	* Setter de l'identifiant en base sous forme de String.<br/>
-	* <br/>
 	*
 	* @param pIdString : String : 
 	* valeur à passer à this.idString.<br/>
@@ -47,9 +46,7 @@ public interface IProfilDTO extends Serializable {
 	
 	
 	/**
-	 * method getProfilStringString() :<br/>
 	 * Getter de profilStringString.<br/>
-	 * <br/>
 	 *
 	 * @return : String : this.profilStringString.<br/>
 	 */
@@ -58,10 +55,7 @@ public interface IProfilDTO extends Serializable {
 	
 
 	/**
-	 * method setProfilStringString(
-	 * String pProfilStringString) :<br/>
 	 * Setter de profilStringString.<br/>
-	 * <br/>
 	 *
 	 * @param pProfilStringString : String : 
 	 * valeur à passer à this.profilStringString.<br/>
@@ -71,9 +65,7 @@ public interface IProfilDTO extends Serializable {
 	
 
 	/**
-	 * method getPorteeProfilString() :<br/>
 	 * Getter de porteeProfilString.<br/>
-	 * <br/>
 	 *
 	 * @return : String : this.porteeProfilString.<br/>
 	 */
@@ -82,10 +74,7 @@ public interface IProfilDTO extends Serializable {
 	
 
 	/**
-	 * method setPorteeProfilString(
-	 * String pPorteeProfilString) :<br/>
 	 * Setter de porteeProfilString.<br/>
-	 * <br/>
 	 *
 	 * @param pPorteeProfilString : String : 
 	 * valeur à passer à this.porteeProfilString.<br/>
@@ -95,9 +84,7 @@ public interface IProfilDTO extends Serializable {
 	
 
 	/**
-	 * method getRestrictionProfilString() :<br/>
 	 * Getter de restrictionProfilString.<br/>
-	 * <br/>
 	 *
 	 * @return : String : this.restrictionProfilString.<br/>
 	 */
@@ -106,10 +93,7 @@ public interface IProfilDTO extends Serializable {
 	
 
 	/**
-	 * method setRestrictionProfilString(
-	 * String pRestrictionProfilString) :<br/>
 	 * Setter de restrictionProfilString.<br/>
-	 * <br/>
 	 *
 	 * @param pRestrictionProfilString : String : 
 	 * valeur à passer à this.restrictionProfilString.<br/>
