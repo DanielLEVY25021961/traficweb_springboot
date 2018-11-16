@@ -199,7 +199,6 @@ public class Country implements ICountry {
 	
 	
 	/**
-	 * id : Long :<br/>
 	 * ID en base.<br/>
 	 */
 	private Long id;
