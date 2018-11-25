@@ -165,9 +165,9 @@ public class Developpeur implements IDeveloppeur {
 				this.anneesExperience = 0;
 			}
 			
-			this.setId(idLocal);
-			this.setNom(pDTO.getNomString());
-			this.setAnneesExperience(anneeLocal);
+			this.id = idLocal;
+			this.nom = pDTO.getNomString();
+			this.anneesExperience = anneeLocal;
 		}
 		
 	} // Fin de CONSTRUCTEUR TRANSFORMATEUR._______________________________

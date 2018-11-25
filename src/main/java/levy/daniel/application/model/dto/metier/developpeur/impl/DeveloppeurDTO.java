@@ -146,9 +146,9 @@ public class DeveloppeurDTO implements IDeveloppeurDTO {
 			anneeExpStringLocal 
 				= String.valueOf(pObjet.getAnneesExperience());
 			
-			this.setIdString(idStringLocal);
-			this.setNomString(pObjet.getNom());
-			this.setAnneesExperienceString(anneeExpStringLocal);
+			this.idString = idStringLocal;
+			this.nomString = pObjet.getNom();
+			this.anneesExperienceString = anneeExpStringLocal;
 			
 		}
 		

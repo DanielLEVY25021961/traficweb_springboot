@@ -140,8 +140,8 @@ public class Product implements IProduct {
 				}
 			}
 			
-			this.setId(idLocal);
-			this.setName(pDTO.getNameString());
+			this.id = idLocal;
+			this.name = pDTO.getNameString();
 			
 		}
 		
@@ -175,7 +175,7 @@ public class Product implements IProduct {
 			builder.append(NULL);
 		}
 		
-		builder.append("]");
+		builder.append(']');
 		
 		return builder.toString();
 		

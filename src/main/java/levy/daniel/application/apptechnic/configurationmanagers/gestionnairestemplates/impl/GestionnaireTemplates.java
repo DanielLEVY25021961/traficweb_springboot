@@ -228,7 +228,7 @@ public class GestionnaireTemplates implements IGestionnaireTemplates {
 	public final String fournirTemplateSubstitueSousFormeString(
 			final String pCheminRelatifTemplate
 				, final String[] pVariables
-					, final String[] pSubstituants) throws Exception {
+					, final String... pSubstituants) throws Exception {
 		
 		/* retourne null si pCheminRelatifTemplate est blank. */
 		if (StringUtils.isBlank(pCheminRelatifTemplate)) {
@@ -311,7 +311,7 @@ public class GestionnaireTemplates implements IGestionnaireTemplates {
 	public final List<String> fournirTemplateSubstitueSousFormeListe(
 			final String pCheminRelatifTemplate
 				, final String[] pVariables
-					, final String[] pSubstituants) throws Exception {
+					, final String... pSubstituants) throws Exception {
 		
 		/* retourne null si pCheminRelatifTemplate est blank. */
 		if (StringUtils.isBlank(pCheminRelatifTemplate)) {

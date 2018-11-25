@@ -146,18 +146,18 @@ public class Employee implements IEmployee {
 			
 			Long idLocal = null;
 			
-			if (pDTO.getidString() != null) {
+			if (pDTO.getIdString() != null) {
 				
 				try {
-					idLocal = Long.valueOf(pDTO.getidString());
+					idLocal = Long.valueOf(pDTO.getIdString());
 				} catch (Exception e) {
 					this.id = null;
 				}
 			}
 			
-			this.setId(idLocal);
-			this.setFirstName(pDTO.getFirstNameString());
-			this.setLastName(pDTO.getLastNameString());
+			this.id = idLocal;
+			this.firstName = pDTO.getFirstNameString();
+			this.lastName = pDTO.getLastNameString();
 		}
 		
 	} // Fin de CONSTRUCTEUR TRANSFORMATEUR._______________________________

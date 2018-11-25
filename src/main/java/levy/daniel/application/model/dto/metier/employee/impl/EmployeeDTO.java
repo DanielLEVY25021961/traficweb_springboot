@@ -154,9 +154,9 @@ public class EmployeeDTO implements IEmployeeDTO {
 				idStringLocal = String.valueOf(pObject.getId());
 			}
 			
-			this.setidString(idStringLocal);
-			this.setFirstNameString(pObject.getFirstName());
-			this.setLastNameString(pObject.getLastName());
+			this.idString = idStringLocal;
+			this.firstNameString = pObject.getFirstName();
+			this.lastNameString = pObject.getLastName();
 		}
 		
 	} // Fin de CONSTRUCTEUR TRANSFORMATEUR._______________________________
@@ -210,7 +210,7 @@ public class EmployeeDTO implements IEmployeeDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getidString() {
+	public String getIdString() {
 		return this.idString;
 	}
 
@@ -220,7 +220,7 @@ public class EmployeeDTO implements IEmployeeDTO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void setidString(
+	public void setIdString(
 			final String pIdString) {
 		this.idString = pIdString;		
 	}

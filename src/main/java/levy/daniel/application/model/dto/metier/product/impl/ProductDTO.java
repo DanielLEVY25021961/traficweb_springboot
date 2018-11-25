@@ -105,8 +105,7 @@ public class ProductDTO implements IProductDTO {
 	} // Fin de CONSTRUCTEUR COMPLET BASE._________________________________
 
 
-	
-	
+		
 	 /**
 	 * CONSTRUCTEUR TRANSFORMATEUR.<br/>
 	 * <b>transforme un Objet Metier en VUE (DTO)</b>.<br/>
@@ -126,8 +125,8 @@ public class ProductDTO implements IProductDTO {
 				idStringLocal = String.valueOf(pObject.getId());
 			}
 			
-			this.setIdString(idStringLocal);
-			this.setNameString(pObject.getName());
+			this.idString = idStringLocal;
+			this.nameString = pObject.getName();
 		}
 		
 	} // Fin de CONSTRUCTEUR TRANSFORMATEUR._______________________________
@@ -160,7 +159,7 @@ public class ProductDTO implements IProductDTO {
 			builder.append(NULL);
 		}
 		
-		builder.append("]");
+		builder.append(']');
 		
 		return builder.toString();
 		

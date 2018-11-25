@@ -183,7 +183,7 @@ public class Societe implements ISociete {
 				= new Developpeur(pDTO.getDeveloppeurDTO());
 			}
 			
-			this.setId(idLocal);
+			this.id = idLocal;
 			this.nomSociete = pDTO.getNomSocieteString();
 			this.chefDeveloppeur = chefLocal;
 			this.developpeur = devLocal;

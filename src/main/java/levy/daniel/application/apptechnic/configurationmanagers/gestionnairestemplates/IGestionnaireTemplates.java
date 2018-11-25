@@ -142,7 +142,7 @@ public interface IGestionnaireTemplates {
 	String fournirTemplateSubstitueSousFormeString(
 			String pCheminRelatifTemplate
 				, String[] pVariables
-					, String[] pSubstituants) throws Exception;
+					, String... pSubstituants) throws Exception;
 	
 	
 
@@ -228,7 +228,7 @@ public interface IGestionnaireTemplates {
 	List<String> fournirTemplateSubstitueSousFormeListe(
 			String pCheminRelatifTemplate
 				, String[] pVariables
-					, String[] pSubstituants) throws Exception;
+					, String... pSubstituants) throws Exception;
 
 	
 	

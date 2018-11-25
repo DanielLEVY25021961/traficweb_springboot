@@ -159,10 +159,10 @@ public class SocieteDTO implements ISocieteDTO {
 				devDTO = new DeveloppeurDTO(pObject.getDeveloppeur());
 			}
 
-			this.setIdString(idStringLocal);
-			this.setNomSocieteString(pObject.getNomSociete());
-			this.setChefDeveloppeurDTO(chefDTO);
-			this.setDeveloppeurDTO(devDTO);
+			this.idString = idStringLocal;
+			this.nomSocieteString = pObject.getNomSociete();
+			this.chefDeveloppeurDTO = chefDTO;
+			this.developpeurDTO = devDTO;
 		}
 		
 	} // Fin de CONSTRUCTEUR TRANSFORMATEUR._______________________________

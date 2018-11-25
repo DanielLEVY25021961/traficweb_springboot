@@ -39,7 +39,7 @@ public interface IEmployeeDTO extends Serializable {
 	 *
 	 * @return : this.idString : Long<br/>
 	 */
-	String getidString();
+	String getIdString();
 
 	
 
@@ -49,7 +49,7 @@ public interface IEmployeeDTO extends Serializable {
 	 * @param pidString : Long : 
 	 * valeur à passer à this.idString.<br/>
 	 */
-	void setidString(String pidString);
+	void setIdString(String pidString);
 
 
 	
