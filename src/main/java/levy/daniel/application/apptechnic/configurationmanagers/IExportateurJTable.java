@@ -37,7 +37,7 @@ public interface IExportateurJTable {
 	* 
 	* @return : String : En-tête de la pIème colonne (0 - based).<br/>
 	*/
-	String getEnTeteColonne(int pI);
+	String fournirEnTeteColonne(int pI);
 	
 	
 	
@@ -56,7 +56,7 @@ public interface IExportateurJTable {
 	* 
 	* @return : Object : valeur de la pIème colonne (0 - based).<br/>
 	*/
-	Object getValeurColonne(int pI);
+	Object fournirValeurColonne(int pI);
 	
 	
 	

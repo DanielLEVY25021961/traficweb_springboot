@@ -449,7 +449,7 @@ public class ProfilEntityJPA implements IProfil {
 	 */
 	@Override
 	@Transient
-	public String getEnTeteCsv() {
+	public String fournirEnTeteCsv() {
 		return "id;profilString;porteeProfil;restrictionProfil;";
 	} // Fin de getEnTeteCsv().____________________________________________
 
@@ -459,7 +459,7 @@ public class ProfilEntityJPA implements IProfil {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String toStringCsv() {
+	public String fournirStringCsv() {
 
 		final StringBuilder stb = new StringBuilder();
 
@@ -490,7 +490,7 @@ public class ProfilEntityJPA implements IProfil {
 	 */
 	@Override
 	@Transient
-	public String getEnTeteColonne(
+	public String fournirEnTeteColonne(
 			final int pI) {
 
 		String entete = null;
@@ -530,7 +530,7 @@ public class ProfilEntityJPA implements IProfil {
 	 */
 	@Override
 	@Transient
-	public Object getValeurColonne(
+	public Object fournirValeurColonne(
 			final int pI) {
 
 		Object valeur = null;

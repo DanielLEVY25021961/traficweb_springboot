@@ -172,7 +172,7 @@ public interface IIdInsee
 	 * <br/>
 	 */
 	@Override
-	String getEnTeteCsv();
+	String fournirEnTeteCsv();
 
 	
 	
@@ -184,7 +184,7 @@ public interface IIdInsee
 	 * <br/>
 	 */
 	@Override
-	String toStringCsv();
+	String fournirStringCsv();
 
 	
 	
@@ -196,7 +196,7 @@ public interface IIdInsee
 	 * <br/>
 	 */
 	@Override
-	String getEnTeteColonne(int pI);
+	String fournirEnTeteColonne(int pI);
 
 	
 	
@@ -208,7 +208,7 @@ public interface IIdInsee
 	 * <br/>
 	 */
 	@Override
-	Object getValeurColonne(int pI);
+	Object fournirValeurColonne(int pI);
 	
 	
 

@@ -640,7 +640,7 @@ public class Nommage2Test {
 					, PRENOM1, PRENOM2_1, NOM1);
 
 		/* garantit que getEnTeteCsv() retourne le bon en-tête csv. */
-		final String entete = objet1.getEnTeteCsv();
+		final String entete = objet1.fournirEnTeteCsv();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -681,7 +681,7 @@ public class Nommage2Test {
 					, PRENOM1, PRENOM2_1, NOM1);
 		
 		/* garantit que les null sont gérés dans toStringCsv(). */
-		final String ligneCsvNull = objetNull.toStringCsv();
+		final String ligneCsvNull = objetNull.fournirStringCsv();
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -695,7 +695,7 @@ public class Nommage2Test {
 		
 						
 		/* garantit que toStringCsv() retourne la bonne ligne csv. */
-		final String ligneCsv = objet1.toStringCsv();
+		final String ligneCsv = objet1.fournirStringCsv();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -739,19 +739,19 @@ public class Nommage2Test {
 		
 		/* garantit que les null sont gérés 
 		 * dans getEnTeteColonne(int pI). */
-		final String entete0 = objet1.getEnTeteColonne(0);
-		final String enteteNull0 = objetNull.getEnTeteColonne(0);
+		final String entete0 = objet1.fournirEnTeteColonne(0);
+		final String enteteNull0 = objetNull.fournirEnTeteColonne(0);
 		
 		/* garantit que getEnTeteColonne(int pI) retourne 
 		 * la bonne en-tête de colonne. */
-		final String entete1 = objet1.getEnTeteColonne(1);
-		final String enteteNull1 = objetNull.getEnTeteColonne(1);
+		final String entete1 = objet1.fournirEnTeteColonne(1);
+		final String enteteNull1 = objetNull.fournirEnTeteColonne(1);
 		
-		final String entete2 = objet1.getEnTeteColonne(2);
-		final String enteteNull2 = objetNull.getEnTeteColonne(2);
+		final String entete2 = objet1.fournirEnTeteColonne(2);
+		final String enteteNull2 = objetNull.fournirEnTeteColonne(2);
 		
-		final String entete3 = objet1.getEnTeteColonne(3);
-		final String enteteNull3 = objetNull.getEnTeteColonne(3);
+		final String entete3 = objet1.fournirEnTeteColonne(3);
+		final String enteteNull3 = objetNull.fournirEnTeteColonne(3);
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -814,10 +814,10 @@ public class Nommage2Test {
 		
 		/* garantit que les null sont gérés 
 		 * dans getValeurColonne(int pI). */
-		final String valeurNull0 = (String) objetNull.getValeurColonne(0);
-		final String valeurNull1 = (String) objetNull.getValeurColonne(1);
-		final String valeurNull2 = (String) objetNull.getValeurColonne(2);
-		final String valeurNull3 = (String) objetNull.getValeurColonne(3);
+		final String valeurNull0 = (String) objetNull.fournirValeurColonne(0);
+		final String valeurNull1 = (String) objetNull.fournirValeurColonne(1);
+		final String valeurNull2 = (String) objetNull.fournirValeurColonne(2);
+		final String valeurNull3 = (String) objetNull.fournirValeurColonne(3);
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -835,10 +835,10 @@ public class Nommage2Test {
 		
 		/* garantit que getValeurColonne(int pI) retourne 
 		 * la bonne en-tête de colonne. */
-		final String valeur0 = (String) objet1.getValeurColonne(0);
-		final String valeur1 = (String) objet1.getValeurColonne(1);
-		final String valeur2 = (String) objet1.getValeurColonne(2);
-		final String valeur3 = (String) objet1.getValeurColonne(3);
+		final String valeur0 = (String) objet1.fournirValeurColonne(0);
+		final String valeur1 = (String) objet1.fournirValeurColonne(1);
+		final String valeur2 = (String) objet1.fournirValeurColonne(2);
+		final String valeur3 = (String) objet1.fournirValeurColonne(3);
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {	

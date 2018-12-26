@@ -82,7 +82,7 @@ public interface IPersonne
 	 * <br/>
 	 */
 	@Override
-	String getEnTeteCsv();
+	String fournirEnTeteCsv();
 
 	
 	
@@ -94,7 +94,7 @@ public interface IPersonne
 	 * <br/>
 	 */
 	@Override
-	String toStringCsv();
+	String fournirStringCsv();
 
 	
 	
@@ -106,7 +106,7 @@ public interface IPersonne
 	 * <br/>
 	 */
 	@Override
-	String getEnTeteColonne(int pI);
+	String fournirEnTeteColonne(int pI);
 
 	
 	
@@ -118,7 +118,7 @@ public interface IPersonne
 	 * <br/>
 	 */
 	@Override
-	Object getValeurColonne(int pI);
+	Object fournirValeurColonne(int pI);
 	
 	
 

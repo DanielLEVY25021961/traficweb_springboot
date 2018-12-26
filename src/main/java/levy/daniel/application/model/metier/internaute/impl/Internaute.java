@@ -456,7 +456,7 @@ public class Internaute implements IInternaute {
 	 */
 	@Override
 	@Transient
-	public final String getEnTeteCsv() {
+	public final String fournirEnTeteCsv() {
 		return "id;prenom;nom;login;password;profil principal;";
 	} // Fin de getEnTeteCsv().____________________________________________
 
@@ -466,7 +466,7 @@ public class Internaute implements IInternaute {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String toStringCsv() {
+	public final String fournirStringCsv() {
 
 		final StringBuilder stb = new StringBuilder();
 
@@ -509,7 +509,7 @@ public class Internaute implements IInternaute {
 	 */
 	@Override
 	@Transient
-	public final String getEnTeteColonne(
+	public final String fournirEnTeteColonne(
 			final int pI) {
 
 		String entete = null;
@@ -557,7 +557,7 @@ public class Internaute implements IInternaute {
 	 */
 	@Override
 	@Transient
-	public final Object getValeurColonne(
+	public final Object fournirValeurColonne(
 			final int pI) {
 
 		Object valeur = null;

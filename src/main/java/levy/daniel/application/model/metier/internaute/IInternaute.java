@@ -136,7 +136,7 @@ public interface IInternaute
 	 * <br/>
 	 */
 	@Override
-	String getEnTeteCsv();
+	String fournirEnTeteCsv();
 
 
 
@@ -148,7 +148,7 @@ public interface IInternaute
 	 * <br/>
 	 */
 	@Override
-	String toStringCsv();
+	String fournirStringCsv();
 
 
 
@@ -160,7 +160,7 @@ public interface IInternaute
 	 * <br/>
 	 */
 	@Override
-	String getEnTeteColonne(int pI);
+	String fournirEnTeteColonne(int pI);
 
 
 
@@ -172,7 +172,7 @@ public interface IInternaute
 	 * <br/>
 	 */
 	@Override
-	Object getValeurColonne(int pI);
+	Object fournirValeurColonne(int pI);
 
 
 	

@@ -10,7 +10,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import levy.daniel.application.model.metier.internaute.IInternaute;
-import levy.daniel.application.model.metier.internaute.impl.Internaute;
 import levy.daniel.application.model.metier.profil.IProfil;
 
 /**
@@ -199,7 +198,7 @@ public class InternauteEntityJPA implements IInternaute {
 		if (pObject == null) {
 			return false;
 		}
-		if (!(pObject instanceof Internaute)) {
+		if (!(pObject instanceof IInternaute)) {
 			return false;
 		}
 		
@@ -404,7 +403,7 @@ public class InternauteEntityJPA implements IInternaute {
 	 */
 	@Override
 	@Transient
-	public final String getEnTeteCsv() {
+	public final String fournirEnTeteCsv() {
 		return "id;prenom;nom;login;password;profil principal;";
 	} // Fin de getEnTeteCsv().____________________________________________
 
@@ -414,7 +413,7 @@ public class InternauteEntityJPA implements IInternaute {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String toStringCsv() {
+	public final String fournirStringCsv() {
 
 		final StringBuilder stb = new StringBuilder();
 
@@ -457,7 +456,7 @@ public class InternauteEntityJPA implements IInternaute {
 	 */
 	@Override
 	@Transient
-	public final String getEnTeteColonne(
+	public final String fournirEnTeteColonne(
 			final int pI) {
 
 		String entete = null;
@@ -505,7 +504,7 @@ public class InternauteEntityJPA implements IInternaute {
 	 */
 	@Override
 	@Transient
-	public final Object getValeurColonne(
+	public final Object fournirValeurColonne(
 			final int pI) {
 
 		Object valeur = null;

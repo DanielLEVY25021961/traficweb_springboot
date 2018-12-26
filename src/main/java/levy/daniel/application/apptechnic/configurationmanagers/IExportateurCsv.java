@@ -41,7 +41,7 @@ public interface IExportateurCsv {
 	 *
 	 * @return : String : en-tête CSV de l'Objet métier.<br/>
 	 */
-	String getEnTeteCsv();
+	String fournirEnTeteCsv();
 
 	
 	
@@ -56,7 +56,7 @@ public interface IExportateurCsv {
 	 *
 	 * @return : String : l'Objet métier sous forme de ligne CSV.<br/>
 	 */
-	String toStringCsv();
+	String fournirStringCsv();
 
 
 

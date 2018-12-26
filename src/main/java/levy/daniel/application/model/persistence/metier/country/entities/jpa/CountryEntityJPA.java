@@ -402,7 +402,7 @@ public class CountryEntityJPA implements ICountry {
 	 */
 	@Transient
 	@Override
-	public String getEnTeteCsv() {
+	public String fournirEnTeteCsv() {
 		return "id;name;capital;";
 	} // Fin de getEnTeteCsv().____________________________________________
 
@@ -416,7 +416,7 @@ public class CountryEntityJPA implements ICountry {
 	 * <br/>
 	 */
 	@Override
-	public String toStringCsv() {
+	public String fournirStringCsv() {
 
 		final StringBuilder stb = new StringBuilder();
 
@@ -447,7 +447,7 @@ public class CountryEntityJPA implements ICountry {
 	 */
 	@Transient
 	@Override
-	public String getEnTeteColonne(
+	public String fournirEnTeteColonne(
 			final int pI) {
 
 		String entete = null;
@@ -487,7 +487,7 @@ public class CountryEntityJPA implements ICountry {
 	 */
 	@Transient
 	@Override
-	public Object getValeurColonne(
+	public Object fournirValeurColonne(
 			final int pI) {
 
 		Object valeur = null;

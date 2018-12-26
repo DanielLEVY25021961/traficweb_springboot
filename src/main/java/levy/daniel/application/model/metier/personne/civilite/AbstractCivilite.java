@@ -422,7 +422,7 @@ public class AbstractCivilite implements ICivilite {
 	 */
 	@Transient
 	@Override
-	public final String getEnTeteCsv() {
+	public final String fournirEnTeteCsv() {
 		return "id;civilité;";
 	} // Fin de getEnTeteCsv().____________________________________________
 
@@ -436,7 +436,7 @@ public class AbstractCivilite implements ICivilite {
 	 * <br/>
 	 */
 	@Override
-	public final String toStringCsv() {
+	public final String fournirStringCsv() {
 
 		final StringBuilder stb = new StringBuilder();
 		
@@ -463,7 +463,7 @@ public class AbstractCivilite implements ICivilite {
 	 */
 	@Transient
 	@Override
-	public final String getEnTeteColonne(
+	public final String fournirEnTeteColonne(
 			final int pI) {
 
 		String entete = null;
@@ -499,7 +499,7 @@ public class AbstractCivilite implements ICivilite {
 	 */
 	@Transient
 	@Override
-	public final Object getValeurColonne(
+	public final Object fournirValeurColonne(
 			final int pI) {
 
 		Object valeur = null;

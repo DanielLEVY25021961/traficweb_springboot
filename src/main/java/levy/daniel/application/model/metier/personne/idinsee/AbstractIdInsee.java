@@ -427,7 +427,7 @@ public abstract class AbstractIdInsee implements IIdInsee {
 	 */
 	@Transient
 	@Override
-	public final String getEnTeteCsv() {
+	public final String fournirEnTeteCsv() {
 		return "id;numeroInsee;";
 	} // Fin de getEnTeteCsv().____________________________________________
 
@@ -437,7 +437,7 @@ public abstract class AbstractIdInsee implements IIdInsee {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final String toStringCsv() {
+	public final String fournirStringCsv() {
 		
 		final StringBuilder stb = new StringBuilder();
 		
@@ -460,7 +460,7 @@ public abstract class AbstractIdInsee implements IIdInsee {
 	 */
 	@Transient
 	@Override
-	public final String getEnTeteColonne(
+	public final String fournirEnTeteColonne(
 			final int pI) {
 		
 		String entete = null;
@@ -492,7 +492,7 @@ public abstract class AbstractIdInsee implements IIdInsee {
 	 */
 	@Transient
 	@Override
-	public final Object getValeurColonne(
+	public final Object fournirValeurColonne(
 			final int pI) {
 		Object valeur = null;
 

@@ -589,7 +589,7 @@ public class IdInseeTest {
 					, NUM_INSEE1);
 
 		/* garantit que getEnTeteCsv() retourne le bon en-tête csv. */
-		final String entete = objet1.getEnTeteCsv();
+		final String entete = objet1.fournirEnTeteCsv();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -630,7 +630,7 @@ public class IdInseeTest {
 					, NUM_INSEE1);
 		
 		/* garantit que les null sont gérés dans toStringCsv(). */
-		final String ligneCsvNull = objetNull.toStringCsv();
+		final String ligneCsvNull = objetNull.fournirStringCsv();
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -644,7 +644,7 @@ public class IdInseeTest {
 		
 						
 		/* garantit que toStringCsv() retourne la bonne ligne csv. */
-		final String ligneCsv = objet1.toStringCsv();
+		final String ligneCsv = objet1.fournirStringCsv();
 		
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -688,13 +688,13 @@ public class IdInseeTest {
 		
 		/* garantit que les null sont gérés 
 		 * dans getEnTeteColonne(int pI). */
-		final String entete0 = objet1.getEnTeteColonne(0);
-		final String enteteNull0 = objetNull.getEnTeteColonne(0);
+		final String entete0 = objet1.fournirEnTeteColonne(0);
+		final String enteteNull0 = objetNull.fournirEnTeteColonne(0);
 		
 		/* garantit que getEnTeteColonne(int pI) retourne 
 		 * la bonne en-tête de colonne. */
-		final String entete1 = objet1.getEnTeteColonne(1);
-		final String enteteNull1 = objetNull.getEnTeteColonne(1);
+		final String entete1 = objet1.fournirEnTeteColonne(1);
+		final String enteteNull1 = objetNull.fournirEnTeteColonne(1);
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -745,8 +745,8 @@ public class IdInseeTest {
 		
 		/* garantit que les null sont gérés 
 		 * dans getValeurColonne(int pI). */
-		final String valeurNull0 = (String) objetNull.getValeurColonne(0);
-		final String valeurNull1 = (String) objetNull.getValeurColonne(1);
+		final String valeurNull0 = (String) objetNull.fournirValeurColonne(0);
+		final String valeurNull1 = (String) objetNull.fournirValeurColonne(1);
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {
@@ -760,8 +760,8 @@ public class IdInseeTest {
 		
 		/* garantit que getValeurColonne(int pI) retourne 
 		 * la bonne en-tête de colonne. */
-		final String valeur0 = (String) objet1.getValeurColonne(0);
-		final String valeur1 = (String) objet1.getValeurColonne(1);		
+		final String valeur0 = (String) objet1.fournirValeurColonne(0);
+		final String valeur1 = (String) objet1.fournirValeurColonne(1);		
 
 		/* AFFICHAGE A LA CONSOLE. */
 		if (AFFICHAGE_GENERAL && affichage) {	

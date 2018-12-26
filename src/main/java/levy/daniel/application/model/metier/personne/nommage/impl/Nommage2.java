@@ -370,7 +370,7 @@ public class Nommage2 extends AbstractNommage {
 	 */
 	@Transient
 	@Override
-	public String getEnTeteCsv() {
+	public String fournirEnTeteCsv() {
 		return "id;nom;prenom;prenom2;";
 	} // Fin de getEnTeteCsv().____________________________________________
 
@@ -384,7 +384,7 @@ public class Nommage2 extends AbstractNommage {
 	 * <br/>
 	 */
 	@Override
-	public String toStringCsv() {
+	public String fournirStringCsv() {
 		
 		final StringBuilder stb = new StringBuilder();
 		
@@ -419,7 +419,7 @@ public class Nommage2 extends AbstractNommage {
 	 */
 	@Transient
 	@Override
-	public String getEnTeteColonne(
+	public String fournirEnTeteColonne(
 			final int pI) {
 		
 		String entete = null;
@@ -463,7 +463,7 @@ public class Nommage2 extends AbstractNommage {
 	 */
 	@Transient
 	@Override
-	public Object getValeurColonne(
+	public Object fournirValeurColonne(
 			final int pI) {
 		
 		Object valeur = null;

@@ -208,7 +208,7 @@ public interface INommage
 	 * <br/>
 	 */
 	@Override
-	String getEnTeteCsv();
+	String fournirEnTeteCsv();
 
 	
 	
@@ -220,7 +220,7 @@ public interface INommage
 	 * <br/>
 	 */
 	@Override
-	String toStringCsv();
+	String fournirStringCsv();
 
 	
 	
@@ -232,7 +232,7 @@ public interface INommage
 	 * <br/>
 	 */
 	@Override
-	String getEnTeteColonne(int pI);
+	String fournirEnTeteColonne(int pI);
 
 	
 	
@@ -244,7 +244,7 @@ public interface INommage
 	 * <br/>
 	 */
 	@Override
-	Object getValeurColonne(int pI);
+	Object fournirValeurColonne(int pI);
 	
 	
 

@@ -525,7 +525,7 @@ public abstract class AbstractNommage implements INommage {
 	 */	
 	@Override
 	@Transient
-	public String getEnTeteCsv() {
+	public String fournirEnTeteCsv() {
 		return "id;nom;prenom;";
 	} // Fin de getEnTeteCsv().____________________________________________
 
@@ -535,7 +535,7 @@ public abstract class AbstractNommage implements INommage {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String toStringCsv() {
+	public String fournirStringCsv() {
 		
 		final StringBuilder stb = new StringBuilder();
 		
@@ -562,7 +562,7 @@ public abstract class AbstractNommage implements INommage {
 	 */
 	@Override
 	@Transient
-	public String getEnTeteColonne(
+	public String fournirEnTeteColonne(
 			final int pI) {
 		
 		String entete = null;
@@ -598,7 +598,7 @@ public abstract class AbstractNommage implements INommage {
 	 */
 	@Override
 	@Transient
-	public Object getValeurColonne(
+	public Object fournirValeurColonne(
 			final int pI) {
 		
 		Object valeur = null;
