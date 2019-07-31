@@ -31,7 +31,7 @@ import levy.daniel.application.model.services.metier.country.jpaspring.ICountryS
  */
 @SpringBootApplication
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-public class TraficwebSpringbootApplication implements CommandLineRunner { // NOPMD by dan on 04/11/18 09:53
+public class TraficwebSpringbootApplication implements CommandLineRunner { 
 	
 	/**
 	 * SERVICE pour les Country.<br/>
