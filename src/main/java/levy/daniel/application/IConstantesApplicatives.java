@@ -79,16 +79,18 @@ public interface IConstantesApplicatives {
 	char CROCHET_FERMANT = ']';
 	
 
+	/**
+	 * System.getProperty("line.separator").
+	 */
+	String SAUT_LIGNE_PLATEFORME = System.getProperty("line.separator");
 	
 	/**
-	 * SAUT_LIGNE_JAVA : String :<br/>
 	 * "\n".<br/>
 	 */
 	String SAUT_LIGNE_JAVA = "\n";
 	
 
 	/**
-	 * SAUT_LIGNE_HTML : String :<br/>
 	 * "<br/>".<br/>
 	 */
 	String SAUT_LIGNE_HTML = "<br/>";
@@ -169,7 +171,6 @@ public interface IConstantesApplicatives {
 	/**
 	 * NAMESPACE : String :<br/>
 	 * Espace de noms pour les fichiers XML.<br/>
-	 * "levy.daniel.application"
 	 */
 	String NAMESPACE = "levy.daniel.application";
 
@@ -208,6 +209,14 @@ public interface IConstantesApplicatives {
 	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
 	 */
 	char BOM_UTF_8 = '\uFEFF';
+
+
+	
+	/**
+	 * nom de la BD.<br/>
+	 * "base-traficweb_v1"
+	 */
+	String NOM_BASE = "base-traficweb_v1";
 
 
 	
