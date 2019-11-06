@@ -1,4 +1,4 @@
-package levy.daniel.application.apptechnic.configurationmanagers;
+package levy.daniel.application.apptechnic.configurationmanagers.gestionnairesbundles;
 
 import java.io.File;
 import java.net.URL;
@@ -15,6 +15,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import levy.daniel.application.apptechnic.IConstantesSautsLigne;
+import levy.daniel.application.apptechnic.IConstantesSeparateurs;
 import levy.daniel.application.apptechnic.configurationmanagers.gestionnaireslocale.LocaleManager;
 import levy.daniel.application.apptechnic.exceptions.technical.AbstractRunTimeTechnicalException;
 import levy.daniel.application.apptechnic.exceptions.technical.impl.BundleManquantRunTimeException;
@@ -24,7 +26,7 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexi
 
 
 /**
- * class ConfigurationBundlesManager :<br/>
+ * CLASSE ConfigurationBundlesManager :<br/>
  * <ul>
  * <li>Classe UTILITAIRE 
  * Chargée de gérer la configuration des <b>RESOURCEBUNDLES</b> 
@@ -34,7 +36,7 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexi
  * paramétrable par la MOA.</li>
  * <p>
  * <br/>
- * <img src="../../../../../../../../javadoc/images/properties_internes_externes.png" 
+ * <img src="../../../../../../../../../javadoc/images/apptechnic/configurationmanagers/gestionnairesbundles/properties_internes_externes.png" 
  * alt="properties internes et externes" border="1" align="center" />
  * <br/>
  * </p>
@@ -55,19 +57,28 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexi
  * Type les Exceptions : <br/>
  * <p>
  * <br/>
- * <img src="../../../../../../../../javadoc/images/exceptions_resourcebundle.png" 
+ * <img src="../../../../../../../../../javadoc/images/apptechnic/configurationmanagers/gestionnairesbundles/exceptions_resourcebundle.png" 
  * alt="Typage des exceptions" border="1" align="center" />
  * <br/>
  * </p>
  * </li>
  * </ul>
  * </ul>
+ * <p>
+ * <b><span style="text-decoration:underline;">
+ * Diagramme de classe du ConfigurationBundlesManager : 
+ * </span></b>
+ * </p>
+ * <p>
+ * <img src="../../../../../../../../../javadoc/images/apptechnic/configurationmanagers/gestionnairesbundles/classe_ConfigurationBundlesManager.png" 
+ * alt="Diagramme de classe du ConfigurationBundlesManager" />
+ * </p>
  *
  * - Exemple d'utilisation :<br/>
- * <code><i>// récupère un singleton de ResourceBundle application.properties</i></code><br/>
+ * <code>// retourne le ResourceBundle bundleApplication qui encapsule application.properties</code><br/>
  *<code>final ResourceBundle bundleApplication 
  * = ConfigurationBundlesManager.getBundleApplication();<br/>
- * <i>// RAPPORT AU FORMAT CSV si problème (le rapport est alors non null).</i><br/>
+ * // RAPPORT AU FORMAT CSV si problème (le rapport est alors non null).<br/>
  * ConfigurationBundlesManager.getRapportConfigurationCsv().</code><br/> 
  *<br/>
  * 
@@ -88,179 +99,129 @@ import levy.daniel.application.apptechnic.exceptions.technical.impl.FichierInexi
  * @since 16 avr. 2016
  *
  */
-public final class ConfigurationBundlesManager {
+public final class ConfigurationBundlesManager 
+				implements IConstantesSeparateurs, IConstantesSautsLigne {
 
 	// ************************ATTRIBUTS************************************/
 	/**
-	 * CLASSE_CONFIGURATIONBUNDLESMANAGER : String :<br/>
 	 * "Classe ConfigurationBundlesManager".<br/>
 	 */
 	public static final String CLASSE_CONFIGURATIONBUNDLESMANAGER 
 		= "Classe ConfigurationBundlesManager";
-	
-	
+		
 	/**
-	 * METHODE_GET_BUNDLEAPPLICATION : String :<br/>
 	 * "Méthode getBundleApplication()".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLEAPPLICATION 
 		= "Méthode getBundleApplication()";
-
 	
 	/**
-	 * METHODE_GET_BUNDLERESSOURCESEXTERNES : String :<br/>
 	 * "Méthode getBundleRessourcesExternes()".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLERESSOURCESEXTERNES
 		= "Méthode getBundleRessourcesExternes()";
 
-
 	/**
-	 * METHODE_GET_PATH_RESSOURCES_EXTERNES : String :<br/>
 	 * "Méthode getPathRessourcesExternes()".<br/>
 	 */
 	public static final String METHODE_GET_PATH_RESSOURCES_EXTERNES 
 		= "Méthode getPathRessourcesExternes()";
-
 	
 	/**
-	 * METHODE_GET_PATH_RAPPORTS_CONTROLE : String :<br/>
 	 * "Méthode getPathRapportsControles()".<br/>
 	 */
 	public static final String METHODE_GET_PATH_RAPPORTS_CONTROLE 
 		= "Méthode getPathRapportsControles()";
-
 	
 	/**
-	 * METHODE_GET_PATH_LOGS : String :<br/>
 	 * "Méthode getPathLogs()".<br/>
 	 */
 	public static final String METHODE_GET_PATH_LOGS 
 		= "Méthode getPathLogs()";
-
 	
 	/**
-	 * METHODE_GET_PATH_DATA : String :<br/>
 	 * "Méthode getPathData()".<br/>
 	 */
 	public static final String METHODE_GET_PATH_DATA 
 		= "Méthode getPathData()";
-
 	
 	/**
-	 * METHODE_GET_BUNDLE_INTERNE : String :<br/>
+	 * "Méthode getPathTeleversements()".<br/>
+	 */
+	public static final String METHODE_GET_PATH_TELEVERSEMENTS 
+		= "Méthode getPathTeleversements()";
+	
+	/**
+	 * "Méthode getPathTemp()".<br/>
+	 */
+	public static final String METHODE_GET_PATH_TEMP 
+		= "Méthode getPathTemp()";
+	
+	/**
 	 * "Méthode getBundleInterne(
 	 * String pNomBaseProperties, Locale pLocale)".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLE_INTERNE 
 		= "Méthode getBundleInterne(String pNomBaseProperties"
 				+ ", Locale pLocale)";
-
 	
 	/**
-	 * METHODE_GET_BUNDLE_EXTERNE : String :<br/>
 	 * "Méthode getBundleExterne(String pNomBaseProperties
 	 * , Locale pLocale, String pCheminRessourcesExterne)".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLE_EXTERNE 
 	= "Méthode getBundleExterne(String pNomBaseProperties"
 			+ ", Locale pLocale, String pCheminRessourcesExterne)";
-	
-	
+		
 	/**
-	 * METHODE_GET_BUNDLEMESSAGESCONTROLE : String :<br/>
 	 * "Méthode getBundleMessagesControle()".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLEMESSAGESCONTROLE 
 		= "Méthode getBundleMessagesControle()";
-	
-	
+		
 	/**
-	 * METHODE_GET_BUNDLEMESSAGESTECHNIQUE : String :<br/>
 	 * "Méthode getBundleMessagesTechnique()".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLEMESSAGESTECHNIQUE 
 		= "Méthode getBundleMessagesTechnique()";
-
 	
 	/**
-	 * METHODE_GET_BUNDLEMESSAGESDIFF : String :<br/>
 	 * "Méthode getBundleMessagesDiff()".<br/>
 	 */
 	public static final String METHODE_GET_BUNDLEMESSAGESDIFF 
 		= "Méthode getBundleMessagesDiff()";
 
-	
-	//*****************************************************************/
-	//**************************** BOM_UTF-8 **************************/
-	//*****************************************************************/
 	/**
-	 * BOM_UTF : char :<br/>
-	 * BOM UTF-8 pour forcer Excel 2010 à lire en UTF-8.<br/>
-	 */
-	public static final char BOM_UTF_8 = '\uFEFF';
-
-	
-	//*****************************************************************/
-	//**************************** SEPARATEURS ************************/
-	//*****************************************************************/
-	
-	/**
-	 * PREVENIR_CS : String :<br/>
 	 * "veuillez prévenir le centre-serveur svp.".<br/>
 	 */
 	public static final String PREVENIR_CS 
 		= "veuillez prévenir le centre-serveur svp.";
 	
-
-	/**
-	 * SEP_PV : String :<br/>
-	 * Séparateur pour les CSV ";".<br/>
-	 */
-	public static final String SEP_PV = ";";
-
-    
-	/**
-	 * SEPARATEUR_MOINS_AERE : String :<br/>
-	 * " - ".<br/>
-	 */
-	public static final String SEPARATEUR_MOINS_AERE = " - ";
+	//*****************************************************************/
+	//**************************** BOM_UTF-8 **************************/
+	//*****************************************************************/
+	// définis dans IConstantesSeparateurs
 	
-	
-	/**
-	 * UNDERSCORE : String :<br/>
-	 * "_".<br/>
-	 */
-	public static final String UNDERSCORE = "_";
-
+	//*****************************************************************/
+	//**************************** SEPARATEURS ************************/
+	//*****************************************************************/
+	// définis dans IConstantesSeparateurs
 
 	//*****************************************************************/
 	//**************************** SAUTS ******************************/
 	//*****************************************************************/	
-	/**
-	 * NEWLINE : String :<br/>
-	 * Saut de ligne spécifique de la plateforme.<br/>
-	 * System.getProperty("line.separator").<br/>
-	 */
-	public static final String NEWLINE = System.getProperty("line.separator");
+	// définis dans IConstantesSautsLigne
 
 	
 	//*****************************************************************/
 	//**************************** LOCALE *****************************/
 	//*****************************************************************/
-	/**
-	 * LOCALE_FR : Locale : <br/>
-	 * Locale France.<br/>
-	 */
-	public static final Locale LOCALE_FR = new Locale("fr", "FR");
-
-
+	// définis dans IConstantesSeparateurs
 	
 	//*****************************************************************/
 	//**************************** BUNDLES ****************************/
 	//*****************************************************************/
 	/**
-	 * bundleApplication : ResourceBundle : <br/>
 	 * <ul>
 	 * <li><b>SINGLETON</b>.</li>
 	 * <li>Contient les <b>paramétrages généraux</b> 
@@ -273,11 +234,9 @@ public final class ConfigurationBundlesManager {
 	 * <li>Uniquement accessible pour le centre serveur.</li>
 	 * </ul>
 	 */
-	private static ResourceBundle bundleApplication;
-
+	private static transient ResourceBundle bundleApplication;
 
 	/**
-	 * bundleRessourcesExternes : ResourceBundle : <br/>
 	 * <ul>
 	 * <li><b>SINGLETON</b>.</li>
 	 * <li>Contient les <b>chemins</b> vers les fichiers <b>EXTERNES 
@@ -292,41 +251,33 @@ public final class ConfigurationBundlesManager {
 	 * </ul>
 	 */
 	private static transient ResourceBundle bundleRessourcesExternes;
-
 	
 	/**
-	 * bundleMessagesControle : ResourceBundle : <br/>
 	 * 'pathExterne/messagescontrole_fr_FR.properties'.<br/>
 	 * Properties EXTERNE (hors classpath).<br/>
 	 * Contient les paramétrages des contrôles 
 	 * de l'application.<br/>
 	 */
-	private static ResourceBundle bundleMessagesControle;
-
+	private static transient ResourceBundle bundleMessagesControle;
 	
 	/**
-	 * bundleMessagesTechnique : ResourceBundle : <br/>
 	 * 'pathExterne/messagestechnique_fr_FR.properties'.<br/>
 	 * Properties EXTERNE (hors classpath).<br/>
 	 * Contient les paramétrages des messages techniques 
 	 * de l'application.<br/>
 	 */
-	private static ResourceBundle bundleMessagesTechnique;
-
+	private static transient ResourceBundle bundleMessagesTechnique;
 	
 	/**
-	 * bundleMessagesDiff : ResourceBundle : <br/>
 	 * 'pathExterne/messagesdiff_fr_FR.properties'.<br/>
 	 * Properties EXTERNE (hors classpath).<br/>
 	 * Contient les paramétrages des messages 
 	 * pour les différences entre objets métier 
 	 * de l'application.<br/>
 	 */
-	private static ResourceBundle bundleMessagesDiff;
+	private static transient ResourceBundle bundleMessagesDiff;
 	
-
 	/**
-	 * rapportConfigurationCsv : String :<br/>
 	 * <ul>
 	 * <li>Rapport Technique (pour les développeurs) 
 	 * du chargement de la configuration au format csv.</li>
@@ -342,10 +293,8 @@ public final class ConfigurationBundlesManager {
 	 * Il devrait se trouver juste sous la racine des binaires /bin;<br/>
 	 */
 	private static String rapportConfigurationCsv;
-
 	
 	/**
-	 * rapportUtilisateurCsv : String :<br/>
 	 * <ul>
 	 * <li>Rapport NON Technique (pour les utilisateurs) 
 	 * du chargement de la configuration au format csv.</li>
@@ -361,9 +310,7 @@ public final class ConfigurationBundlesManager {
 	 */
 	private static String rapportUtilisateurCsv;
 	
-
 	/**
-	 * messageIndividuelRapport : String :<br/>
 	 * Message pour le Rapport du chargement de la configuration au format csv 
 	 * généré par chaque méthode individuellement.<br/>
 	 */
@@ -381,10 +328,8 @@ public final class ConfigurationBundlesManager {
 	
 	
 	 /**
-	 * method CONSTRUCTEUR ConfigurationBundlesManager() :<br/>
 	 * CONSTRUCTEUR D'ARITE NULLE.<br/>
 	 * private pour interdire l'instanciation.<br/>
-	 * <br/>
 	 */
 	private ConfigurationBundlesManager() {
 		super();
@@ -393,7 +338,6 @@ public final class ConfigurationBundlesManager {
 	
 	
 	/**
-	 * method getBundleApplication() :<br/>
 	 * <ul>
 	 * <ul>
 	 * <li>Getter de bundleApplication.</li>
@@ -447,7 +391,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method getNomBasePropertiesApplication() :<br/>
 	 * <ul>
 	 * <li>Retourne le nom de base du properties contenant propriétés 
 	 * générales de l'application (nom, chemin vers les menus, ...).</li>
@@ -463,7 +406,6 @@ public final class ConfigurationBundlesManager {
 	
 	
 	/**
-	 * method getBundleRessourcesExternes() :<br/>
 	 * <ul>
 	 * <ul>
 	 * <li>Getter de bundleRessourcesExternes.</li>
@@ -518,7 +460,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method getNomBasePropertiesRessourcesExternes() :<br/>
 	 * <ul>
 	 * <li>Retourne le nom de base du properties contenant les chemins 
 	 * vers les ressources externes.</li>
@@ -534,7 +475,6 @@ public final class ConfigurationBundlesManager {
 	
 	
 	/**
-	 * method getPathRessourcesExternes() :<br/>
 	 * <ul>
 	 * <li>Fournit le path des ressources <b>EXTERNES</b> 
 	 * (hors classpath) paramétrables par la MOA.</li>
@@ -628,7 +568,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method getClePathRessourcesExternes() :<br/>
 	 * <ul>
 	 * <li>Fournit la clé du path des ressources <b>EXTERNES</b> 
 	 * (hors classpath) paramétrables par la MOA.</li>
@@ -653,7 +592,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method getPathRapportsControle() :<br/>
 	 * <ul>
 	 * <li>Fournit le path <b>EXTERNE</b> (hors classpath) 
 	 * du répertoire des rapports de contrôle accessibles 
@@ -748,7 +686,6 @@ public final class ConfigurationBundlesManager {
 	
 	
 	/**
-	 * method getClePathRapportsControles() :<br/>
 	 * <ul>
 	 * <li>Fournit la clé du path <b>EXTERNE</b> (hors classpath) 
 	 * du répertoire des rapports de contrôle accessibles 
@@ -774,7 +711,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method getPathLogs() :<br/>
 	 * <ul>
 	 * <li>Fournit le path <b>EXTERNE</b> (hors classpath) 
 	 * du répertoire des logs accessibles 
@@ -868,7 +804,6 @@ public final class ConfigurationBundlesManager {
 
 		
 	/**
-	 * method getClePathLogs() :<br/>
 	 * <ul>
 	 * <li>Fournit la clé du path <b>EXTERNE</b> (hors classpath) 
 	 * du répertoire des logs accessibles 
@@ -894,7 +829,6 @@ public final class ConfigurationBundlesManager {
 
 		
 	/**
-	 * method getPathData() :<br/>
 	 * <ul>
 	 * <li>Fournit le path <b>EXTERNE</b> (hors classpath) 
 	 * du répertoire des data accessibles 
@@ -908,7 +842,7 @@ public final class ConfigurationBundlesManager {
 	 * </ul>
 	 *
 	 * @return : String : path vers le répertoire des 
-	 * sata.<br/>
+	 * data.<br/>
 	 * 
 	 * @throws Exception : 
 	 * - BundleManquantRunTimeException 
@@ -988,7 +922,6 @@ public final class ConfigurationBundlesManager {
 
 		
 	/**
-	 * method getClePathData() :<br/>
 	 * <ul>
 	 * <li>Fournit la clé du path <b>EXTERNE</b> (hors classpath) 
 	 * du répertoire des data accessibles 
@@ -1014,9 +947,242 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method getBundleInterne(
-	 * String pNomBaseProperties
-	 * , Locale pLocale) :<br/>
+	 * <ul>
+	 * <li>Fournit le path <b>EXTERNE</b> (hors classpath) 
+	 * du répertoire des televersements accessibles 
+	 * par la MOA et les utilisateurs.</li>
+	 * <li>Le path du répertoire des televersements 
+	 * est déterminé par le centre-serveur et doit être écrit en dur dans 
+	 * le properties 'configuration_ressources_externes.properties'. 
+	 * <br/>Par exemple : 'D:/Donnees/eclipse/eclipseworkspace_neon
+	 * /tuto_maven_sonatype/televersements'</li>
+	 * <li>clé = "televersements".</li>
+	 * </ul>
+	 *
+	 * @return : String : path vers le répertoire des 
+	 * televersements.<br/>
+	 * 
+	 * @throws Exception : 
+	 * - BundleManquantRunTimeException 
+	 * si le properties est introuvable.<br/>
+	 * - CleManquanteRunTimeException si la clé est introuvable.<br/>
+	 * - CleNullRunTimeException si la valeur 
+	 * n'est pas renseignée pour la clé dans le properties.<br/>
+	 * - FichierInexistantRunTimeException si le 
+	 * répertoire est inexistant ou pas un répertoire.<br/>
+	 */
+	public static String getPathTeleversements() throws Exception {
+		
+		/* Bloc synchronized. */
+		synchronized (ConfigurationBundlesManager.class) {
+			
+			final String nomBaseProperties 
+				= getNomBasePropertiesRessourcesExternes();
+			
+			String pathTeleversements = null;
+			
+			try {
+				
+				/* Récupération du bundleRessourcesExternes. */
+				if (bundleRessourcesExternes == null) {
+					getBundleRessourcesExternes();
+				}
+				
+			}
+			catch (BundleManquantRunTimeException bundleManquantExc) {
+				
+				/* cas où bundleRessourcesExternes est manquant. */
+				traiterBundleManquantRunTimeException(
+						METHODE_GET_PATH_TELEVERSEMENTS
+							, nomBaseProperties
+								, bundleManquantExc);
+				
+			}
+			
+			try {
+				pathTeleversements 
+				= bundleRessourcesExternes
+					.getString(getClePathTeleversements());
+			}
+			catch (MissingResourceException mre) {
+				
+				/* cas où la clé est manquante dans le properties. */
+				traiterMissingResourceException(
+						METHODE_GET_PATH_TELEVERSEMENTS
+							, nomBaseProperties
+								, mre
+								, getClePathTeleversements());
+				
+			}
+			
+			/* Clé vide (sans valeur). */
+			if (StringUtils.isBlank(pathTeleversements)) {
+				
+				traiterCleVide(
+						METHODE_GET_PATH_TELEVERSEMENTS
+						, getClePathTeleversements()
+						, nomBaseProperties);
+				
+			}
+			
+			/* Répertoire inexistant ou 
+			 * pas un répertoire (fichier simple). */
+			traiterRepertoireDefectueux(
+					METHODE_GET_PATH_TELEVERSEMENTS
+						, pathTeleversements);
+			
+			return pathTeleversements;
+			
+		} // Fin de synchronized.__________________________________
+		
+	} // Fin de getPathTeleversements().___________________________________
+	
+
+		
+	/**
+	 * <ul>
+	 * <li>Fournit la clé du path <b>EXTERNE</b> (hors classpath) 
+	 * du répertoire des televersements accessibles 
+	 * par la MOA et les utilisateurs.</li>
+	 * <li>Cette clé est stockée dans 
+	 * <b>'configuration_ressources_externes.properties'</b> 
+	 * sous la racine.</li>
+	 * <li>Le path du répertoire des televersements n'est accessible 
+	 * qu'au centre-serveur et doit être écrit en dur dans le properties. 
+	 * <br/>Par exemple : 'D:/Donnees/eclipse/eclipseworkspace_neon
+	 * /tuto_maven_sonatype/televersements'</li>
+	 * <li>clé = "televersements".</li>
+	 * </ul>
+	 *
+	 * @return : String : "televersements".<br/>
+	 */
+	private static String getClePathTeleversements() {
+		
+			return "televersements";
+	
+	} // Fin de getClePathTeleversements().________________________________
+	
+
+	
+	/**
+	 * <ul>
+	 * <li>Fournit le path <b>EXTERNE</b> (hors classpath) 
+	 * du répertoire des temp accessibles 
+	 * par la MOA et les utilisateurs.</li>
+	 * <li>Le path du répertoire des temp 
+	 * est déterminé par le centre-serveur et doit être écrit en dur dans 
+	 * le properties 'configuration_ressources_externes.properties'. 
+	 * <br/>Par exemple : 'D:/Donnees/eclipse/eclipseworkspace_neon
+	 * /tuto_maven_sonatype/temp'</li>
+	 * <li>clé = "temp".</li>
+	 * </ul>
+	 *
+	 * @return : String : path vers le répertoire des 
+	 * temp.<br/>
+	 * 
+	 * @throws Exception : 
+	 * - BundleManquantRunTimeException 
+	 * si le properties est introuvable.<br/>
+	 * - CleManquanteRunTimeException si la clé est introuvable.<br/>
+	 * - CleNullRunTimeException si la valeur 
+	 * n'est pas renseignée pour la clé dans le properties.<br/>
+	 * - FichierInexistantRunTimeException si le 
+	 * répertoire est inexistant ou pas un répertoire.<br/>
+	 */
+	public static String getPathTemp() throws Exception {
+		
+		/* Bloc synchronized. */
+		synchronized (ConfigurationBundlesManager.class) {
+			
+			final String nomBaseProperties 
+				= getNomBasePropertiesRessourcesExternes();
+			
+			String pathTemp = null;
+			
+			try {
+				
+				/* Récupération du bundleRessourcesExternes. */
+				if (bundleRessourcesExternes == null) {
+					getBundleRessourcesExternes();
+				}
+				
+			}
+			catch (BundleManquantRunTimeException bundleManquantExc) {
+				
+				/* cas où bundleRessourcesExternes est manquant. */
+				traiterBundleManquantRunTimeException(
+						METHODE_GET_PATH_TEMP
+							, nomBaseProperties
+								, bundleManquantExc);
+				
+			}
+			
+			try {
+				pathTemp 
+				= bundleRessourcesExternes
+					.getString(getClePathTemp());
+			}
+			catch (MissingResourceException mre) {
+				
+				/* cas où la clé est manquante dans le properties. */
+				traiterMissingResourceException(
+						METHODE_GET_PATH_TEMP
+							, nomBaseProperties
+								, mre
+								, getClePathTemp());
+				
+			}
+			
+			/* Clé vide (sans valeur). */
+			if (StringUtils.isBlank(pathTemp)) {
+				
+				traiterCleVide(
+						METHODE_GET_PATH_TEMP
+						, getClePathTemp()
+						, nomBaseProperties);
+				
+			}
+			
+			/* Répertoire inexistant ou 
+			 * pas un répertoire (fichier simple). */
+			traiterRepertoireDefectueux(
+					METHODE_GET_PATH_TEMP
+						, pathTemp);
+			
+			return pathTemp;
+			
+		} // Fin de synchronized.__________________________________
+		
+	} // Fin de getPathTemp()._____________________________________________
+	
+
+		
+	/**
+	 * <ul>
+	 * <li>Fournit la clé du path <b>EXTERNE</b> (hors classpath) 
+	 * du répertoire des temp accessibles 
+	 * par la MOA et les utilisateurs.</li>
+	 * <li>Cette clé est stockée dans 
+	 * <b>'configuration_ressources_externes.properties'</b> 
+	 * sous la racine.</li>
+	 * <li>Le path du répertoire des temp n'est accessible 
+	 * qu'au centre-serveur et doit être écrit en dur dans le properties. 
+	 * <br/>Par exemple : 'D:/Donnees/eclipse/eclipseworkspace_neon
+	 * /tuto_maven_sonatype/temp'</li>
+	 * <li>clé = "temp".</li>
+	 * </ul>
+	 *
+	 * @return : String : "temp".<br/>
+	 */
+	private static String getClePathTemp() {
+		
+			return "temp";
+	
+	} // Fin de getClePathTemp().__________________________________________
+	
+
+	
+	/**
 	 *<ul>
 	 * <li>Retourne un ResourceBundle encapsulant pNomBaseProperties.</li>
 	 * <li>Le properties doit être un fichier <b>INTERNE</b> situé 
@@ -1110,7 +1276,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method getBundleMessagesControle() :<br/>
 	 * <ul>
 	 * <li>Fournit un <b>SINGLETON</b> de bundleMessagesControle.</li>
 	 * <li>bundleMessagesControle encapsule le properties EXTERNE 
@@ -1157,7 +1322,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method getBundleMessagesTechnique() :<br/>
 	 * <ul>
 	 * <li>Fournit un <b>SINGLETON</b> de bundleMessagesTechnique.</li>
 	 * <li>bundleMessagesTechnique encapsule le properties EXTERNE 
@@ -1204,7 +1368,6 @@ public final class ConfigurationBundlesManager {
 	
 	
 	/**
-	 * method getBundleMessagesDiff() :<br/>
 	 * <ul>
 	 * <li>Fournit un <b>SINGLETON</b> de bundleMessagesDiff.</li>
 	 * <li>bundleMessagesDiff encapsule le properties EXTERNE 
@@ -1252,10 +1415,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method getBundleExterne(
-	 * String pNomBaseProperties
-	 * , Locale pLocale
-	 * , String pPathRepRessourcesExternes) :<br/>
 	 * <ul>
 	 * <li>Retourne un ResourceBundle encapsulant pNomBaseProperties.</li>
 	 * <li>Le properties doit être un fichier <b>EXTERNE</b> situé 
@@ -1315,25 +1474,26 @@ public final class ConfigurationBundlesManager {
 				/* Accède au répertoire externe 
 				 * contenant le properties. */
 				final File repertoireRessourcesParametrables 
-				= new File(pPathRepRessourcesExternes);
+					= new File(pPathRepRessourcesExternes);
 				
 				/* Récupére les URL de tous les properties 
 				 * contenus dans le répertoire externe
 				 * (xxx_fr_FR.properties, xxx_en_US.properties, ...). */
 				final URL[] urlsRessourcesParametrables 
-				= {repertoireRessourcesParametrables.toURI().toURL()};
+					= {repertoireRessourcesParametrables.toURI().toURL()};
 
 				/* Instancie un ClassLoader pointant 
 				 * sur le répertoire externe. */
 				final ClassLoader loaderRessourcesParametrables 
 					= new URLClassLoader(urlsRessourcesParametrables);
 				
-				/* Récupère le properties externe voulu. */
+				/* Récupère le properties (ResourceBundle) externe voulu. */
 				resultat 
 					= ResourceBundle
-						.getBundle(pNomBaseProperties
-										, locale
-											, loaderRessourcesParametrables);			
+						.getBundle(
+								pNomBaseProperties
+									, locale
+										, loaderRessourcesParametrables);			
 				
 			}
 			catch (Exception exc) {
@@ -1374,7 +1534,6 @@ public final class ConfigurationBundlesManager {
 	
 	
 	/**
-	 * method getRapportConfigurationCsv() :<br/>
 	 * <ul>
 	 * <li>Getter du Rapport Technique (pour les développeurs) 
 	 * du chargement de la configuration au format csv.</li>
@@ -1406,7 +1565,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method getRapportUtilisateurCsv() :<br/>
 	 * <ul>
 	 * <li>Getter du Rapport NON Technique (pour les utilisateurs) 
 	 * du chargement de la configuration au format csv.</li>
@@ -1437,7 +1595,6 @@ public final class ConfigurationBundlesManager {
 	
 	
 	/**
-	 * method getMessageIndividuelRapport() :<br/>
 	 * Getter du Message pour le 
 	 * Rapport du chargement de la configuration au format csv 
 	 * généré par chaque méthode individuellement.<br/>
@@ -1457,8 +1614,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method fournirLocaleParDefaut(
-	 * Locale pLocale) :<br/>
 	 * <ul>
 	 * <li>fournit la Locale de la plateforme (Locale.getDefault()) 
 	 * si pLocale == null.</li>
@@ -1493,9 +1648,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method reconstituerNomProperties(
-	 * String pNomBaseProperties
-	 * , Locale pLocale) :<br/>
 	 * <ul>
 	 * <li>Reconstitue le nom complet d'un properties à partir 
 	 * de son nom de base et d'une Locale.</li>
@@ -1542,7 +1694,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method fournirPathRepRessourcesExternes() :<br/>
 	 * <ul>
 	 * <li>fournit le path <b>en dur</b> vers le répertoire 
 	 * <b>EXTERNE</b> (hors classpath) contenant 
@@ -1566,7 +1717,7 @@ public final class ConfigurationBundlesManager {
 			/* Tente de trouver le chemin dans 
 			 * src/configuration_ressources_externes.properties. */
 			path 
-				= bundleApplication.getString(fournirClePathRepExt());
+				= getBundleRessourcesExternes().getString(fournirClePathRepExt());
 		}
 		catch (Exception e) {
 			
@@ -1583,7 +1734,6 @@ public final class ConfigurationBundlesManager {
 	
 
 	/**
-	 * method fournirClePathRepExt() :<br/>
 	 * <ul>
 	 * <li>Retourne la clé dans 
 	 * configuration_ressources_externes.properties du chemin 
@@ -1601,7 +1751,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method fournirPathRepExtEnDur() :<br/>
 	 * <ul>
 	 * <li>Retourne le chemin en dur du répertoire 
 	 * des ressources EXTERNES 
@@ -1615,20 +1764,23 @@ public final class ConfigurationBundlesManager {
 	 * </ul>
 	 *
 	 * @return : String : 
-	 * "D:/Donnees/eclipse/eclipseworkspace_neon/
-	 * tuto_maven_sonatype/ressources_externes".<br/>
+	 * "{$projet}/ressources_externes".<br/>
 	 */
 	private static String fournirPathRepExtEnDur() {
-		return "D:/Donnees/eclipse/eclipseworkspace_neon"
-				+ "/tuto_maven_sonatype/ressources_externes";
+		
+		final Path pathProjetCourant 
+			= Paths.get(".").toAbsolutePath().normalize();
+		
+		final Path pathRessourcesExternesEnDur 
+			= pathProjetCourant.resolve("ressources_externes");
+		
+		return pathRessourcesExternesEnDur.toString();
+		
 	} // Fin de fournirPathRepExtEnDur().__________________________________
 	
 	
 	
 	/**
-	 * method creerMessage(
-	 * String pMethode
-	 * , String pFichier) :<br/>
 	 * Crée un message pour le LOG et le rapport de configuration csv 
 	 * si problème lors du chargement des ResourceBundle.<br/>
 	 * <br/>
@@ -1675,10 +1827,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method creerMessage(
-	 * String pMethode
-	 * , String pFichier
-	 * , String pPathRepRessourcesExternes) :<br/>
 	 * Crée un message pour le LOG et le rapport de configuration csv 
 	 * si problème lors du chargement des ResourceBundle.<br/>
 	 * <br/>
@@ -1728,8 +1876,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method creerMessageUtilisateur(
-	 * String pMessageTechnique) :<br/>
 	 * <ul>
 	 * <li>Epure un message technique en enlevant 
 	 * les informations sur la classe et la méthode 
@@ -1775,8 +1921,6 @@ public final class ConfigurationBundlesManager {
 	
 	
 	/**
-	 * method ajouterMessageAuRapportConfigurationCsv(
-	 * String pMessage) :<br/>
 	 * <ul>
 	 * <li>Rajoute le message pMessage au rapport 
 	 * de chargement de la configuration au format csv (à la ligne).</li>
@@ -1820,11 +1964,8 @@ public final class ConfigurationBundlesManager {
 	 // String pMessage).__________________________________________________
 
 	
-	
-	
+		
 	/**
-	 * method ajouterMessageAuRapportUtilisateurCsv(
-	 * String pMessage) :<br/>
 	 * <ul>
 	 * <li>Rajoute le message pMessage au rapport 
 	 * utilisateur au format csv (à la ligne).</li>
@@ -1870,10 +2011,6 @@ public final class ConfigurationBundlesManager {
 	
 	
 	/**
-	 * method traiterBundleManquantRunTimeException(
-	 * String pMethode
-	 * , String pNomBaseProperties
-	 * , BundleManquantRunTimeException pBundleManquantExc) :<br/>
 	 * <ul>
 	 * <li>Prend en paramètre une BundleManquantRunTimeException
 	 * , ajoute des lignes aux rapports développeurs et utilisateurs
@@ -1936,10 +2073,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method traiterMissingResourceException(
-	 * String pMethode
-	 * , String pNomBaseProperties
-	 * , MissingResourceException pMre) :<br/>
 	 * <ul>
 	 * <li>Prend en paramètre une MissingResourceException
 	 * , ajoute des lignes aux rapports développeurs et utilisateurs
@@ -2002,11 +2135,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method traiterMissingResourceException(
-	 * String pMethode
-	 * , String pNomBaseProperties
-	 * , MissingResourceException pMre
-	 * , String pCle) :<br/>
 	 * <ul>
 	 * <li>Prend en paramètre une MissingResourceException 
 	 * et une clé de properties
@@ -2079,10 +2207,6 @@ public final class ConfigurationBundlesManager {
 
 	
 	/**
-	 * method traiterCleVide(
-	 * String pMethode
-	 * , String pCle
-	 * , String pNomBaseProperties) :<br/>
 	 * <ul>
 	 * <li>Methode jetant une <b>CleNullRunTimeException</b> 
 	 * en cas d'absence de valeur associée à la clé d'un properties.</li>
@@ -2149,9 +2273,6 @@ public final class ConfigurationBundlesManager {
 
 		
 	/**
-	 * method traiterRepertoireDefectueux(
-	 * String pMethode
-	 * , String pPath) :<br/>
 	 * <ul>
 	 * <li>Methode jetant une <b>FichierInexistantRunTimeException</b> 
 	 * si le répertoire visé par pPath n'existe pas ou n'est 
@@ -2191,7 +2312,7 @@ public final class ConfigurationBundlesManager {
 			+ pMethode
 			+ SEPARATEUR_MOINS_AERE
 			+ "Le répertoire '" 
-			+ pPath 
+			+ path.normalize().toAbsolutePath().toString() 
 			+ "' est inexistant ou n'est pas un répertoire";
 			
 			/* LOG.FATAL. */
@@ -2222,6 +2343,7 @@ public final class ConfigurationBundlesManager {
 		}
 		
 	} // Fin de traiterRepertoireDefectueux(...).__________________________
+
 	
 
 } // FIN DE LA CLASSE ConfigurationBundlesManager.---------------------------
